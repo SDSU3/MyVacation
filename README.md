@@ -43,12 +43,12 @@ As user will register in the app he/she will have the chance to choose the desti
 
 ### 2. Screen Archetypes
 
-* [list first screen here]
-   * [list associated required story here]
-   * ...
-* [list second screen here]
-   * [list associated required story here]
-   * ...
+* Screens for Sign In / Sing Up <br>
+
+    <img width="200" alt="Screenshot 2022-03-02 at 01 45 12" src="https://user-images.githubusercontent.com/55408144/156254417-14586ded-b11b-4805-8eb3-195fe2dd8e74.png"> <img width="200" alt="Screenshot 2022-03-02 at 01 45 17" src="https://user-images.githubusercontent.com/55408144/156254461-3fc31c5e-f659-4d0c-a84d-6fddf61c1b8a.png"> <img width="200" alt="Screenshot 2022-03-02 at 01 45 25" src="https://user-images.githubusercontent.com/55408144/156254734-777a40e4-acbd-4355-8970-868f8fd17d99.png"> <img width="200" alt="Screenshot 2022-03-02 at 01 45 30" src="https://user-images.githubusercontent.com/55408144/156254776-e120b03d-d41c-475e-b868-07fe6e8b2a1a.png">
+
+   * Vacation list screen
+   <img width="200" alt="Screenshot 2022-03-02 at 01 45 36" src="https://user-images.githubusercontent.com/55408144/156254836-82ab0083-f4eb-4168-8754-b9ed528bbfef.png">
 
 ### 3. Navigation
 
