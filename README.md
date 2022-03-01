@@ -86,6 +86,7 @@ Optional:
    <img width="200" alt="Screenshot 2022-03-02 at 01 45 36" src="https://user-images.githubusercontent.com/55408144/156254836-82ab0083-f4eb-4168-8754-b9ed528bbfef.png">
 
 ### [BONUS] Interactive Prototype
+<img src="http://g.recordit.co/y7odzxjVUm.gif" width=250><br>
 
 ## Schema 
 [This section will be completed in Unit 9]
