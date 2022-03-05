@@ -88,10 +88,10 @@ Optional:
 ## Schema 
 ### Models
 [User Table]
-<img src="https://ibb.co/DWHh5mS" width=250><br>
+<img src="https://i.ibb.co/4gj8mpV/User-Table.png" width=250><br>
 
 [Vacation Table]
-<img src="https://ibb.co/JFzvBHs" width=250><br>
+<img src="https://i.ibb.co/1Qt18Bw/Vacation-Table.png" width=250><br>
 
 
 ### Networking
