@@ -1,7 +1,4 @@
-Original App Design Project - README Template
-===
-
-# myVacation
+# MyVacation
 
 ## Table of Contents
 1. [Overview](#Overview)
@@ -11,7 +8,7 @@ Original App Design Project - README Template
 
 ## Overview
 ### Description
-As user will register in the app he/she will have the chance to choose the destination where he/she wants to go. After that, myVacation will show some recommended places where user can go during his/her vacation and sorted in an organized plan.
+As user will register in the app, the user will have the ability to choose the destination where the user wants to go. After that, MyVacation will show some recommended places where the user can go during the vacation, so all the vacation information will be sorted in an organized plan.
 
 ### App Evaluation
 - **Category:** Travel.
@@ -89,9 +86,14 @@ Optional:
 <img src="http://g.recordit.co/y7odzxjVUm.gif" width=250><br>
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+[User Table]
+<img src="https://ibb.co/DWHh5mS" width=250><br>
+
+[Vacation Table]
+<img src="https://ibb.co/JFzvBHs" width=250><br>
+
+
 ### Networking
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
