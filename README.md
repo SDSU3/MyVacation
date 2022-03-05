@@ -87,11 +87,11 @@ Optional:
 
 ## Schema 
 ### Models
-[User Table]
-<img src="https://i.ibb.co/4gj8mpV/User-Table.png" width=250><br>
+#### User Table:
+<img src="https://i.ibb.co/4gj8mpV/User-Table.png" width=400><br>
 
-[Vacation Table]
-<img src="https://i.ibb.co/1Qt18Bw/Vacation-Table.png" width=250><br>
+#### Vacation Table:
+<img src="https://i.ibb.co/1Qt18Bw/Vacation-Table.png" width=400><br>
 
 
 ### Networking
