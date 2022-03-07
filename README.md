@@ -71,7 +71,7 @@ Optional:
 * Settings -> update settings based on users will
 
 ## Wireframes
-<img width="319" alt="Screenshot 2022-03-02 at 02 54 57" src="https://user-images.githubusercontent.com/55408144/156262717-2b1b07f4-44bb-4c05-aaed-8d61ca9e0db1.png">
+<img width="900" alt="Screenshot 2022-03-07 at 15 25 56" src="https://user-images.githubusercontent.com/55408144/157022638-cb91d10b-5421-496b-bc74-c4a2bd4bd84f.png">
 
 
 ### [BONUS] Digital Wireframes & Mockups
