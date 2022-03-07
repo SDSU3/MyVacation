@@ -75,12 +75,23 @@ Optional:
 
 
 ### [BONUS] Digital Wireframes & Mockups
-* Screens for Sign In / Sing Up 
+* Screens for Sign In / Sing Up  <br>
+<img width="224" alt="Screenshot 2022-03-07 at 13 42 29" src="https://user-images.githubusercontent.com/55408144/157006941-6a56d5d3-d825-4ebb-a05f-8124f604031c.png"> --> <img width="224" alt="Screenshot 2022-03-07 at 13 42 37" src="https://user-images.githubusercontent.com/55408144/157006971-b7db2b74-5497-4151-b1b1-ab87c0939467.png"> <img width="224" alt="Screenshot 2022-03-07 at 13 42 42" src="https://user-images.githubusercontent.com/55408144/157006990-fe4bdd38-9364-4be1-93d1-1279c394d5bd.png">
 
-    <img width="200" alt="Screenshot 2022-03-02 at 01 45 12" src="https://user-images.githubusercontent.com/55408144/156254417-14586ded-b11b-4805-8eb3-195fe2dd8e74.png"> <img width="200" alt="Screenshot 2022-03-02 at 01 45 17" src="https://user-images.githubusercontent.com/55408144/156254461-3fc31c5e-f659-4d0c-a84d-6fddf61c1b8a.png"> <img width="200" alt="Screenshot 2022-03-02 at 01 45 25" src="https://user-images.githubusercontent.com/55408144/156254734-777a40e4-acbd-4355-8970-868f8fd17d99.png"> <img width="200" alt="Screenshot 2022-03-02 at 01 45 30" src="https://user-images.githubusercontent.com/55408144/156254776-e120b03d-d41c-475e-b868-07fe6e8b2a1a.png">
+* Add new vacation screen <br>
+<img width="224" alt="Screenshot 2022-03-07 at 13 42 08" src="https://user-images.githubusercontent.com/55408144/157007008-f2a12f31-fdfc-4999-bab1-088c00553294.png"> <img width="224" alt="Screenshot 2022-03-07 at 13 42 20" src="https://user-images.githubusercontent.com/55408144/157007018-234c4a47-d19e-4cdc-bb8a-4ffcf534dd9b.png">
 
-   * Vacation list screen
-   <img width="200" alt="Screenshot 2022-03-02 at 01 45 36" src="https://user-images.githubusercontent.com/55408144/156254836-82ab0083-f4eb-4168-8754-b9ed528bbfef.png">
+* Vacation list screen <br>
+<img width="224" alt="Screenshot 2022-03-07 at 13 42 58" src="https://user-images.githubusercontent.com/55408144/157007104-ac86aa7d-8bec-4a39-8acf-e009b8e5cd07.png"> --> <img width="224" alt="Screenshot 2022-03-07 at 13 43 06" src="https://user-images.githubusercontent.com/55408144/157007126-4e526188-a018-468c-8ea3-a9a1df21a685.png">
+
+* map screen <br>
+<img width="224" alt="Screenshot 2022-03-07 at 13 43 19" src="https://user-images.githubusercontent.com/55408144/157007255-f4f50e9a-dd48-4cf6-803b-80e37752a628.png">
+
+* Popular vacations screen <br>
+<img width="224" alt="Screenshot 2022-03-07 at 13 43 25" src="https://user-images.githubusercontent.com/55408144/157007210-ef374c68-edd1-4833-97e0-5c697633c4b3.png"> <img width="224" alt="Screenshot 2022-03-07 at 13 43 29" src="https://user-images.githubusercontent.com/55408144/157007220-4d01740d-52e3-4b39-bd91-2950c021bd18.png"> 
+
+* Settings screen <br>
+<img width="224" alt="Screenshot 2022-03-07 at 13 43 38" src="https://user-images.githubusercontent.com/55408144/157007285-184b78dd-a3ac-47eb-9a26-2d1edefab372.png">
 
 ### [BONUS] Interactive Prototype
 <img src="http://g.recordit.co/y7odzxjVUm.gif" width=250><br>
