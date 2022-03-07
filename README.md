@@ -57,17 +57,17 @@ As user will register in the app, the user will have the ability to choose the d
 **Tab Navigation** (Tab to Screen)
 
 * Vacations
-* Settings
-
-Optional:
 * Map
-* list of popular vacations
+* Popular Destinations
+* Settings
 
 **Flow Navigation** (Screen to Screen)
 
 * sing up -> register user -> jump to the screen where he/she can add or manage vacations.
 * Vacations -> vacation detail / vacation settings
 * Add vacation -> Add interesting categories
+* Map
+* Popular destinations
 * Settings -> update settings based on users will
 
 ## Wireframes
