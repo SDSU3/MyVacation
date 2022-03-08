@@ -106,6 +106,72 @@ As user will register in the app, the user will have the ability to choose the d
 
 
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+#### List of network requests by screen
+   - Sign Up Screen
+      - (Create/POST) Create new profile
+         ```swift
+         let user = PFUser()
+        user.username = self.usernameField.text
+        user.password = self.passwordField.text
+        
+        
+        user.signUpInBackground { (success, error) in
+            if success {
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            } else {
+                print(error)
+            }
+        }
+         ```
+   - Log In Screen
+      - (Read/GET) Get the user
+      ```swift
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
+            if user != nil {
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            } else {
+                let alert = UIAlertController(title: "Wrong User", message: "Username and password did't match",         preferredStyle: UIAlertController.Style.alert)
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
+                    //Cancel Action
+                }))
+                self.present(alert, animated: true, completion: nil)
+                //self.alert(withTitle: "Error", message: error.localizedDescription)
+                print(error)
+            }
+        }
+         ```
+   - Plan a vacation screen
+      - (Create/POST) Create the name of the vacation
+      - (Create/POST) Create from where the vacation starts
+      - (Create/POST) Create the name of the place where to go
+      - (Create/POST) Create the date
+      - (Create/POST) Create departure airport
+      - (Create/POST) Create arrival airport
+
+   - Vacation list screen
+      - (Read/GET) Fetch vacation name
+      - (Read/GET) Fetch vacation date
+
+   - Popular vacation screen
+      - (Read/GET) Fetch popular places
+#### [OPTIONAL:] Existing API Endpoints
+##### An API Of Places
+- Base URL - [http://api.opentripmap.com/0.1](http://api.opentripmap.com/0.1)
+
+   HTTP Verb | Endpoint | Description
+   ----------|----------|------------
+    `GET`    | /places/geoname | returns the place whose name is most similar to the search string
+    `GET`    | /places/bbox | returns all objects in the given bounding box optionally filtered by parameters
+    `GET`    | /places/radius   | returns objects closest to the selected point optionally filtered by parameters
+    `GET`    | /places/autosuggest | returns suggestions for search term closest to the selected point optionally filtered by parameters
+
+##### Airport API
+- Base URL - [https://airlabs.co/api](https://airlabs.co/api)
+
+   HTTP Verb | Endpoint | Description
+   ----------|----------|------------
+    `GET`    | /dep_icao | get departure airport ICAO code
+    `GET`    | /arr_icao | get arrival airport ICAO code.
+    
+
