@@ -142,12 +142,9 @@ As user will register in the app, the user will have the ability to choose the d
         }
          ```
    - Plan a vacation screen
-      - (Create/POST) Create the name of the vacation
-      - (Create/POST) Create from where the vacation starts
-      - (Create/POST) Create the name of the place where to go
-      - (Create/POST) Create the date
-      - (Create/POST) Create departure airport
-      - (Create/POST) Create arrival airport
+      - (Create/POST) Create vacation
+      - (Update/PUT) Update vacation
+      - (Delete) Delete vacation
 
    - Vacation list screen
       - (Read/GET) Fetch vacation name
