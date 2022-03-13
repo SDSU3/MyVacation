@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92E8304F27DD5FE300177B4F /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8304E27DD5FE300177B4F /* SignIn.storyboard */; };
+		92E8305127DD603D00177B4F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8305027DD603D00177B4F /* SignInViewController.swift */; };
 		C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933527D9BA1100504C49 /* AppDelegate.swift */; };
 		C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933727D9BA1100504C49 /* SceneDelegate.swift */; };
 		C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C388933E27D9BA1400504C49 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92E8304E27DD5FE300177B4F /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = SignIn.storyboard; path = "../../../../wiz D/Work/MedNotes/MedNotes_Rev1/MedNotes_Rev1/View Controllers/SignIn.storyboard"; sourceTree = "<group>"; };
+		92E8305027DD603D00177B4F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = MyVacation/SignInViewController.swift; sourceTree = SOURCE_ROOT; };
 		C388933227D9BA1100504C49 /* MyVacation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyVacation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C388933527D9BA1100504C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C388933727D9BA1100504C49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +67,7 @@
 				C388933527D9BA1100504C49 /* AppDelegate.swift */,
 				C388933727D9BA1100504C49 /* SceneDelegate.swift */,
 				C388935627D9CDC900504C49 /* Launch Screen */,
-				C388935427D9CD9900504C49 /* LogIn */,
+				C388935427D9CD9900504C49 /* SignIn */,
 				C388935527D9CDA800504C49 /* Plan Vacation */,
 				C388935327D9C9FB00504C49 /* Tab Bar */,
 				C388933E27D9BA1400504C49 /* Assets.xcassets */,
@@ -99,11 +103,13 @@
 			path = "Tab Bar";
 			sourceTree = "<group>";
 		};
-		C388935427D9CD9900504C49 /* LogIn */ = {
+		C388935427D9CD9900504C49 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				92E8305027DD603D00177B4F /* SignInViewController.swift */,
+				92E8304E27DD5FE300177B4F /* SignIn.storyboard */,
 			);
-			path = LogIn;
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 		C388935527D9CDA800504C49 /* Plan Vacation */ = {
@@ -179,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E8304F27DD5FE300177B4F /* SignIn.storyboard in Resources */,
 				C388934227D9BA1400504C49 /* LaunchScreen.storyboard in Resources */,
 				C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */,
 				C388935227D9C9B200504C49 /* Home.storyboard in Resources */,
@@ -194,6 +201,7 @@
 			files = (
 				C388934B27D9C6B400504C49 /* MainViewController.swift in Sources */,
 				C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */,
+				92E8305127DD603D00177B4F /* SignInViewController.swift in Sources */,
 				C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */,
 				C388934D27D9C70D00504C49 /* NSObject + Extension.swift in Sources */,
 				C388935027D9C79800504C49 /* HomeViewController.swift in Sources */,
@@ -337,12 +345,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J3C34M92WA;
+				DEVELOPMENT_TEAM = X3Y28ZY2MG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyVacation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = SignIn;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -351,7 +359,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.salomeSulkhanishvili.MyVacation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dbantan.MyVacation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -366,12 +374,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J3C34M92WA;
+				DEVELOPMENT_TEAM = X3Y28ZY2MG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyVacation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = SignIn;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -380,7 +388,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.salomeSulkhanishvili.MyVacation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dbantan.MyVacation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
