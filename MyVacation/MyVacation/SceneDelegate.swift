@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        window!.rootViewController = SignInViewController.load(with: "input")
+        window!.rootViewController = SignInUpViewController.load(with: "input")
         window!.makeKeyAndVisible()
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInViewController: MainViewController {
+class SignInUpViewController: MainViewController {
     
     @IBOutlet weak var SignInUpSegment: UISegmentedControl!
     
@@ -18,8 +18,8 @@ class SignInViewController: MainViewController {
     }
     
     
-    static func load(with input: String) -> SignInViewController {
-        let viewController = SignInViewController.loadFromStoryboard()
+    static func load(with input: String) -> SignInUpViewController {
+        let viewController = SignInUpViewController.loadFromStoryboard()
         return viewController
     }
     
