@@ -15,6 +15,9 @@
 		C388934D27D9C70D00504C49 /* NSObject + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388934C27D9C70D00504C49 /* NSObject + Extension.swift */; };
 		C388935027D9C79800504C49 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388934F27D9C79800504C49 /* HomeViewController.swift */; };
 		C388935227D9C9B200504C49 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C388935127D9C9B200504C49 /* Home.storyboard */; };
+		C38D67A727DE90ED0076DF12 /* VacationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D67A527DE90EC0076DF12 /* VacationCell.swift */; };
+		C38D67A827DE90ED0076DF12 /* VacationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38D67A627DE90EC0076DF12 /* VacationCell.xib */; };
+		C38D67AA27DEA0E40076DF12 /* VacationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D67A927DEA0E40076DF12 /* VacationDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		C388934C27D9C70D00504C49 /* NSObject + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject + Extension.swift"; sourceTree = "<group>"; };
 		C388934F27D9C79800504C49 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C388935127D9C9B200504C49 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		C38D67A527DE90EC0076DF12 /* VacationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationCell.swift; sourceTree = "<group>"; };
+		C38D67A627DE90EC0076DF12 /* VacationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VacationCell.xib; sourceTree = "<group>"; };
+		C38D67A927DEA0E40076DF12 /* VacationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,9 @@
 			children = (
 				C388934F27D9C79800504C49 /* HomeViewController.swift */,
 				C388935127D9C9B200504C49 /* Home.storyboard */,
+				C38D67A527DE90EC0076DF12 /* VacationCell.swift */,
+				C38D67A627DE90EC0076DF12 /* VacationCell.xib */,
+				C38D67A927DEA0E40076DF12 /* VacationDetailsViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -181,6 +190,7 @@
 			files = (
 				C388934227D9BA1400504C49 /* LaunchScreen.storyboard in Resources */,
 				C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */,
+				C38D67A827DE90ED0076DF12 /* VacationCell.xib in Resources */,
 				C388935227D9C9B200504C49 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +204,8 @@
 			files = (
 				C388934B27D9C6B400504C49 /* MainViewController.swift in Sources */,
 				C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */,
+				C38D67AA27DEA0E40076DF12 /* VacationDetailsViewController.swift in Sources */,
+				C38D67A727DE90ED0076DF12 /* VacationCell.swift in Sources */,
 				C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */,
 				C388934D27D9C70D00504C49 /* NSObject + Extension.swift in Sources */,
 				C388935027D9C79800504C49 /* HomeViewController.swift in Sources */,
@@ -342,7 +354,7 @@
 				INFOPLIST_FILE = MyVacation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -371,7 +383,7 @@
 				INFOPLIST_FILE = MyVacation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

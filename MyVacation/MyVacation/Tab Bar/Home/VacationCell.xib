@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VacationCell" id="gTV-IL-0wX" customClass="VacationCell" customModule="MyVacation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="190"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="370" height="190"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6H-KW-7WW">
+                        <rect key="frame" x="7" y="7" width="356" height="176"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="template_vacation_image" translatesAutoresizingMaskIntoConstraints="NO" id="gxp-XM-bgR">
+                                <rect key="frame" x="0.0" y="0.0" width="356" height="176"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBc-Y4-fax">
+                                <rect key="frame" x="0.0" y="0.0" width="356" height="176"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vacation Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9A-P4-zEl">
+                                        <rect key="frame" x="10" y="14" width="336" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfo-oM-stn">
+                                        <rect key="frame" x="10" y="46" width="336" height="2"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="kI7-es-CG0"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: 1 March - 7 March " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yp2-Q5-cpn">
+                                        <rect key="frame" x="10" y="51" width="336" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="sfo-oM-stn" firstAttribute="top" secondItem="T9A-P4-zEl" secondAttribute="bottom" constant="3" id="GAk-4S-bGA"/>
+                                    <constraint firstItem="yp2-Q5-cpn" firstAttribute="leading" secondItem="T9A-P4-zEl" secondAttribute="leading" id="JGm-gu-J2k"/>
+                                    <constraint firstItem="sfo-oM-stn" firstAttribute="leading" secondItem="T9A-P4-zEl" secondAttribute="leading" id="Leh-Dk-VF0"/>
+                                    <constraint firstItem="T9A-P4-zEl" firstAttribute="top" secondItem="IBc-Y4-fax" secondAttribute="top" constant="14" id="Vy3-ji-iQ2"/>
+                                    <constraint firstItem="yp2-Q5-cpn" firstAttribute="top" secondItem="sfo-oM-stn" secondAttribute="bottom" constant="3" id="kG2-70-w9F"/>
+                                    <constraint firstItem="sfo-oM-stn" firstAttribute="trailing" secondItem="T9A-P4-zEl" secondAttribute="trailing" id="miU-bX-4Na"/>
+                                    <constraint firstAttribute="trailing" secondItem="T9A-P4-zEl" secondAttribute="trailing" constant="10" id="peA-fG-iBu"/>
+                                    <constraint firstItem="T9A-P4-zEl" firstAttribute="leading" secondItem="IBc-Y4-fax" secondAttribute="leading" constant="10" id="vHM-5D-o6h"/>
+                                    <constraint firstItem="yp2-Q5-cpn" firstAttribute="trailing" secondItem="T9A-P4-zEl" secondAttribute="trailing" id="wnT-82-SKn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gxp-XM-bgR" firstAttribute="top" secondItem="Z6H-KW-7WW" secondAttribute="top" id="4KR-eW-Jaq"/>
+                            <constraint firstItem="IBc-Y4-fax" firstAttribute="top" secondItem="Z6H-KW-7WW" secondAttribute="top" id="5G2-lV-xkY"/>
+                            <constraint firstItem="gxp-XM-bgR" firstAttribute="leading" secondItem="Z6H-KW-7WW" secondAttribute="leading" id="A6Z-Tc-il7"/>
+                            <constraint firstAttribute="trailing" secondItem="gxp-XM-bgR" secondAttribute="trailing" id="F9w-oP-IFO"/>
+                            <constraint firstAttribute="trailing" secondItem="IBc-Y4-fax" secondAttribute="trailing" id="edl-94-Joc"/>
+                            <constraint firstAttribute="bottom" secondItem="IBc-Y4-fax" secondAttribute="bottom" id="lZ5-4Y-4ug"/>
+                            <constraint firstItem="IBc-Y4-fax" firstAttribute="leading" secondItem="Z6H-KW-7WW" secondAttribute="leading" id="mMN-kB-jJf"/>
+                            <constraint firstAttribute="bottom" secondItem="gxp-XM-bgR" secondAttribute="bottom" id="wL3-nc-yTH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Z6H-KW-7WW" secondAttribute="bottom" constant="7" id="AzA-Mx-9pU"/>
+                <constraint firstItem="Z6H-KW-7WW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="NVv-Ux-iAT"/>
+                <constraint firstAttribute="trailing" secondItem="Z6H-KW-7WW" secondAttribute="trailing" constant="7" id="QpO-0D-gro"/>
+                <constraint firstItem="Z6H-KW-7WW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="7" id="l2X-AR-wRq"/>
+            </constraints>
+            <size key="customSize" width="353" height="150"/>
+            <connections>
+                <outlet property="mainContentView" destination="Z6H-KW-7WW" id="ppt-0c-kmP"/>
+                <outlet property="vacationDateLabel" destination="yp2-Q5-cpn" id="AjX-rL-eOj"/>
+                <outlet property="vacationImageView" destination="gxp-XM-bgR" id="Wbt-ah-8Yw"/>
+                <outlet property="vacationNameLabel" destination="T9A-P4-zEl" id="iUm-DI-GsB"/>
+            </connections>
+            <point key="canvasLocation" x="356.52173913043481" y="119.19642857142857"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="template_vacation_image" width="428" height="294"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
