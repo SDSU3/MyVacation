@@ -9,31 +9,34 @@ import UIKit
 
 class HomeViewController: MainViewController {
 
-    @IBOutlet weak var vacationCollectionView: UICollectionView!
-    @IBOutlet weak var addVacationButton: UIButton!
+    // MARK: - IBOutlets
+    @IBOutlet private weak var vacationCollectionView: UICollectionView!
+    @IBOutlet private weak var addVacationButton: UIButton!
+    
+    // properties
     private let vacationDetailSegue = "moveToVacationDetail"
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        vacationCollectionView.register(UINib(nibName: "VacationCell", bundle: nil), forCellWithReuseIdentifier: "VacationCell")
-        vacationCollectionView.delegate = self
-        vacationCollectionView.dataSource = self
-        
-        addVacationButton.layer.cornerRadius = 15
-        addVacationButton.clipsToBounds = true
-        
-    
-        addVacationButton.layer.masksToBounds = false
-        addVacationButton.layer.shadowColor = UIColor.gray.cgColor
-        addVacationButton.layer.shadowRadius = 3
-        addVacationButton.layer.shadowOpacity = 1
-        addVacationButton.layer.shadowOffset = CGSize(width: 3, height: 3)
-        
+        self.setUpComponents()
     }
     
+    // MARK: - init
     static func load(with input: String) -> HomeViewController {
        let viewController = HomeViewController.loadFromStoryboard()
        return viewController
+    }
+    
+    private func setUpComponents() {
+        // colleciton view
+        vacationCollectionView.registerCell(with: VacationCell.self)
+        vacationCollectionView.delegate = self
+        vacationCollectionView.dataSource = self
+        
+        addVacationButton.roundCorners(with: 15)
+        addVacationButton.layer.masksToBounds = false
+        addVacationButton.addShadow(of: .gray, radius: 3, offset: CGSize(width: 3, height: 3))
     }
     
     @IBAction func userProfileClicked(_ sender: UIButton) {
@@ -64,11 +67,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = vacationCollectionView.dequeueReusableCell(withReuseIdentifier: "VacationCell", for: indexPath) as? VacationCell {
-            return cell
-        } else {
-            return UICollectionViewCell()
-        }
+        let cell = vacationCollectionView.dequeReusableCell(with: VacationCell.self, indexPath: indexPath)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

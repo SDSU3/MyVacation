@@ -18,6 +18,14 @@
 		C38D67A727DE90ED0076DF12 /* VacationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D67A527DE90EC0076DF12 /* VacationCell.swift */; };
 		C38D67A827DE90ED0076DF12 /* VacationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38D67A627DE90EC0076DF12 /* VacationCell.xib */; };
 		C38D67AA27DEA0E40076DF12 /* VacationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D67A927DEA0E40076DF12 /* VacationDetailsViewController.swift */; };
+		C3F2869827DFD29100130254 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2869627DFD29100130254 /* WeatherCell.swift */; };
+		C3F2869927DFD29100130254 /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3F2869727DFD29100130254 /* WeatherCell.xib */; };
+		C3F2869D27DFD2C800130254 /* InterestingPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2869B27DFD2C800130254 /* InterestingPlaceCell.swift */; };
+		C3F2869E27DFD2C800130254 /* InterestingPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3F2869C27DFD2C800130254 /* InterestingPlaceCell.xib */; };
+		C3F286A027DFD5AD00130254 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2869F27DFD5AD00130254 /* UIView+Extension.swift */; };
+		C3F286A227DFD7ED00130254 /* UICollectionView+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F286A127DFD7ED00130254 /* UICollectionView+ Extension.swift */; };
+		C3F286A427DFD94F00130254 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F286A327DFD94F00130254 /* UITableView+Extension.swift */; };
+		C3F286A727DFEA8600130254 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F286A627DFEA8600130254 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +42,14 @@
 		C38D67A527DE90EC0076DF12 /* VacationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationCell.swift; sourceTree = "<group>"; };
 		C38D67A627DE90EC0076DF12 /* VacationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VacationCell.xib; sourceTree = "<group>"; };
 		C38D67A927DEA0E40076DF12 /* VacationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationDetailsViewController.swift; sourceTree = "<group>"; };
+		C3F2869627DFD29100130254 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		C3F2869727DFD29100130254 /* WeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCell.xib; sourceTree = "<group>"; };
+		C3F2869B27DFD2C800130254 /* InterestingPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPlaceCell.swift; sourceTree = "<group>"; };
+		C3F2869C27DFD2C800130254 /* InterestingPlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InterestingPlaceCell.xib; sourceTree = "<group>"; };
+		C3F2869F27DFD5AD00130254 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C3F286A127DFD7ED00130254 /* UICollectionView+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ Extension.swift"; sourceTree = "<group>"; };
+		C3F286A327DFD94F00130254 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		C3F286A627DFEA8600130254 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +100,10 @@
 			children = (
 				C388934A27D9C6B400504C49 /* MainViewController.swift */,
 				C388934C27D9C70D00504C49 /* NSObject + Extension.swift */,
+				C3F2869F27DFD5AD00130254 /* UIView+Extension.swift */,
+				C3F286A127DFD7ED00130254 /* UICollectionView+ Extension.swift */,
+				C3F286A327DFD94F00130254 /* UITableView+Extension.swift */,
+				C3F286A627DFEA8600130254 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -91,11 +111,10 @@
 		C388934E27D9C77800504C49 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C3F286A527DFDA2B00130254 /* VacationDetail */,
+				C3F2869427DFD25800130254 /* Vacation Cell */,
 				C388934F27D9C79800504C49 /* HomeViewController.swift */,
 				C388935127D9C9B200504C49 /* Home.storyboard */,
-				C38D67A527DE90EC0076DF12 /* VacationCell.swift */,
-				C38D67A627DE90EC0076DF12 /* VacationCell.xib */,
-				C38D67A927DEA0E40076DF12 /* VacationDetailsViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -128,6 +147,43 @@
 				C388934027D9BA1400504C49 /* LaunchScreen.storyboard */,
 			);
 			path = "Launch Screen";
+			sourceTree = "<group>";
+		};
+		C3F2869427DFD25800130254 /* Vacation Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C38D67A627DE90EC0076DF12 /* VacationCell.xib */,
+				C38D67A527DE90EC0076DF12 /* VacationCell.swift */,
+			);
+			path = "Vacation Cell";
+			sourceTree = "<group>";
+		};
+		C3F2869527DFD26B00130254 /* Weather Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C3F2869627DFD29100130254 /* WeatherCell.swift */,
+				C3F2869727DFD29100130254 /* WeatherCell.xib */,
+			);
+			path = "Weather Cell";
+			sourceTree = "<group>";
+		};
+		C3F2869A27DFD29800130254 /* InterestingPlace Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C3F2869B27DFD2C800130254 /* InterestingPlaceCell.swift */,
+				C3F2869C27DFD2C800130254 /* InterestingPlaceCell.xib */,
+			);
+			path = "InterestingPlace Cell";
+			sourceTree = "<group>";
+		};
+		C3F286A527DFDA2B00130254 /* VacationDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C38D67A927DEA0E40076DF12 /* VacationDetailsViewController.swift */,
+				C3F2869527DFD26B00130254 /* Weather Cell */,
+				C3F2869A27DFD29800130254 /* InterestingPlace Cell */,
+			);
+			path = VacationDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +248,8 @@
 				C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */,
 				C38D67A827DE90ED0076DF12 /* VacationCell.xib in Resources */,
 				C388935227D9C9B200504C49 /* Home.storyboard in Resources */,
+				C3F2869E27DFD2C800130254 /* InterestingPlaceCell.xib in Resources */,
+				C3F2869927DFD29100130254 /* WeatherCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,13 +260,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3F286A727DFEA8600130254 /* UIImage+Extension.swift in Sources */,
 				C388934B27D9C6B400504C49 /* MainViewController.swift in Sources */,
 				C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */,
 				C38D67AA27DEA0E40076DF12 /* VacationDetailsViewController.swift in Sources */,
 				C38D67A727DE90ED0076DF12 /* VacationCell.swift in Sources */,
+				C3F2869827DFD29100130254 /* WeatherCell.swift in Sources */,
+				C3F286A227DFD7ED00130254 /* UICollectionView+ Extension.swift in Sources */,
+				C3F2869D27DFD2C800130254 /* InterestingPlaceCell.swift in Sources */,
 				C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */,
 				C388934D27D9C70D00504C49 /* NSObject + Extension.swift in Sources */,
+				C3F286A027DFD5AD00130254 /* UIView+Extension.swift in Sources */,
 				C388935027D9C79800504C49 /* HomeViewController.swift in Sources */,
+				C3F286A427DFD94F00130254 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

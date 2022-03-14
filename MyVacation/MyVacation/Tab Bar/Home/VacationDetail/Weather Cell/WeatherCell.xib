@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherCell" id="gTV-IL-0wX" customClass="WeatherCell" customModule="MyVacation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="118" height="96"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="118" height="96"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy_sun_icon" translatesAutoresizingMaskIntoConstraints="NO" id="wIP-hY-5H5">
+                        <rect key="frame" x="0.0" y="0.0" width="118" height="76"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqQ-Z6-zdV">
+                        <rect key="frame" x="0.0" y="81" width="118" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="J6b-gq-DId"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="cqQ-Z6-zdV" secondAttribute="trailing" id="1YV-5a-CBL"/>
+                <constraint firstItem="wIP-hY-5H5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BZq-B6-Zzc"/>
+                <constraint firstAttribute="bottom" secondItem="cqQ-Z6-zdV" secondAttribute="bottom" id="N6p-MV-0V1"/>
+                <constraint firstAttribute="trailing" secondItem="wIP-hY-5H5" secondAttribute="trailing" id="Yfj-Py-KIP"/>
+                <constraint firstItem="cqQ-Z6-zdV" firstAttribute="top" secondItem="wIP-hY-5H5" secondAttribute="bottom" constant="5" id="ahU-HL-uyI"/>
+                <constraint firstItem="cqQ-Z6-zdV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ar4-vx-yXt"/>
+                <constraint firstItem="wIP-hY-5H5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="guC-Cr-N9v"/>
+            </constraints>
+            <size key="customSize" width="118" height="96"/>
+            <point key="canvasLocation" x="186.95652173913044" y="121.20535714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cloudy_sun_icon" width="50" height="50"/>
+    </resources>
+</document>
