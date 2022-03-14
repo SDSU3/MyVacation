@@ -9,9 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     public class func loadFromStoryboard() -> Self {
-        let storyboardName = self.className.replacingOccurrences(of: "NavigationController", with: "")
-                                            .replacingOccurrences(of: "ViewController", with: "")
-                                            .replacingOccurrences(of: "Controller", with: "")
+        let storyboardName = self.className.replacingOccurrences(of: "ViewController", with: "")
         return self.loadStoryboard(from: storyboardName)!
     }
     
