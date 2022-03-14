@@ -9,7 +9,10 @@ import UIKit
 
 class WeatherCell: UICollectionViewCell {
 
-    @IBOutlet weak var weatherImageView: UIImageView!
+    // MARK: - IBOutlets
+    @IBOutlet private weak var weatherImageView: UIImageView!
+    @IBOutlet private weak var dayLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

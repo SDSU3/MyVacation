@@ -23,7 +23,7 @@ class InterestingPlaceCell: UICollectionViewCell {
     private func setUpComponents(){
         mainConttentView.roundCorners(with: 10)
         placeImageView.roundCorners(with: 10)
-        mainConttentView.addShadow(of: .gray, radius: 2, offset: CGSize(width: 2, height: 2))
+        mainConttentView.addShadow(of: .lightGray, radius: 2, offset: CGSize(width: 2, height: 2))
     }
 
 }

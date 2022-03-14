@@ -42,6 +42,9 @@
                 <constraint firstItem="wIP-hY-5H5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="guC-Cr-N9v"/>
             </constraints>
             <size key="customSize" width="118" height="96"/>
+            <connections>
+                <outlet property="dayLabel" destination="cqQ-Z6-zdV" id="ifk-zM-bFi"/>
+            </connections>
             <point key="canvasLocation" x="186.95652173913044" y="121.20535714285714"/>
         </collectionViewCell>
     </objects>

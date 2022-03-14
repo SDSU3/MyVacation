@@ -15,6 +15,9 @@ class VacationDetailsViewController: UIViewController {
     @IBOutlet private weak var weatherCollectionView: UICollectionView!
     @IBOutlet private weak var interestingPlacesCollectionView: UICollectionView!
     @IBOutlet var menuButtons: [UIButton]?
+    @IBOutlet weak var departureView: UIView!
+    @IBOutlet weak var arrivalView: UIView!
+    
     
     // MARK: - lifeCycle
     override func viewDidLoad() {
@@ -41,12 +44,23 @@ class VacationDetailsViewController: UIViewController {
             button.setImage(image, for: .normal)
             button.setTitle("", for: .normal)
             button.backgroundColor = .clear
+            button.addShadow(radius: 3)
+        })
+        
+        [departureView,arrivalView].forEach({ view in
+            view?.roundCorners(with: 10)
+            view?.addShadow(of: .lightGray, radius: 3, offset: CGSize(width: 2, height: 2))
         })
         
         VacationImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         VacationImageView.roundCorners(with: 15)
     }
-
+    
+    @IBAction func menuButtonClicked(_ sender: UIButton) {
+        let item = MenuItem(rawValue: sender.tag) ?? .none
+        print("clicked: " + item.description())
+    }
+    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout, UICollectionViewDataSource
@@ -90,6 +104,7 @@ extension VacationDetailsViewController {
         case edit
         case map
         case delete
+        case none
         
         func description() -> String {
             switch self {
@@ -101,6 +116,8 @@ extension VacationDetailsViewController {
                 return "map"
             case .delete:
                 return "delete"
+            default:
+                return "none"
             }
         }
         
