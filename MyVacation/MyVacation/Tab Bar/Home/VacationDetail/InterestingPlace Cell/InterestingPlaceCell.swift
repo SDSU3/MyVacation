@@ -10,9 +10,9 @@ import UIKit
 class InterestingPlaceCell: UICollectionViewCell {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var mainConttentView: UIView!
-    @IBOutlet weak var placeImageView: UIImageView!
-    @IBOutlet weak var placeNameLabel: UILabel!
+    @IBOutlet private weak var mainConttentView: UIView!
+    @IBOutlet private weak var placeImageView: UIImageView!
+    @IBOutlet private weak var placeNameLabel: UILabel!
     
     // MARK: - LifeCycle
     override func awakeFromNib() {

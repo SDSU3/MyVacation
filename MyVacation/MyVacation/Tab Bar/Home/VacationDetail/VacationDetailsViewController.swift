@@ -14,9 +14,9 @@ class VacationDetailsViewController: UIViewController {
     @IBOutlet private weak var vacationNameLabel: UILabel!
     @IBOutlet private weak var weatherCollectionView: UICollectionView!
     @IBOutlet private weak var interestingPlacesCollectionView: UICollectionView!
-    @IBOutlet var menuButtons: [UIButton]?
-    @IBOutlet weak var departureView: UIView!
-    @IBOutlet weak var arrivalView: UIView!
+    @IBOutlet private var menuButtons: [UIButton]?
+    @IBOutlet private weak var departureView: UIView!
+    @IBOutlet private weak var arrivalView: UIView!
     
     
     // MARK: - lifeCycle
