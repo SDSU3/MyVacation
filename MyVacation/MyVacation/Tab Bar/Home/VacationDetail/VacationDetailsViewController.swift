@@ -18,7 +18,6 @@ class VacationDetailsViewController: UIViewController {
     @IBOutlet private weak var departureView: UIView!
     @IBOutlet private weak var arrivalView: UIView!
     
-    
     // MARK: - lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,6 @@ class VacationDetailsViewController: UIViewController {
         weatherCollectionView.delegate = self
         weatherCollectionView.dataSource = self
         weatherCollectionView.showsHorizontalScrollIndicator = false
-        
         
         // interesting places collection view
         interestingPlacesCollectionView.registerCell(with: InterestingPlaceCell.self)
@@ -65,7 +63,6 @@ class VacationDetailsViewController: UIViewController {
         let item = MenuItem(rawValue: sender.tag) ?? .none
         print("clicked: " + item.description())
     }
-    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout, UICollectionViewDataSource

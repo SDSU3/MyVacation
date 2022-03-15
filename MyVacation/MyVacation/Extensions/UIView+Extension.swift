@@ -39,7 +39,6 @@ extension UIView {
         self.clipsToBounds = true
         self.layer.cornerRadius = radius
     }
-    
 }
 
 // MARK: - Gradient layer extension
