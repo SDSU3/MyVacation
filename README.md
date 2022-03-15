@@ -24,19 +24,20 @@ As user will register in the app, the user will have the ability to choose the d
 
 **Required Must-have Stories**
 
-* User can create an account.
-* User can log in.
-* User can plan how to spend a vacation.
-* User can set the places to be visited
-* User can add information of the visit, including the time and location.
-* User can set the duration of the vacation.
-* User can set the destination of the vacation.
+* - [ ] User can create an account.
+* - [x] User can log in. **(Design)**
+* - [x] User can plan how to spend a vacation. **(Design)**
+* - [ ] User can set the places to be visited
+* - [ ] User can add information of the visit, including the time and location.
+* - [ ] User can set the duration of the vacation.
+* - [ ] User can set the destination of the vacation.
+* - [x] User can view all his/her vacations **(Design)**
 
 **Optional Nice-to-have Stories**
 
-* User can see the cost of the plan.
-* User can add the flight information.
-* User can view place on map.
+* - [ ] User can see the cost of the plan.
+* - [ ] User can add the flight information.
+* - [ ] User can view place on map.
 
 ### 2. Screen Archetypes
 * Login 
@@ -82,7 +83,7 @@ As user will register in the app, the user will have the ability to choose the d
 <img width="224" alt="Screenshot 2022-03-07 at 13 42 08" src="https://user-images.githubusercontent.com/55408144/157007008-f2a12f31-fdfc-4999-bab1-088c00553294.png"> <img width="224" alt="Screenshot 2022-03-07 at 13 42 20" src="https://user-images.githubusercontent.com/55408144/157007018-234c4a47-d19e-4cdc-bb8a-4ffcf534dd9b.png">
 
 * Vacation list screen <br>
-<img width="224" alt="Screenshot 2022-03-07 at 13 42 49" src="https://user-images.githubusercontent.com/55408144/157008632-a0f4f336-1225-483d-a00b-a665eb902d5f.png"> <img width="224" alt="Screenshot 2022-03-07 at 13 42 58" src="https://user-images.githubusercontent.com/55408144/157007104-ac86aa7d-8bec-4a39-8acf-e009b8e5cd07.png"> --> <img width="224" alt="Screenshot 2022-03-07 at 13 43 06" src="https://user-images.githubusercontent.com/55408144/157007126-4e526188-a018-468c-8ea3-a9a1df21a685.png">
+<img width="224" alt="Screenshot 2022-03-07 at 13 42 49" src="https://user-images.githubusercontent.com/55408144/157008632-a0f4f336-1225-483d-a00b-a665eb902d5f.png"> <img width="224" alt="Screenshot 2022-03-07 at 13 42 58" src="https://user-images.githubusercontent.com/55408144/157007104-ac86aa7d-8bec-4a39-8acf-e009b8e5cd07.png"> <img width="224" alt="Screenshot 2022-03-07 at 13 43 06" src="https://user-images.githubusercontent.com/55408144/157007126-4e526188-a018-468c-8ea3-a9a1df21a685.png">
 
 * map screen <br>
 <img width="224" alt="Screenshot 2022-03-07 at 13 43 19" src="https://user-images.githubusercontent.com/55408144/157007255-f4f50e9a-dd48-4cf6-803b-80e37752a628.png">
@@ -171,4 +172,7 @@ As user will register in the app, the user will have the ability to choose the d
     `GET`    | /dep_icao | get departure airport ICAO code
     `GET`    | /arr_icao | get arrival airport ICAO code.
     
+# App Progress
+### Milestone 1
+<img src="https://user-images.githubusercontent.com/55408144/158458498-977a03fb-3bec-4dd0-af81-6b55d8151433.gif" width=250><br>
 
