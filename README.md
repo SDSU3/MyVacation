@@ -24,19 +24,20 @@ As user will register in the app, the user will have the ability to choose the d
 
 **Required Must-have Stories**
 
-* User can create an account.
-* User can log in.
-* User can plan how to spend a vacation.
-* User can set the places to be visited
-* User can add information of the visit, including the time and location.
-* User can set the duration of the vacation.
-* User can set the destination of the vacation.
+* - [ ] User can create an account.
+* - [x] User can log in. **(Design)**
+* - [x] User can plan how to spend a vacation. **(Design)**
+* - [ ] User can set the places to be visited
+* - [ ] User can add information of the visit, including the time and location.
+* - [ ] User can set the duration of the vacation.
+* - [ ] User can set the destination of the vacation.
+* - [x] User can view all his/her vacations **(Design)**
 
 **Optional Nice-to-have Stories**
 
-* User can see the cost of the plan.
-* User can add the flight information.
-* User can view place on map.
+* - [ ] User can see the cost of the plan.
+* - [ ] User can add the flight information.
+* - [ ] User can view place on map.
 
 ### 2. Screen Archetypes
 * Login 
