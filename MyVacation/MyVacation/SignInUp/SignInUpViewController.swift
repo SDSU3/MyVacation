@@ -128,6 +128,9 @@ class SignInUpViewController: MainViewController {
     @IBAction func SignIn_ButtonPressed(_ sender: UIButton) {
         
         print("\(Email_SignIn) should be signed in..")
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let delegate = windowScene.delegate as? SceneDelegate else { return }
+        delegate.window?.rootViewController = TabBarController()
     }
     
     //MARK: - Get Sign Up Info:
