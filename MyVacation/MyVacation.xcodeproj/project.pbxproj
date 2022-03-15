@@ -19,6 +19,7 @@
 		C3357FA927E0FAAE00ED59B6 /* PopularVacationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357FA827E0FAAE00ED59B6 /* PopularVacationsViewController.swift */; };
 		C3357FAB27E0FACC00ED59B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357FAA27E0FACC00ED59B6 /* MapViewController.swift */; };
 		C3357FAD27E0FAD600ED59B6 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3357FAC27E0FAD600ED59B6 /* Map.storyboard */; };
+		C3357FB127E10B8800ED59B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388934F27D9C79800504C49 /* HomeViewController.swift */; };
 		C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933527D9BA1100504C49 /* AppDelegate.swift */; };
 		C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933727D9BA1100504C49 /* SceneDelegate.swift */; };
 		C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C388933E27D9BA1400504C49 /* Assets.xcassets */; };
@@ -339,6 +340,7 @@
 				C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */,
 				C388934D27D9C70D00504C49 /* NSObject + Extension.swift in Sources */,
 				C3F286A027DFD5AD00130254 /* UIView+Extension.swift in Sources */,
+				C3357FB127E10B8800ED59B6 /* HomeViewController.swift in Sources */,
 				C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */,
 				C3F286A427DFD94F00130254 /* UITableView+Extension.swift in Sources */,
 				C3357FAB27E0FACC00ED59B6 /* MapViewController.swift in Sources */,
