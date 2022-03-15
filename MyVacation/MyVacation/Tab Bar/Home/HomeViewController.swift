@@ -48,6 +48,8 @@ class HomeViewController: MainViewController {
     }
     
     @IBAction func addVacation(_ sender: UIButton) {
+        let viewController = PlanViewController.load(with: "input bla bla")
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
