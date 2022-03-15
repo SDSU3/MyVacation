@@ -22,8 +22,13 @@ class HomeViewController: MainViewController {
         self.setUpComponents()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     // MARK: - init
-    static func load(with input: String) -> HomeViewController {
+    static func load() -> HomeViewController {
        let viewController = HomeViewController.loadFromStoryboard()
        return viewController
     }

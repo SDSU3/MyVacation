@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */; };
+		C3357FA327E0FA6900ED59B6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357FA227E0FA6900ED59B6 /* SettingsViewController.swift */; };
+		C3357FA527E0FA7700ED59B6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3357FA427E0FA7700ED59B6 /* Settings.storyboard */; };
+		C3357FA727E0FAA300ED59B6 /* PopularVacations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3357FA627E0FAA300ED59B6 /* PopularVacations.storyboard */; };
+		C3357FA927E0FAAE00ED59B6 /* PopularVacationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357FA827E0FAAE00ED59B6 /* PopularVacationsViewController.swift */; };
+		C3357FAB27E0FACC00ED59B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357FAA27E0FACC00ED59B6 /* MapViewController.swift */; };
+		C3357FAD27E0FAD600ED59B6 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3357FAC27E0FAD600ED59B6 /* Map.storyboard */; };
 		C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933527D9BA1100504C49 /* AppDelegate.swift */; };
 		C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933727D9BA1100504C49 /* SceneDelegate.swift */; };
 		C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C388933E27D9BA1400504C49 /* Assets.xcassets */; };
@@ -29,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C3357FA227E0FA6900ED59B6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C3357FA427E0FA7700ED59B6 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		C3357FA627E0FAA300ED59B6 /* PopularVacations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopularVacations.storyboard; sourceTree = "<group>"; };
+		C3357FA827E0FAAE00ED59B6 /* PopularVacationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularVacationsViewController.swift; sourceTree = "<group>"; };
+		C3357FAA27E0FACC00ED59B6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C3357FAC27E0FAD600ED59B6 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		C388933227D9BA1100504C49 /* MyVacation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyVacation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C388933527D9BA1100504C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C388933727D9BA1100504C49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +77,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3357F9F27E0FA3D00ED59B6 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C3357FAA27E0FACC00ED59B6 /* MapViewController.swift */,
+				C3357FAC27E0FAD600ED59B6 /* Map.storyboard */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		C3357FA027E0FA4400ED59B6 /* Popular Vacations */ = {
+			isa = PBXGroup;
+			children = (
+				C3357FA627E0FAA300ED59B6 /* PopularVacations.storyboard */,
+				C3357FA827E0FAAE00ED59B6 /* PopularVacationsViewController.swift */,
+			);
+			path = "Popular Vacations";
+			sourceTree = "<group>";
+		};
+		C3357FA127E0FA4D00ED59B6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C3357FA227E0FA6900ED59B6 /* SettingsViewController.swift */,
+				C3357FA427E0FA7700ED59B6 /* Settings.storyboard */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		C388932927D9BA1100504C49 = {
 			isa = PBXGroup;
 			children = (
@@ -122,7 +163,11 @@
 		C388935327D9C9FB00504C49 /* Tab Bar */ = {
 			isa = PBXGroup;
 			children = (
+				C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */,
 				C388934E27D9C77800504C49 /* Home */,
+				C3357F9F27E0FA3D00ED59B6 /* Map */,
+				C3357FA027E0FA4400ED59B6 /* Popular Vacations */,
+				C3357FA127E0FA4D00ED59B6 /* Settings */,
 			);
 			path = "Tab Bar";
 			sourceTree = "<group>";
@@ -246,10 +291,13 @@
 			files = (
 				C388934227D9BA1400504C49 /* LaunchScreen.storyboard in Resources */,
 				C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */,
+				C3357FAD27E0FAD600ED59B6 /* Map.storyboard in Resources */,
 				C38D67A827DE90ED0076DF12 /* VacationCell.xib in Resources */,
 				C388935227D9C9B200504C49 /* Home.storyboard in Resources */,
 				C3F2869E27DFD2C800130254 /* InterestingPlaceCell.xib in Resources */,
+				C3357FA727E0FAA300ED59B6 /* PopularVacations.storyboard in Resources */,
 				C3F2869927DFD29100130254 /* WeatherCell.xib in Resources */,
+				C3357FA527E0FA7700ED59B6 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,11 +316,15 @@
 				C3F2869827DFD29100130254 /* WeatherCell.swift in Sources */,
 				C3F286A227DFD7ED00130254 /* UICollectionView+ Extension.swift in Sources */,
 				C3F2869D27DFD2C800130254 /* InterestingPlaceCell.swift in Sources */,
+				C3357FA327E0FA6900ED59B6 /* SettingsViewController.swift in Sources */,
+				C3357FA927E0FAAE00ED59B6 /* PopularVacationsViewController.swift in Sources */,
 				C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */,
 				C388934D27D9C70D00504C49 /* NSObject + Extension.swift in Sources */,
 				C3F286A027DFD5AD00130254 /* UIView+Extension.swift in Sources */,
+				C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */,
 				C388935027D9C79800504C49 /* HomeViewController.swift in Sources */,
 				C3F286A427DFD94F00130254 /* UITableView+Extension.swift in Sources */,
+				C3357FAB27E0FACC00ED59B6 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

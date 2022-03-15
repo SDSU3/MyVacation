@@ -25,6 +25,11 @@ class VacationDetailsViewController: UIViewController {
         self.setUpComponents()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     private func setUpComponents() {
         // weather collection view
         weatherCollectionView.registerCell(with: WeatherCell.self)

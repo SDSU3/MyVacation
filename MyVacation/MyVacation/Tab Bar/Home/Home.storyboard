@@ -62,7 +62,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="As7-KF-r9x" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="3yg-Xl-sby"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="v0Q-Ao-oHT" secondAttribute="trailing" id="4mK-dL-sDN"/>
@@ -76,10 +76,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xgr-0B-yWv"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="addVacationButton" destination="z2t-7A-Fgf" id="kYw-hw-d3G"/>
                         <outlet property="vacationCollectionView" destination="v0Q-Ao-oHT" id="XfL-7U-a4O"/>
-                        <segue destination="xU7-Dp-aft" kind="presentation" identifier="moveToVacationDetail" modalPresentationStyle="fullScreen" id="Bwi-jj-xea"/>
+                        <segue destination="xU7-Dp-aft" kind="push" identifier="moveToVacationDetail" id="Bwi-jj-xea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
