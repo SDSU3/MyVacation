@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92E8305527DDC58000177B4F /* SignInUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8305427DDC58000177B4F /* SignInUp.storyboard */; };
-		92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8305627DDC60800177B4F /* SignInUpViewController.swift */; };
 		5BFB14C127DF97C300F77EF8 /* Plan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BFB14C027DF97C300F77EF8 /* Plan.storyboard */; };
 		5BFB14C327DF97CD00F77EF8 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */; };
 		5BFB14C527DFECAE00F77EF8 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */; };
+		92E8305527DDC58000177B4F /* SignInUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8305427DDC58000177B4F /* SignInUp.storyboard */; };
+		92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8305627DDC60800177B4F /* SignInUpViewController.swift */; };
 		C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933527D9BA1100504C49 /* AppDelegate.swift */; };
 		C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933727D9BA1100504C49 /* SceneDelegate.swift */; };
 		C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C388933E27D9BA1400504C49 /* Assets.xcassets */; };
@@ -23,11 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		92E8305427DDC58000177B4F /* SignInUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInUp.storyboard; sourceTree = "<group>"; };
-		92E8305627DDC60800177B4F /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
 		5BFB14C027DF97C300F77EF8 /* Plan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plan.storyboard; sourceTree = "<group>"; };
 		5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
+		92E8305427DDC58000177B4F /* SignInUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInUp.storyboard; sourceTree = "<group>"; };
+		92E8305627DDC60800177B4F /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
 		C388933227D9BA1100504C49 /* MyVacation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyVacation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C388933527D9BA1100504C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C388933727D9BA1100504C49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,15 +51,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		92E8305227DDC49200177B4F /* SignInUp */ = {
-			isa = PBXGroup;
-			children = (
-				92E8305427DDC58000177B4F /* SignInUp.storyboard */,
-				92E8305627DDC60800177B4F /* SignInUpViewController.swift */,
-			);
-			path = SignInUp;
-            sourceTree = "<group>";
-        };
 		5BFB14BF27DF97B500F77EF8 /* Plan Vacation */ = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +59,15 @@
 				5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */,
 			);
 			path = "Plan Vacation";
+			sourceTree = "<group>";
+		};
+		92E8305227DDC49200177B4F /* SignInUp */ = {
+			isa = PBXGroup;
+			children = (
+				92E8305427DDC58000177B4F /* SignInUp.storyboard */,
+				92E8305627DDC60800177B4F /* SignInUpViewController.swift */,
+			);
+			path = SignInUp;
 			sourceTree = "<group>";
 		};
 		C388932927D9BA1100504C49 = {
@@ -90,10 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				92E8305227DDC49200177B4F /* SignInUp */,
-				C388933527D9BA1100504C49 /* AppDelegate.swift */,
-				C388933727D9BA1100504C49 /* SceneDelegate.swift */,
-				C388935627D9CDC900504C49 /* Launch Screen */,
-				C388935527D9CDA800504C49 /* Plan Vacation */,
 				5BFB14BF27DF97B500F77EF8 /* Plan Vacation */,
 				C388933527D9BA1100504C49 /* AppDelegate.swift */,
 				C388933727D9BA1100504C49 /* SceneDelegate.swift */,
@@ -133,14 +129,6 @@
 			path = "Tab Bar";
 			sourceTree = "<group>";
 		};
-		C388935527D9CDA800504C49 /* Plan Vacation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Plan Vacation";
-            sourceTree = "<group>";
-        };
-
 		C388935427D9CD9900504C49 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
