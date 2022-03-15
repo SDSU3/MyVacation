@@ -12,14 +12,32 @@
 		5BFB14C527DFECAE00F77EF8 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */; };
 		92E8305527DDC58000177B4F /* SignInUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8305427DDC58000177B4F /* SignInUp.storyboard */; };
 		92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8305627DDC60800177B4F /* SignInUpViewController.swift */; };
+		C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */; };
+		C3357FA327E0FA6900ED59B6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357FA227E0FA6900ED59B6 /* SettingsViewController.swift */; };
+		C3357FA527E0FA7700ED59B6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3357FA427E0FA7700ED59B6 /* Settings.storyboard */; };
+		C3357FA727E0FAA300ED59B6 /* PopularVacations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3357FA627E0FAA300ED59B6 /* PopularVacations.storyboard */; };
+		C3357FA927E0FAAE00ED59B6 /* PopularVacationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357FA827E0FAAE00ED59B6 /* PopularVacationsViewController.swift */; };
+		C3357FAB27E0FACC00ED59B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357FAA27E0FACC00ED59B6 /* MapViewController.swift */; };
+		C3357FAD27E0FAD600ED59B6 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3357FAC27E0FAD600ED59B6 /* Map.storyboard */; };
+		C3357FB127E10B8800ED59B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388934F27D9C79800504C49 /* HomeViewController.swift */; };
 		C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933527D9BA1100504C49 /* AppDelegate.swift */; };
 		C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933727D9BA1100504C49 /* SceneDelegate.swift */; };
 		C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C388933E27D9BA1400504C49 /* Assets.xcassets */; };
 		C388934227D9BA1400504C49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C388934027D9BA1400504C49 /* LaunchScreen.storyboard */; };
 		C388934B27D9C6B400504C49 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388934A27D9C6B400504C49 /* MainViewController.swift */; };
 		C388934D27D9C70D00504C49 /* NSObject + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388934C27D9C70D00504C49 /* NSObject + Extension.swift */; };
-		C388935027D9C79800504C49 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388934F27D9C79800504C49 /* HomeViewController.swift */; };
 		C388935227D9C9B200504C49 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C388935127D9C9B200504C49 /* Home.storyboard */; };
+		C38D67A727DE90ED0076DF12 /* VacationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D67A527DE90EC0076DF12 /* VacationCell.swift */; };
+		C38D67A827DE90ED0076DF12 /* VacationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38D67A627DE90EC0076DF12 /* VacationCell.xib */; };
+		C38D67AA27DEA0E40076DF12 /* VacationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D67A927DEA0E40076DF12 /* VacationDetailsViewController.swift */; };
+		C3F2869827DFD29100130254 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2869627DFD29100130254 /* WeatherCell.swift */; };
+		C3F2869927DFD29100130254 /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3F2869727DFD29100130254 /* WeatherCell.xib */; };
+		C3F2869D27DFD2C800130254 /* InterestingPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2869B27DFD2C800130254 /* InterestingPlaceCell.swift */; };
+		C3F2869E27DFD2C800130254 /* InterestingPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3F2869C27DFD2C800130254 /* InterestingPlaceCell.xib */; };
+		C3F286A027DFD5AD00130254 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2869F27DFD5AD00130254 /* UIView+Extension.swift */; };
+		C3F286A227DFD7ED00130254 /* UICollectionView+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F286A127DFD7ED00130254 /* UICollectionView+ Extension.swift */; };
+		C3F286A427DFD94F00130254 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F286A327DFD94F00130254 /* UITableView+Extension.swift */; };
+		C3F286A727DFEA8600130254 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F286A627DFEA8600130254 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +46,13 @@
 		5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		92E8305427DDC58000177B4F /* SignInUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInUp.storyboard; sourceTree = "<group>"; };
 		92E8305627DDC60800177B4F /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
+		C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C3357FA227E0FA6900ED59B6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C3357FA427E0FA7700ED59B6 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		C3357FA627E0FAA300ED59B6 /* PopularVacations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopularVacations.storyboard; sourceTree = "<group>"; };
+		C3357FA827E0FAAE00ED59B6 /* PopularVacationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularVacationsViewController.swift; sourceTree = "<group>"; };
+		C3357FAA27E0FACC00ED59B6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C3357FAC27E0FAD600ED59B6 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		C388933227D9BA1100504C49 /* MyVacation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyVacation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C388933527D9BA1100504C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C388933727D9BA1100504C49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +63,17 @@
 		C388934C27D9C70D00504C49 /* NSObject + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject + Extension.swift"; sourceTree = "<group>"; };
 		C388934F27D9C79800504C49 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C388935127D9C9B200504C49 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		C38D67A527DE90EC0076DF12 /* VacationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationCell.swift; sourceTree = "<group>"; };
+		C38D67A627DE90EC0076DF12 /* VacationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VacationCell.xib; sourceTree = "<group>"; };
+		C38D67A927DEA0E40076DF12 /* VacationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationDetailsViewController.swift; sourceTree = "<group>"; };
+		C3F2869627DFD29100130254 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		C3F2869727DFD29100130254 /* WeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCell.xib; sourceTree = "<group>"; };
+		C3F2869B27DFD2C800130254 /* InterestingPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPlaceCell.swift; sourceTree = "<group>"; };
+		C3F2869C27DFD2C800130254 /* InterestingPlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InterestingPlaceCell.xib; sourceTree = "<group>"; };
+		C3F2869F27DFD5AD00130254 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C3F286A127DFD7ED00130254 /* UICollectionView+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ Extension.swift"; sourceTree = "<group>"; };
+		C3F286A327DFD94F00130254 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		C3F286A627DFEA8600130254 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +106,33 @@
 			path = SignInUp;
 			sourceTree = "<group>";
 		};
+		C3357F9F27E0FA3D00ED59B6 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C3357FAA27E0FACC00ED59B6 /* MapViewController.swift */,
+				C3357FAC27E0FAD600ED59B6 /* Map.storyboard */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		C3357FA027E0FA4400ED59B6 /* Popular Vacations */ = {
+			isa = PBXGroup;
+			children = (
+				C3357FA627E0FAA300ED59B6 /* PopularVacations.storyboard */,
+				C3357FA827E0FAAE00ED59B6 /* PopularVacationsViewController.swift */,
+			);
+			path = "Popular Vacations";
+			sourceTree = "<group>";
+		};
+		C3357FA127E0FA4D00ED59B6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C3357FA227E0FA6900ED59B6 /* SettingsViewController.swift */,
+				C3357FA427E0FA7700ED59B6 /* Settings.storyboard */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		C388932927D9BA1100504C49 = {
 			isa = PBXGroup;
 			children = (
@@ -89,13 +152,12 @@
 		C388933427D9BA1100504C49 /* MyVacation */ = {
 			isa = PBXGroup;
 			children = (
-				92E8305227DDC49200177B4F /* SignInUp */,
-				5BFB14BF27DF97B500F77EF8 /* Plan Vacation */,
 				C388933527D9BA1100504C49 /* AppDelegate.swift */,
 				C388933727D9BA1100504C49 /* SceneDelegate.swift */,
-				C388935627D9CDC900504C49 /* Launch Screen */,
-				C388935427D9CD9900504C49 /* LogIn */,
+				92E8305227DDC49200177B4F /* SignInUp */,
+				5BFB14BF27DF97B500F77EF8 /* Plan Vacation */,
 				C388935327D9C9FB00504C49 /* Tab Bar */,
+				C388935627D9CDC900504C49 /* Launch Screen */,
 				C388933E27D9BA1400504C49 /* Assets.xcassets */,
 				C388934927D9C68E00504C49 /* Extensions */,
 				C388934327D9BA1400504C49 /* Info.plist */,
@@ -108,6 +170,10 @@
 			children = (
 				C388934A27D9C6B400504C49 /* MainViewController.swift */,
 				C388934C27D9C70D00504C49 /* NSObject + Extension.swift */,
+				C3F2869F27DFD5AD00130254 /* UIView+Extension.swift */,
+				C3F286A127DFD7ED00130254 /* UICollectionView+ Extension.swift */,
+				C3F286A327DFD94F00130254 /* UITableView+Extension.swift */,
+				C3F286A627DFEA8600130254 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -115,6 +181,8 @@
 		C388934E27D9C77800504C49 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C3F286A527DFDA2B00130254 /* VacationDetail */,
+				C3F2869427DFD25800130254 /* Vacation Cell */,
 				C388934F27D9C79800504C49 /* HomeViewController.swift */,
 				C388935127D9C9B200504C49 /* Home.storyboard */,
 			);
@@ -124,16 +192,13 @@
 		C388935327D9C9FB00504C49 /* Tab Bar */ = {
 			isa = PBXGroup;
 			children = (
+				C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */,
 				C388934E27D9C77800504C49 /* Home */,
+				C3357F9F27E0FA3D00ED59B6 /* Map */,
+				C3357FA027E0FA4400ED59B6 /* Popular Vacations */,
+				C3357FA127E0FA4D00ED59B6 /* Settings */,
 			);
 			path = "Tab Bar";
-			sourceTree = "<group>";
-		};
-		C388935427D9CD9900504C49 /* LogIn */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LogIn;
 			sourceTree = "<group>";
 		};
 		C388935627D9CDC900504C49 /* Launch Screen */ = {
@@ -142,6 +207,43 @@
 				C388934027D9BA1400504C49 /* LaunchScreen.storyboard */,
 			);
 			path = "Launch Screen";
+			sourceTree = "<group>";
+		};
+		C3F2869427DFD25800130254 /* Vacation Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C38D67A627DE90EC0076DF12 /* VacationCell.xib */,
+				C38D67A527DE90EC0076DF12 /* VacationCell.swift */,
+			);
+			path = "Vacation Cell";
+			sourceTree = "<group>";
+		};
+		C3F2869527DFD26B00130254 /* Weather Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C3F2869627DFD29100130254 /* WeatherCell.swift */,
+				C3F2869727DFD29100130254 /* WeatherCell.xib */,
+			);
+			path = "Weather Cell";
+			sourceTree = "<group>";
+		};
+		C3F2869A27DFD29800130254 /* InterestingPlace Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C3F2869B27DFD2C800130254 /* InterestingPlaceCell.swift */,
+				C3F2869C27DFD2C800130254 /* InterestingPlaceCell.xib */,
+			);
+			path = "InterestingPlace Cell";
+			sourceTree = "<group>";
+		};
+		C3F286A527DFDA2B00130254 /* VacationDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C38D67A927DEA0E40076DF12 /* VacationDetailsViewController.swift */,
+				C3F2869527DFD26B00130254 /* Weather Cell */,
+				C3F2869A27DFD29800130254 /* InterestingPlace Cell */,
+			);
+			path = VacationDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,7 +307,13 @@
 				C388934227D9BA1400504C49 /* LaunchScreen.storyboard in Resources */,
 				5BFB14C127DF97C300F77EF8 /* Plan.storyboard in Resources */,
 				C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */,
+				C3357FAD27E0FAD600ED59B6 /* Map.storyboard in Resources */,
+				C38D67A827DE90ED0076DF12 /* VacationCell.xib in Resources */,
 				C388935227D9C9B200504C49 /* Home.storyboard in Resources */,
+				C3F2869E27DFD2C800130254 /* InterestingPlaceCell.xib in Resources */,
+				C3357FA727E0FAA300ED59B6 /* PopularVacations.storyboard in Resources */,
+				C3F2869927DFD29100130254 /* WeatherCell.xib in Resources */,
+				C3357FA527E0FA7700ED59B6 /* Settings.storyboard in Resources */,
 				92E8305527DDC58000177B4F /* SignInUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,13 +325,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3F286A727DFEA8600130254 /* UIImage+Extension.swift in Sources */,
 				C388934B27D9C6B400504C49 /* MainViewController.swift in Sources */,
 				5BFB14C527DFECAE00F77EF8 /* PlacesViewController.swift in Sources */,
 				C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */,
+				C38D67AA27DEA0E40076DF12 /* VacationDetailsViewController.swift in Sources */,
+				C38D67A727DE90ED0076DF12 /* VacationCell.swift in Sources */,
+				C3F2869827DFD29100130254 /* WeatherCell.swift in Sources */,
+				C3F286A227DFD7ED00130254 /* UICollectionView+ Extension.swift in Sources */,
+				C3F2869D27DFD2C800130254 /* InterestingPlaceCell.swift in Sources */,
+				C3357FA327E0FA6900ED59B6 /* SettingsViewController.swift in Sources */,
+				C3357FA927E0FAAE00ED59B6 /* PopularVacationsViewController.swift in Sources */,
 				92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */,
 				C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */,
 				C388934D27D9C70D00504C49 /* NSObject + Extension.swift in Sources */,
-				C388935027D9C79800504C49 /* HomeViewController.swift in Sources */,
+				C3F286A027DFD5AD00130254 /* UIView+Extension.swift in Sources */,
+				C3357FB127E10B8800ED59B6 /* HomeViewController.swift in Sources */,
+				C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */,
+				C3F286A427DFD94F00130254 /* UITableView+Extension.swift in Sources */,
+				C3357FAB27E0FACC00ED59B6 /* MapViewController.swift in Sources */,
 				5BFB14C327DF97CD00F77EF8 /* PlanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,7 +490,7 @@
 				INFOPLIST_FILE = MyVacation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Plan;
+				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -399,7 +519,7 @@
 				INFOPLIST_FILE = MyVacation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Plan;
+				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

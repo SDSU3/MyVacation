@@ -23,6 +23,11 @@ class PlanViewController: MainViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     static func load(with input: String) -> PlanViewController {
        let viewController = PlanViewController.loadFromStoryboard()
        return viewController
