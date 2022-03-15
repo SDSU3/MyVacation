@@ -14,6 +14,11 @@
 		C3357FA927E0FAAE00ED59B6 /* PopularVacationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357FA827E0FAAE00ED59B6 /* PopularVacationsViewController.swift */; };
 		C3357FAB27E0FACC00ED59B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357FAA27E0FACC00ED59B6 /* MapViewController.swift */; };
 		C3357FAD27E0FAD600ED59B6 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3357FAC27E0FAD600ED59B6 /* Map.storyboard */; };
+		5BFB14C127DF97C300F77EF8 /* Plan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BFB14C027DF97C300F77EF8 /* Plan.storyboard */; };
+		5BFB14C327DF97CD00F77EF8 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */; };
+		5BFB14C527DFECAE00F77EF8 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */; };
+		92E8305527DDC58000177B4F /* SignInUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8305427DDC58000177B4F /* SignInUp.storyboard */; };
+		92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8305627DDC60800177B4F /* SignInUpViewController.swift */; };
 		C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933527D9BA1100504C49 /* AppDelegate.swift */; };
 		C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933727D9BA1100504C49 /* SceneDelegate.swift */; };
 		C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C388933E27D9BA1400504C49 /* Assets.xcassets */; };
@@ -43,6 +48,11 @@
 		C3357FA827E0FAAE00ED59B6 /* PopularVacationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularVacationsViewController.swift; sourceTree = "<group>"; };
 		C3357FAA27E0FACC00ED59B6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C3357FAC27E0FAD600ED59B6 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		5BFB14C027DF97C300F77EF8 /* Plan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plan.storyboard; sourceTree = "<group>"; };
+		5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
+		5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
+		92E8305427DDC58000177B4F /* SignInUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInUp.storyboard; sourceTree = "<group>"; };
+		92E8305627DDC60800177B4F /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
 		C388933227D9BA1100504C49 /* MyVacation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyVacation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C388933527D9BA1100504C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C388933727D9BA1100504C49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +112,25 @@
 				C3357FA427E0FA7700ED59B6 /* Settings.storyboard */,
 			);
 			path = Settings;
+            sourceTree = "<group>";
+        };
+		5BFB14BF27DF97B500F77EF8 /* Plan Vacation */ = {
+			isa = PBXGroup;
+			children = (
+				5BFB14C027DF97C300F77EF8 /* Plan.storyboard */,
+				5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */,
+				5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */,
+			);
+			path = "Plan Vacation";
+			sourceTree = "<group>";
+		};
+		92E8305227DDC49200177B4F /* SignInUp */ = {
+			isa = PBXGroup;
+			children = (
+				92E8305427DDC58000177B4F /* SignInUp.storyboard */,
+				92E8305627DDC60800177B4F /* SignInUpViewController.swift */,
+			);
+			path = SignInUp;
 			sourceTree = "<group>";
 		};
 		C388932927D9BA1100504C49 = {
@@ -123,11 +152,12 @@
 		C388933427D9BA1100504C49 /* MyVacation */ = {
 			isa = PBXGroup;
 			children = (
+				92E8305227DDC49200177B4F /* SignInUp */,
+				5BFB14BF27DF97B500F77EF8 /* Plan Vacation */,
 				C388933527D9BA1100504C49 /* AppDelegate.swift */,
 				C388933727D9BA1100504C49 /* SceneDelegate.swift */,
 				C388935627D9CDC900504C49 /* Launch Screen */,
 				C388935427D9CD9900504C49 /* LogIn */,
-				C388935527D9CDA800504C49 /* Plan Vacation */,
 				C388935327D9C9FB00504C49 /* Tab Bar */,
 				C388933E27D9BA1400504C49 /* Assets.xcassets */,
 				C388934927D9C68E00504C49 /* Extensions */,
@@ -177,13 +207,6 @@
 			children = (
 			);
 			path = LogIn;
-			sourceTree = "<group>";
-		};
-		C388935527D9CDA800504C49 /* Plan Vacation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Plan Vacation";
 			sourceTree = "<group>";
 		};
 		C388935627D9CDC900504C49 /* Launch Screen */ = {
@@ -290,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C388934227D9BA1400504C49 /* LaunchScreen.storyboard in Resources */,
+				5BFB14C127DF97C300F77EF8 /* Plan.storyboard in Resources */,
 				C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */,
 				C3357FAD27E0FAD600ED59B6 /* Map.storyboard in Resources */,
 				C38D67A827DE90ED0076DF12 /* VacationCell.xib in Resources */,
@@ -298,6 +322,7 @@
 				C3357FA727E0FAA300ED59B6 /* PopularVacations.storyboard in Resources */,
 				C3F2869927DFD29100130254 /* WeatherCell.xib in Resources */,
 				C3357FA527E0FA7700ED59B6 /* Settings.storyboard in Resources */,
+				92E8305527DDC58000177B4F /* SignInUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +335,7 @@
 			files = (
 				C3F286A727DFEA8600130254 /* UIImage+Extension.swift in Sources */,
 				C388934B27D9C6B400504C49 /* MainViewController.swift in Sources */,
+				5BFB14C527DFECAE00F77EF8 /* PlacesViewController.swift in Sources */,
 				C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */,
 				C38D67AA27DEA0E40076DF12 /* VacationDetailsViewController.swift in Sources */,
 				C38D67A727DE90ED0076DF12 /* VacationCell.swift in Sources */,
@@ -318,13 +344,14 @@
 				C3F2869D27DFD2C800130254 /* InterestingPlaceCell.swift in Sources */,
 				C3357FA327E0FA6900ED59B6 /* SettingsViewController.swift in Sources */,
 				C3357FA927E0FAAE00ED59B6 /* PopularVacationsViewController.swift in Sources */,
+				92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */,
 				C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */,
 				C388934D27D9C70D00504C49 /* NSObject + Extension.swift in Sources */,
 				C3F286A027DFD5AD00130254 /* UIView+Extension.swift in Sources */,
 				C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */,
-				C388935027D9C79800504C49 /* HomeViewController.swift in Sources */,
 				C3F286A427DFD94F00130254 /* UITableView+Extension.swift in Sources */,
 				C3357FAB27E0FACC00ED59B6 /* MapViewController.swift in Sources */,
+				5BFB14C327DF97CD00F77EF8 /* PlanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,7 +492,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J3C34M92WA;
+				DEVELOPMENT_TEAM = X3Y28ZY2MG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyVacation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -479,7 +506,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.salomeSulkhanishvili.MyVacation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dbantan.MyVacation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -494,7 +521,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J3C34M92WA;
+				DEVELOPMENT_TEAM = X3Y28ZY2MG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyVacation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -508,7 +535,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.salomeSulkhanishvili.MyVacation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dbantan.MyVacation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
