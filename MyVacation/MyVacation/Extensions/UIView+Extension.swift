@@ -22,7 +22,7 @@ extension UIView {
         }
     }
     
-    func addShadow(of color: UIColor = .darkGray, radius: CGFloat, offset: CGSize = .zero, opacity: Float = 1) {
+    func addShadow(of color: UIColor = .gray, radius: CGFloat, offset: CGSize = .zero, opacity: Float = 1) {
         self.layer.masksToBounds = false
         self.layer.shadowColor = color.cgColor
         self.layer.shadowRadius = radius

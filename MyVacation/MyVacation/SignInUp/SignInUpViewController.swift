@@ -67,6 +67,29 @@ class SignInUpViewController: MainViewController {
         // Disable the buttons:
         SignIn_Button.isEnabled = false
         SignUp_Button.isEnabled = false
+//        DispatchQueue.main.async {
+//            APIServices.getPlace(name: "san", completion: { result in
+//                switch result {
+//                case .success(let place):
+//                    print(place)
+//                case .failure(let error):
+//                    print(error)
+//                }
+//
+//            })
+//        }
+        
+//        DispatchQueue.main.async {
+//            APIServices.getAiports(countryCode: "GE", completion: { result in
+//                switch result {
+//                case .success(let place):
+//                    print(place)
+//                case .failure(let error):
+//                    print(error)
+//                }
+//                
+//            })
+//        }
     
     }
     
@@ -128,9 +151,18 @@ class SignInUpViewController: MainViewController {
     @IBAction func SignIn_ButtonPressed(_ sender: UIButton) {
         
         print("\(Email_SignIn) should be signed in..")
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let delegate = windowScene.delegate as? SceneDelegate else { return }
-        delegate.window?.rootViewController = TabBarController()
+        UserServices.signIn(username: Email_SignIn ?? "",
+                            password: Password_SignIn ?? "",
+                            completion: { [weak self] success in
+            if success {
+                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                      let delegate = windowScene.delegate as? SceneDelegate else { return }
+                delegate.window?.rootViewController = TabBarController()
+            } else {
+                print("could not log in")
+            }
+        })
+        
     }
     
     //MARK: - Get Sign Up Info:
@@ -158,7 +190,18 @@ class SignInUpViewController: MainViewController {
     
     @IBAction func SignUP_ButtonPressed(_ sender: UIButton) {
         if(SignUp_PasswordTF.text == SignUp_ConfirmPasswordTF.text){
-            print("Create a \(Username_SignUp) account..")
+            UserServices.signUp(username: Username_SignUp ?? "",
+                                password: Password_SignUp ?? "",
+                                email: Email_SignUp ?? "",
+                                completion: { [weak self] success in
+                if success {
+                    // done
+                    print("Create a \(self?.Username_SignUp) account..")
+                } else {
+                    // some error
+                    print("something went wrong")
+                }
+            })
         }
         else {
             print("Password and password confirmation doesn't match!")

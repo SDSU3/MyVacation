@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,6 +43,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="As7-KF-r9x">
                                 <rect key="frame" x="30" y="59" width="31" height="34"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <menu key="menu" title="Sub Menu" id="BFG-jV-VaT">
+                                    <children>
+                                        <command title="Item 1" id="hAV-Ix-rla"/>
+                                        <command title="Item 2" id="Su5-bJ-34j"/>
+                                    </children>
+                                </menu>
                                 <state key="normal" image="user_info_icon"/>
                                 <connections>
                                     <action selector="userProfileClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Gfc-KW-jxX"/>
@@ -79,6 +86,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="addVacationButton" destination="z2t-7A-Fgf" id="kYw-hw-d3G"/>
+                        <outlet property="userMenuButton" destination="As7-KF-r9x" id="heh-bb-wk3"/>
                         <outlet property="vacationCollectionView" destination="v0Q-Ao-oHT" id="XfL-7U-a4O"/>
                         <segue destination="xU7-Dp-aft" kind="push" identifier="moveToVacationDetail" id="Bwi-jj-xea"/>
                     </connections>

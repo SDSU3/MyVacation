@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: MainViewController {
 
     // MARK: - IBOutlets
     @IBOutlet private weak var vacationCollectionView: UICollectionView!
     @IBOutlet private weak var addVacationButton: UIButton!
+    @IBOutlet weak var userMenuButton: UIButton!
+    
     
     // properties
     private let vacationDetailSegue = "moveToVacationDetail"
@@ -20,6 +23,7 @@ class HomeViewController: MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpComponents()
+        self.setUpUserMenu()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +48,15 @@ class HomeViewController: MainViewController {
         addVacationButton.addShadow(of: .gray, radius: 3, offset: CGSize(width: 3, height: 3))
     }
     
+    private func setUpUserMenu() {
+        userMenuButton.showsMenuAsPrimaryAction = true
+        let items = UIMenu(title: "more", options: .displayInline, children: [
+            UIAction(title: "log out", handler: {_ in self.logOut()})
+        ])
+        let menu = UIMenu(title: "", children: [items])
+        userMenuButton.menu = menu
+    }
+    
     @IBAction func userProfileClicked(_ sender: UIButton) {
     }
     
@@ -58,6 +71,14 @@ class HomeViewController: MainViewController {
                 
             }
         }
+    }
+    
+    private func logOut(){
+        PFUser.logOut()
+        let loginViewController = SignInUpViewController.load(with: "bla bla")
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let delegate = windowScene.delegate as? SceneDelegate else { return }
+        delegate.window?.rootViewController = loginViewController
     }
     
 }
