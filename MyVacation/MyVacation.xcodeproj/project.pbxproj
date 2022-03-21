@@ -14,6 +14,7 @@
 		92E8305527DDC58000177B4F /* SignInUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8305427DDC58000177B4F /* SignInUp.storyboard */; };
 		92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8305627DDC60800177B4F /* SignInUpViewController.swift */; };
 		C32E267527E907E9002EC844 /* InterestingPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E267427E907E9002EC844 /* InterestingPlaces.swift */; };
+		C32E267727E9229A002EC844 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E267627E9229A002EC844 /* Weather.swift */; };
 		C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */; };
 		C3357FA327E0FA6900ED59B6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357FA227E0FA6900ED59B6 /* SettingsViewController.swift */; };
 		C3357FA527E0FA7700ED59B6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3357FA427E0FA7700ED59B6 /* Settings.storyboard */; };
@@ -56,6 +57,7 @@
 		92E8305427DDC58000177B4F /* SignInUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInUp.storyboard; sourceTree = "<group>"; };
 		92E8305627DDC60800177B4F /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
 		C32E267427E907E9002EC844 /* InterestingPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPlaces.swift; sourceTree = "<group>"; };
+		C32E267627E9229A002EC844 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C3357FA227E0FA6900ED59B6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C3357FA427E0FA7700ED59B6 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				C33E92D427E7D5780043DE20 /* Airport.swift */,
 				C33E92D927E7D5D10043DE20 /* Vacation.swift */,
 				C32E267427E907E9002EC844 /* InterestingPlaces.swift */,
+				C32E267627E9229A002EC844 /* Weather.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				C3F286A227DFD7ED00130254 /* UICollectionView+ Extension.swift in Sources */,
 				C3F2869D27DFD2C800130254 /* InterestingPlaceCell.swift in Sources */,
 				C3357FA327E0FA6900ED59B6 /* SettingsViewController.swift in Sources */,
+				C32E267727E9229A002EC844 /* Weather.swift in Sources */,
 				C3357FA927E0FAAE00ED59B6 /* PopularVacationsViewController.swift in Sources */,
 				C33E92D327E7C4370043DE20 /* UserServices.swift in Sources */,
 				92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */,

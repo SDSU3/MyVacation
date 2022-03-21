@@ -94,4 +94,13 @@ class APIServices {
             completion(result)
         })
     }
+
+    // gets weather
+    static func getWeather(lat: Double, lon: Double, completion: @escaping (Result<Weather,Error>) -> Void){
+        let baseURL = "https://api.darksky.net/forecast/ddcc4ebb2a7c9930b90d9e59bda0ba7a/"
+        guard let url = URL(string: "\(baseURL)\(41.716667),\(44.783333)?exclude=[flags,minutely]") else { return }
+        getURL(with: url, completion: { result in
+            completion(result)
+        })
+    }
 }
