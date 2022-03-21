@@ -11,22 +11,21 @@ import UIKit
 class SignInUpViewController: MainViewController {
     
     //MARK: - Outlets:
-    
-    @IBOutlet weak var SignInUpSegment: UISegmentedControl!
-    @IBOutlet weak var SignInStackView: UIStackView!
-    @IBOutlet weak var SignUpStackView: UIStackView!
+    @IBOutlet private weak var SignInUpSegment: UISegmentedControl!
+    @IBOutlet private weak var SignInStackView: UIStackView!
+    @IBOutlet private weak var SignUpStackView: UIStackView!
     
     // Sign In Outlets:
-    @IBOutlet weak var SignIn_EmailTF: UITextField!
-    @IBOutlet weak var SignIn_PasswordTF: UITextField!
-    @IBOutlet weak var SignIn_Button: UIButton!
+    @IBOutlet private weak var SignIn_EmailTF: UITextField!
+    @IBOutlet private weak var SignIn_PasswordTF: UITextField!
+    @IBOutlet private weak var SignIn_Button: UIButton!
     
     // Sign Up Outlets:
-    @IBOutlet weak var SignUp_EmailTF: UITextField!
-    @IBOutlet weak var SignUp_UsernameTF: UITextField!
-    @IBOutlet weak var SignUp_PasswordTF: UITextField!
-    @IBOutlet weak var SignUp_ConfirmPasswordTF: UITextField!
-    @IBOutlet weak var SignUp_Button: UIButton!
+    @IBOutlet private weak var SignUp_EmailTF: UITextField!
+    @IBOutlet private weak var SignUp_UsernameTF: UITextField!
+    @IBOutlet private weak var SignUp_PasswordTF: UITextField!
+    @IBOutlet private weak var SignUp_ConfirmPasswordTF: UITextField!
+    @IBOutlet private weak var SignUp_Button: UIButton!
     
     //MARK: - Initial Values:
     
@@ -41,7 +40,6 @@ class SignInUpViewController: MainViewController {
     var ConfirmPassword_SignUp: String? = nil
     
     //MARK: - View Did Load:
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,34 +65,15 @@ class SignInUpViewController: MainViewController {
         // Disable the buttons:
         SignIn_Button.isEnabled = false
         SignUp_Button.isEnabled = false
-//        DispatchQueue.main.async {
-//            APIServices.getPlace(name: "san", completion: { result in
-//                switch result {
-//                case .success(let place):
-//                    print(place)
-//                case .failure(let error):
-//                    print(error)
-//                }
-//
-//            })
-//        }
-        
-//        DispatchQueue.main.async {
-//            APIServices.getAiports(countryCode: "GE", completion: { result in
-//                switch result {
-//                case .success(let place):
-//                    print(place)
-//                case .failure(let error):
-//                    print(error)
-//                }
-//                
-//            })
-//        }
+    }
     
+    // MARK: - init
+    static func load(with input: String) -> SignInUpViewController {
+        let viewController = SignInUpViewController.loadFromStoryboard()
+        return viewController
     }
     
     //MARK: - Sign In/Up Segment Changed:
-    
     @IBAction func SignInUpSegmentChanged(_ sender: UISegmentedControl) {
         
         // Disable the buttons:
@@ -135,7 +114,6 @@ class SignInUpViewController: MainViewController {
     }
     
     //MARK: - Get Sign In Info:
-    
     @IBAction func SignIn_Email(_ sender: UITextField) {
         Email_SignIn = SignIn_EmailTF.text
         SignIn_Validation()
@@ -147,22 +125,24 @@ class SignInUpViewController: MainViewController {
     }
     
     //MARK: - Sign In Button Action:
-    
     @IBAction func SignIn_ButtonPressed(_ sender: UIButton) {
         
-        print("\(Email_SignIn) should be signed in..")
+        print("\(String(describing: Email_SignIn)) should be signed in..")
         UserServices.signIn(username: Email_SignIn ?? "",
                             password: Password_SignIn ?? "",
                             completion: { [weak self] success in
             if success {
-                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                      let delegate = windowScene.delegate as? SceneDelegate else { return }
-                delegate.window?.rootViewController = TabBarController()
+                self?.signInUser()
             } else {
                 print("could not log in")
             }
         })
-        
+    }
+    
+    private func signInUser(){
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let delegate = windowScene.delegate as? SceneDelegate else { return }
+        delegate.window?.rootViewController = TabBarController()
     }
     
     //MARK: - Get Sign Up Info:
@@ -187,7 +167,6 @@ class SignInUpViewController: MainViewController {
     }
     
     //MARK: - Sign Up Button Action:
-    
     @IBAction func SignUP_ButtonPressed(_ sender: UIButton) {
         if(SignUp_PasswordTF.text == SignUp_ConfirmPasswordTF.text){
             UserServices.signUp(username: Username_SignUp ?? "",
@@ -235,15 +214,6 @@ class SignInUpViewController: MainViewController {
         view.endEditing(true);
         super.touchesBegan(touches, with: event);
     }
-    
-    
-    
-    
-    static func load(with input: String) -> SignInUpViewController {
-        let viewController = SignInUpViewController.loadFromStoryboard()
-        return viewController
-    }
-    
 }
 
 
@@ -256,14 +226,10 @@ extension SignInUpViewController: UITextFieldDelegate {
         // Try to find next textField:
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
-            
         } else {
             // Not found, so hide keyboard:
             textField.resignFirstResponder()
-            
         }
-        
         return false
     }
-    
 }

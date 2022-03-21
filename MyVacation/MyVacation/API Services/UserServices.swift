@@ -9,6 +9,7 @@ import Foundation
 import Parse
 
 class UserServices {
+
     static func signUp(username: String, password: String, email: String, completion: @escaping (Bool) -> Void) {
         let user = PFUser(className: "_User")
         user.username = username
@@ -20,7 +21,6 @@ class UserServices {
             } else {
                 print("could not sign up \(error?.localizedDescription ?? "")")
             }
-            
         }
     }
     
@@ -38,17 +38,7 @@ class UserServices {
     }
     
     static func createVacation(with newVacation: Vacation, completion: @escaping (Bool) -> Void){
-        let vacation = PFObject(className: "Vacation")
-        vacation["vacationAuthor"] = PFUser.current()
-        vacation["vacationName"] = newVacation.name
-        vacation["vacationFrom"] = newVacation.fromPlace
-        vacation["vacationTo"] = newVacation.ToPlace
-        vacation["vacationDepartureAirport"] = newVacation.departureAirport
-        vacation["vacationArrivalAirport"] = newVacation.arrivalAirport
-        vacation["vacationStartDate"] = newVacation.startDate
-        vacation["vacationEndDate"] = newVacation.endDate
-        vacation["vacationPlaces"] = newVacation.places
-        vacation["vacationStatus"] = newVacation.status
+        let vacation = Vacation.createVacationBody(newVacation: newVacation)
         
         vacation.saveInBackground { (success,error) in
             if success {
@@ -77,7 +67,6 @@ class UserServices {
             }
         }
     }
-
 }
 
 

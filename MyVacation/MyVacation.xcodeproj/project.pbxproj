@@ -13,6 +13,7 @@
 		5BFB14C527DFECAE00F77EF8 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */; };
 		92E8305527DDC58000177B4F /* SignInUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8305427DDC58000177B4F /* SignInUp.storyboard */; };
 		92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8305627DDC60800177B4F /* SignInUpViewController.swift */; };
+		C32E267527E907E9002EC844 /* InterestingPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E267427E907E9002EC844 /* InterestingPlaces.swift */; };
 		C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */; };
 		C3357FA327E0FA6900ED59B6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357FA227E0FA6900ED59B6 /* SettingsViewController.swift */; };
 		C3357FA527E0FA7700ED59B6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3357FA427E0FA7700ED59B6 /* Settings.storyboard */; };
@@ -23,9 +24,9 @@
 		C3357FB127E10B8800ED59B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388934F27D9C79800504C49 /* HomeViewController.swift */; };
 		C33E92D127E79D080043DE20 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E92D027E79D080043DE20 /* APIServices.swift */; };
 		C33E92D327E7C4370043DE20 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E92D227E7C4370043DE20 /* UserServices.swift */; };
-		C33E92D527E7D5780043DE20 /* Airport Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E92D427E7D5780043DE20 /* Airport Model.swift */; };
-		C33E92D727E7D5940043DE20 /* Place Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E92D627E7D5940043DE20 /* Place Model.swift */; };
-		C33E92DA27E7D5D10043DE20 /* Vacation Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E92D927E7D5D10043DE20 /* Vacation Model.swift */; };
+		C33E92D527E7D5780043DE20 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E92D427E7D5780043DE20 /* Airport.swift */; };
+		C33E92D727E7D5940043DE20 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E92D627E7D5940043DE20 /* Place.swift */; };
+		C33E92DA27E7D5D10043DE20 /* Vacation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E92D927E7D5D10043DE20 /* Vacation.swift */; };
 		C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933527D9BA1100504C49 /* AppDelegate.swift */; };
 		C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388933727D9BA1100504C49 /* SceneDelegate.swift */; };
 		C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C388933E27D9BA1400504C49 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		61E237A416F361839089D00D /* Pods-MyVacation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyVacation.release.xcconfig"; path = "Target Support Files/Pods-MyVacation/Pods-MyVacation.release.xcconfig"; sourceTree = "<group>"; };
 		92E8305427DDC58000177B4F /* SignInUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInUp.storyboard; sourceTree = "<group>"; };
 		92E8305627DDC60800177B4F /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
+		C32E267427E907E9002EC844 /* InterestingPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPlaces.swift; sourceTree = "<group>"; };
 		C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C3357FA227E0FA6900ED59B6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C3357FA427E0FA7700ED59B6 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -63,9 +65,9 @@
 		C3357FAC27E0FAD600ED59B6 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		C33E92D027E79D080043DE20 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		C33E92D227E7C4370043DE20 /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
-		C33E92D427E7D5780043DE20 /* Airport Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Airport Model.swift"; sourceTree = "<group>"; };
-		C33E92D627E7D5940043DE20 /* Place Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place Model.swift"; sourceTree = "<group>"; };
-		C33E92D927E7D5D10043DE20 /* Vacation Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vacation Model.swift"; sourceTree = "<group>"; };
+		C33E92D427E7D5780043DE20 /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
+		C33E92D627E7D5940043DE20 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		C33E92D927E7D5D10043DE20 /* Vacation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vacation.swift; sourceTree = "<group>"; };
 		C388933227D9BA1100504C49 /* MyVacation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyVacation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C388933527D9BA1100504C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C388933727D9BA1100504C49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,9 +180,10 @@
 		C33E92D827E7D5B50043DE20 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C33E92D627E7D5940043DE20 /* Place Model.swift */,
-				C33E92D427E7D5780043DE20 /* Airport Model.swift */,
-				C33E92D927E7D5D10043DE20 /* Vacation Model.swift */,
+				C33E92D627E7D5940043DE20 /* Place.swift */,
+				C33E92D427E7D5780043DE20 /* Airport.swift */,
+				C33E92D927E7D5D10043DE20 /* Vacation.swift */,
+				C32E267427E907E9002EC844 /* InterestingPlaces.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -424,10 +427,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C33E92DA27E7D5D10043DE20 /* Vacation Model.swift in Sources */,
+				C33E92DA27E7D5D10043DE20 /* Vacation.swift in Sources */,
 				C3F286A727DFEA8600130254 /* UIImage+Extension.swift in Sources */,
 				C388934B27D9C6B400504C49 /* MainViewController.swift in Sources */,
-				C33E92D727E7D5940043DE20 /* Place Model.swift in Sources */,
+				C33E92D727E7D5940043DE20 /* Place.swift in Sources */,
 				5BFB14C527DFECAE00F77EF8 /* PlacesViewController.swift in Sources */,
 				C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */,
 				C38D67AA27DEA0E40076DF12 /* VacationDetailsViewController.swift in Sources */,
@@ -444,10 +447,11 @@
 				C388934D27D9C70D00504C49 /* NSObject + Extension.swift in Sources */,
 				C3F286A027DFD5AD00130254 /* UIView+Extension.swift in Sources */,
 				C3357FB127E10B8800ED59B6 /* HomeViewController.swift in Sources */,
+				C32E267527E907E9002EC844 /* InterestingPlaces.swift in Sources */,
 				C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */,
 				C3F286A427DFD94F00130254 /* UITableView+Extension.swift in Sources */,
 				C3357FAB27E0FACC00ED59B6 /* MapViewController.swift in Sources */,
-				C33E92D527E7D5780043DE20 /* Airport Model.swift in Sources */,
+				C33E92D527E7D5780043DE20 /* Airport.swift in Sources */,
 				5BFB14C327DF97CD00F77EF8 /* PlanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

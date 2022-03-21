@@ -10,10 +10,14 @@ import MapKit
 
 class MapViewController: MainViewController {
 
-    @IBOutlet weak var mapView: MKMapView!
-    private var places: InterestingPlaces?
-    @IBOutlet weak var vacationMenuButton: UIButton!
+    //MARK: - IBOutlets
+    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var vacationMenuButton: UIButton!
     
+    //properties
+    private var places: InterestingPlaces?
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -31,8 +35,8 @@ class MapViewController: MainViewController {
                 case .failure(let error):
                     print(error)
                 }
-                })
-            }
+            })
+        }
         setUpMap()
         setUpMenu()
     }
@@ -62,15 +66,16 @@ class MapViewController: MainViewController {
         vacationMenuButton.menu = menu
     }
     
-    private func update(with vacation: String) {
-        print("do all the updates here")
-    }
     private func setUpMap(){
         let mapMeterds: Double = 10_000
         // testing purpose (then should get this coordinates according to vacation)
         let coordinate = CLLocationCoordinate2D(latitude: 41.716667, longitude: 44.783333)
         let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: mapMeterds, longitudinalMeters: mapMeterds)
         mapView.setRegion(region, animated: true)
+    }
+    
+    private func update(with vacation: String) {
+        print("do all the updates here")
     }
     
     private func addAnnorations(){
@@ -86,6 +91,7 @@ class MapViewController: MainViewController {
     }
 }
 
+// MARK: - MKMapViewDelegate
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {

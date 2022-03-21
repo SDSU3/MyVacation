@@ -13,8 +13,7 @@ class HomeViewController: MainViewController {
     // MARK: - IBOutlets
     @IBOutlet private weak var vacationCollectionView: UICollectionView!
     @IBOutlet private weak var addVacationButton: UIButton!
-    @IBOutlet weak var userMenuButton: UIButton!
-    
+    @IBOutlet private weak var userMenuButton: UIButton!
     
     // properties
     private let vacationDetailSegue = "moveToVacationDetail"
@@ -55,9 +54,6 @@ class HomeViewController: MainViewController {
         ])
         let menu = UIMenu(title: "", children: [items])
         userMenuButton.menu = menu
-    }
-    
-    @IBAction func userProfileClicked(_ sender: UIButton) {
     }
     
     @IBAction func addVacation(_ sender: UIButton) {
@@ -102,6 +98,4 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: vacationDetailSegue, sender: indexPath)
     }
-    
-    
 }
