@@ -8,6 +8,6 @@ target 'MyVacation' do
   # Pods for MyVacation
   pod 'Parse'
   pod 'AlamofireImage'
-  pod 'DropDown'
+  pod 'Koyomi'
 
 end

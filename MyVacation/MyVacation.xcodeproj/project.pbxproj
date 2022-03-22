@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3212F7A440205C0A1101B950 /* Pods_MyVacation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C57F0DCF064A97F146A3E7E /* Pods_MyVacation.framework */; };
+		5BC9C14B27E7CF87003231FF /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9C14A27E7CF87003231FF /* Plan.swift */; };
 		5BFB14C127DF97C300F77EF8 /* Plan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BFB14C027DF97C300F77EF8 /* Plan.storyboard */; };
 		5BFB14C327DF97CD00F77EF8 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */; };
 		5BFB14C527DFECAE00F77EF8 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		4C57F0DCF064A97F146A3E7E /* Pods_MyVacation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyVacation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BC9C14A27E7CF87003231FF /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		5BFB14C027DF97C300F77EF8 /* Plan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plan.storyboard; sourceTree = "<group>"; };
 		5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				5BFB14C027DF97C300F77EF8 /* Plan.storyboard */,
 				5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */,
 				5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */,
+				5BC9C14A27E7CF87003231FF /* Plan.swift */,
 			);
 			path = "Plan Vacation";
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 			files = (
 				C3F286A727DFEA8600130254 /* UIImage+Extension.swift in Sources */,
 				C388934B27D9C6B400504C49 /* MainViewController.swift in Sources */,
+				5BC9C14B27E7CF87003231FF /* Plan.swift in Sources */,
 				923D0B4927E5CAFE0076B284 /* PopularDestination.swift in Sources */,
 				5BFB14C527DFECAE00F77EF8 /* PlacesViewController.swift in Sources */,
 				923D0B4727E5C90C0076B284 /* DestinationCell.swift in Sources */,
