@@ -111,7 +111,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8fj-2z-t6w">
                                         <rect key="frame" x="20" y="112" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="one-time-code"/>
                                         <connections>
                                             <action selector="SignUp_Username:" destination="Y6W-OH-hqX" eventType="editingChanged" id="Wme-v6-6ci"/>
                                         </connections>
@@ -139,7 +139,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dk5-FP-wd6">
                                         <rect key="frame" x="20" y="268" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="one-time-code"/>
                                         <connections>
                                             <action selector="SignUp_ConfirmPassword:" destination="Y6W-OH-hqX" eventType="editingChanged" id="rub-Wm-byu"/>
                                         </connections>

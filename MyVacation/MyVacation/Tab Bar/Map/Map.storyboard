@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,9 +17,42 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="37K-dT-BSO">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQ7-Sh-avW">
+                                <rect key="frame" x="303" y="54" width="101" height="42"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <menu key="menu" id="o07-gy-eia">
+                                    <children>
+                                        <command title="Item 1" id="f54-Iz-RQx"/>
+                                        <command title="Item 2" id="jZC-Bf-gNO"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Vacations">
+                                    <color key="titleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.3411764706" green="0.3294117647" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="37K-dT-BSO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="4Op-1P-mfM"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="37K-dT-BSO" secondAttribute="bottom" id="4gZ-RL-XZl"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="37K-dT-BSO" secondAttribute="trailing" id="Gqc-Hd-eoq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lQ7-Sh-avW" secondAttribute="trailing" constant="10" id="X14-c8-wdB"/>
+                            <constraint firstItem="lQ7-Sh-avW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="egG-aC-EAB"/>
+                            <constraint firstItem="37K-dT-BSO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rJZ-G6-XI3"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="37K-dT-BSO" id="jnu-sl-Ouq"/>
+                        <outlet property="vacationMenuButton" destination="lQ7-Sh-avW" id="N1j-Hg-Txu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
