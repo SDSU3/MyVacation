@@ -12,6 +12,10 @@
 		5BFB14C127DF97C300F77EF8 /* Plan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BFB14C027DF97C300F77EF8 /* Plan.storyboard */; };
 		5BFB14C327DF97CD00F77EF8 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */; };
 		5BFB14C527DFECAE00F77EF8 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */; };
+		923D0B4727E5C90C0076B284 /* DestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D0B4627E5C90C0076B284 /* DestinationCell.swift */; };
+		923D0B4927E5CAFE0076B284 /* PopularDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D0B4827E5CAFE0076B284 /* PopularDestination.swift */; };
+		923D0B4B27E682530076B284 /* DestinationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D0B4A27E682530076B284 /* DestinationInfoViewController.swift */; };
+		923D0B4D27E6830A0076B284 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D0B4C27E6830A0076B284 /* Constants.swift */; };
 		92E8305527DDC58000177B4F /* SignInUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8305427DDC58000177B4F /* SignInUp.storyboard */; };
 		92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8305627DDC60800177B4F /* SignInUpViewController.swift */; };
 		C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */; };
@@ -49,6 +53,10 @@
 		5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		61E237A416F361839089D00D /* Pods-MyVacation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyVacation.release.xcconfig"; path = "Target Support Files/Pods-MyVacation/Pods-MyVacation.release.xcconfig"; sourceTree = "<group>"; };
+		923D0B4627E5C90C0076B284 /* DestinationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCell.swift; sourceTree = "<group>"; };
+		923D0B4827E5CAFE0076B284 /* PopularDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDestination.swift; sourceTree = "<group>"; };
+		923D0B4A27E682530076B284 /* DestinationInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationInfoViewController.swift; sourceTree = "<group>"; };
+		923D0B4C27E6830A0076B284 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92E8305427DDC58000177B4F /* SignInUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInUp.storyboard; sourceTree = "<group>"; };
 		92E8305627DDC60800177B4F /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
 		C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -145,6 +153,10 @@
 			children = (
 				C3357FA627E0FAA300ED59B6 /* PopularVacations.storyboard */,
 				C3357FA827E0FAAE00ED59B6 /* PopularVacationsViewController.swift */,
+				923D0B4627E5C90C0076B284 /* DestinationCell.swift */,
+				923D0B4827E5CAFE0076B284 /* PopularDestination.swift */,
+				923D0B4A27E682530076B284 /* DestinationInfoViewController.swift */,
+				923D0B4C27E6830A0076B284 /* Constants.swift */,
 			);
 			path = "Popular Vacations";
 			sourceTree = "<group>";
@@ -399,7 +411,9 @@
 				C3F286A727DFEA8600130254 /* UIImage+Extension.swift in Sources */,
 				C388934B27D9C6B400504C49 /* MainViewController.swift in Sources */,
 				5BC9C14B27E7CF87003231FF /* Plan.swift in Sources */,
+				923D0B4927E5CAFE0076B284 /* PopularDestination.swift in Sources */,
 				5BFB14C527DFECAE00F77EF8 /* PlacesViewController.swift in Sources */,
+				923D0B4727E5C90C0076B284 /* DestinationCell.swift in Sources */,
 				C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */,
 				C38D67AA27DEA0E40076DF12 /* VacationDetailsViewController.swift in Sources */,
 				C38D67A727DE90ED0076DF12 /* VacationCell.swift in Sources */,
@@ -414,9 +428,11 @@
 				C3F286A027DFD5AD00130254 /* UIView+Extension.swift in Sources */,
 				C3357FB127E10B8800ED59B6 /* HomeViewController.swift in Sources */,
 				C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */,
+				923D0B4B27E682530076B284 /* DestinationInfoViewController.swift in Sources */,
 				C3F286A427DFD94F00130254 /* UITableView+Extension.swift in Sources */,
 				C3357FAB27E0FACC00ED59B6 /* MapViewController.swift in Sources */,
 				5BFB14C327DF97CD00F77EF8 /* PlanViewController.swift in Sources */,
+				923D0B4D27E6830A0076B284 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

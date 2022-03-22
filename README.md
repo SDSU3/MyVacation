@@ -24,8 +24,8 @@ As user will register in the app, the user will have the ability to choose the d
 
 **Required Must-have Stories**
 
-* - [ ] User can create an account.
-* - [x] User can log in. **(Design)**
+* - [x] User can create an account.
+* - [x] User can log in.
 * - [x] User can plan how to spend a vacation. **(Design)**
 * - [ ] User can set the places to be visited
 * - [ ] User can add information of the visit, including the time and location.
