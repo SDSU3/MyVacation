@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         //root view controller is called here
         //(for testing purpose you can put your viewController here instead of HomeViewController
-        window!.rootViewController = PlanViewController.load(with: "intput")
+        window!.rootViewController = SignInUpViewController.load(with: "intput")
         //TabBarController()
         window!.makeKeyAndVisible()
     }
