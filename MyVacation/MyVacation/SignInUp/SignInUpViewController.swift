@@ -154,8 +154,7 @@ class SignInUpViewController: MainViewController {
         SignUp_Validation()
     }
     
-    //MARK: - Sign Up Button Action:
-    
+    //MARK: - Sign Up Button Action:    
     @IBAction func SignUP_ButtonPressed(_ sender: UIButton) {
         if(SignUp_PasswordTF.text == SignUp_ConfirmPasswordTF.text){
             print("Create a \(Username_SignUp) account..")
