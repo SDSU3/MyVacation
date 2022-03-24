@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 struct InterestingPlaces: Codable {
     var places: [InterestingPlace]?
@@ -18,17 +19,42 @@ struct InterestingPlaces: Codable {
 
 struct InterestingPlace: Codable {
     var category: String?
-    var highlightedTitle: String?
+    var highLightedTitle: String?
     var position: [Double]?
     var title: String?
     
+    init(category: String, highLightedTitle: String, position: [Double], title: String) {
+        self.category = category
+        self.highLightedTitle = highLightedTitle
+        self.position = position
+        self.title = title
+    }
     
-    private enum CodingKeys: String, CodingKey {
-        case category = "category"
-        case highlightedTitle = "highlightedTitle"
-        case position = "position"
-        case title = "title"
+    init(with data: PFObject) {
+        category = data[InterestingPlace.ParserKeys.category] as? String ?? ""
+        highLightedTitle = data[InterestingPlace.ParserKeys.highLightedTitle] as? String ?? ""
+        position = data[InterestingPlace.ParserKeys.position] as? [Double] ?? []
+        title = data[InterestingPlace.ParserKeys.title] as? String ?? ""
+    }
+    
+    static func createPlaceBody(newPlace: InterestingPlace) -> PFObject {
+        let place = PFObject(className: "InterestingPlaces")
+        place[InterestingPlace.ParserKeys.author] = PFUser.current()
+        place[InterestingPlace.ParserKeys.category] = newPlace.category ?? ""
+        place[InterestingPlace.ParserKeys.highLightedTitle] = newPlace.highLightedTitle ?? ""
+        place[InterestingPlace.ParserKeys.position] = newPlace.position ?? []
+        place[InterestingPlace.ParserKeys.title] = newPlace.title ?? ""
+        return place
+    }
+}
 
+extension InterestingPlace {
+    struct ParserKeys {
+        static let author = "author"
+        static let category = "category"
+        static let highLightedTitle = "highlightedTitle"
+        static let position = "placePosition"
+        static let title = "title"
     }
 }
 
