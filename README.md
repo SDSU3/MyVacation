@@ -24,20 +24,20 @@ As user will register in the app, the user will have the ability to choose the d
 
 **Required Must-have Stories**
 
-* - [x] User can create an account.
-* - [x] User can log in.
-* - [x] User can plan how to spend a vacation. **(Design)**
+* - [x] User can create an account. **(DONE)**
+* - [x] User can log in. **(DONE)**
+* - [x] User can plan how to spend a vacation. **(Design)** + some functionality
 * - [ ] User can set the places to be visited
 * - [ ] User can add information of the visit, including the time and location.
-* - [ ] User can set the duration of the vacation.
+* - [ ] User can set the duration of the vacation. **(DONE)**
 * - [ ] User can set the destination of the vacation.
-* - [x] User can view all his/her vacations **(Design)**
+* - [x] User can view all his/her vacations **(Design)** + some functionality
 
 **Optional Nice-to-have Stories**
 
 * - [ ] User can see the cost of the plan.
 * - [ ] User can add the flight information.
-* - [ ] User can view place on map.
+* - [x] User can view place on map. **(DONE)**
 
 ### 2. Screen Archetypes
 * Login 
@@ -175,4 +175,5 @@ As user will register in the app, the user will have the ability to choose the d
 # App Progress
 ### Milestone 1
 <img src="https://user-images.githubusercontent.com/55408144/158458498-977a03fb-3bec-4dd0-af81-6b55d8151433.gif" width=250><br>
-
+### Milestone 2
+<img src="https://user-images.githubusercontent.com/55408144/159588131-68845a41-5acf-45a0-b5a5-be167d2d470d.gif" width=250><br>
