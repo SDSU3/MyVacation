@@ -18,8 +18,10 @@ class UserServices {
         user.signUpInBackground { (success, error) in
             if success {
                 print("saved user")
+                completion(true)
             } else {
                 print("could not sign up \(error?.localizedDescription ?? "")")
+                completion(false)
             }
         }
     }

@@ -27,36 +27,32 @@ class SignInUpViewController: MainViewController {
     @IBOutlet private weak var SignUp_ConfirmPasswordTF: UITextField!
     @IBOutlet private weak var SignUp_Button: UIButton!
     
-    //MARK: - Initial Values:
-    
-    // Sign In Info:
-    var Email_SignIn: String? = nil
-    var Password_SignIn: String? = nil
-    
-    // Sign Up Info:
-    var Email_SignUp: String? = nil
-    var Username_SignUp: String? = nil
-    var Password_SignUp: String? = nil
-    var ConfirmPassword_SignUp: String? = nil
+    private var selectedProcess: Process = .signIn
+    private var signInTextFields: [UITextField]?
+    private var signUpTextFields: [UITextField]?
     
     //MARK: - View Did Load:
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Define textfields tags and delegates:
-        SignIn_EmailTF.delegate = self
-        SignIn_PasswordTF.delegate = self
-        SignIn_EmailTF.tag = 0
-        SignIn_PasswordTF.tag = 1
-        
-        SignUp_EmailTF.delegate = self
-        SignUp_UsernameTF.delegate = self
-        SignUp_PasswordTF.delegate = self
-        SignUp_ConfirmPasswordTF.delegate = self
-        SignUp_EmailTF.tag = 0
-        SignUp_UsernameTF.tag = 1
-        SignUp_PasswordTF.tag = 2
-        SignUp_ConfirmPasswordTF.tag = 3
+        setUpComponents()
+    }
+    
+    // MARK: - init
+    static func load(with input: String) -> SignInUpViewController {
+        let viewController = SignInUpViewController.loadFromStoryboard()
+        return viewController
+    }
+    
+    private func setUpComponents() {
+        // sign in
+        // Define textfields tags and delegates
+        signInTextFields = [SignIn_EmailTF,SignIn_PasswordTF]
+        signInTextFields?.forEach({ $0.delegate = self })
+
+        // sign up
+        // Define textfields tags and delegates
+        signUpTextFields = [SignUp_EmailTF,SignUp_UsernameTF, SignUp_PasswordTF, SignUp_ConfirmPasswordTF]
+        signUpTextFields?.forEach({ $0.delegate = self })
         
         // Hide the sign up stack view and display sign in stack view:
         SignInStackView.isHidden = false
@@ -67,124 +63,73 @@ class SignInUpViewController: MainViewController {
         SignUp_Button.isEnabled = false
     }
     
-    // MARK: - init
-    static func load(with input: String) -> SignInUpViewController {
-        let viewController = SignInUpViewController.loadFromStoryboard()
-        return viewController
-    }
-    
     //MARK: - Sign In/Up Segment Changed:
     @IBAction func SignInUpSegmentChanged(_ sender: UISegmentedControl) {
-        
+        selectedProcess = SignInUpSegment.selectedSegmentIndex == 0 ? .signIn : .signUp
         // Disable the buttons:
         SignIn_Button.isEnabled = false
         SignUp_Button.isEnabled = false
         
-        // Clear the information:
-        Email_SignIn = nil
-        Password_SignIn = nil
-        Email_SignUp = nil
-        Username_SignUp = nil
-        Password_SignUp = nil
-        ConfirmPassword_SignUp = nil
-        
         // Actions based on the selected segment:
-        if(SignInUpSegment.selectedSegmentIndex == 0){
-            
+        if(selectedProcess == .signIn){
             SignIn_EmailTF.becomeFirstResponder()
-            
             SignInStackView.isHidden = false
             SignUpStackView.isHidden = true
-            
-            SignUp_EmailTF.text?.removeAll()
-            SignUp_UsernameTF.text?.removeAll()
-            SignUp_PasswordTF.text?.removeAll()
-            SignUp_ConfirmPasswordTF.text?.removeAll()
-            
+            signUpTextFields?.forEach({ $0.text?.removeAll() })
         } else {
-            
             SignUp_EmailTF.becomeFirstResponder()
-            
             SignInStackView.isHidden = true
             SignUpStackView.isHidden = false
-            
-            SignIn_EmailTF.text?.removeAll()
-            SignIn_PasswordTF.text?.removeAll()
+            signInTextFields?.forEach({ $0.text?.removeAll() })
+        }
+    }
+
+    //MARK: - Sign In Button Action:
+    @IBAction func SignIn_ButtonPressed(_ sender: UIButton) {
+        if let username = SignIn_EmailTF.text,
+           let password = SignIn_PasswordTF.text {
+            signInUser(username: username, password: password)
+        } else {
+            print("fill text fills")
         }
     }
     
-    //MARK: - Get Sign In Info:
-    @IBAction func SignIn_Email(_ sender: UITextField) {
-        Email_SignIn = SignIn_EmailTF.text
-        SignIn_Validation()
-    }
-    
-    @IBAction func SignIn_Password(_ sender: UITextField) {
-        Password_SignIn = SignIn_PasswordTF.text
-        SignIn_Validation()
-    }
-    
-    //MARK: - Sign In Button Action:
-    @IBAction func SignIn_ButtonPressed(_ sender: UIButton) {
-        
-        print("\(String(describing: Email_SignIn)) should be signed in..")
-        UserServices.signIn(username: Email_SignIn ?? "",
-                            password: Password_SignIn ?? "",
+    private func signInUser(username: String, password: String) {
+        UserServices.signIn(username: username, password: password,
                             completion: { [weak self] success in
             if success {
-                self?.signInUser()
+                self?.moveToTabBar()
             } else {
                 print("could not log in")
             }
         })
     }
     
-    private func signInUser(){
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let delegate = windowScene.delegate as? SceneDelegate else { return }
-        delegate.window?.rootViewController = TabBarController()
-    }
-    
-    //MARK: - Get Sign Up Info:
-    @IBAction func SignUp_Email(_ sender: UITextField) {
-        Email_SignUp = SignUp_EmailTF.text
-        SignUp_Validation()
-    }
-    
-    @IBAction func SignUp_Username(_ sender: UITextField) {
-        Username_SignUp = SignUp_UsernameTF.text
-        SignUp_Validation()
-    }
-    
-    @IBAction func SignUp_Password(_ sender: UITextField) {
-        Password_SignUp = SignUp_PasswordTF.text
-        SignUp_Validation()
-    }
-    
-    @IBAction func SignUp_ConfirmPassword(_ sender: UITextField) {
-        ConfirmPassword_SignUp = SignUp_ConfirmPasswordTF.text
-        SignUp_Validation()
-    }
-    
     //MARK: - Sign Up Button Action:
-
     @IBAction func SignUP_ButtonPressed(_ sender: UIButton) {
-        if(SignUp_PasswordTF.text == SignUp_ConfirmPasswordTF.text){
-            UserServices.signUp(username: Username_SignUp ?? "",
-                                password: Password_SignUp ?? "",
-                                email: Email_SignUp ?? "",
+        if SignUp_PasswordTF.text == SignUp_ConfirmPasswordTF.text {
+            signUp()
+        } else {
+            print("Password and password confirmation doesn't match!")
+        }
+    }
+    
+    private func signUp() {
+        if let newUsername = SignUp_UsernameTF.text,
+           let newPassword = SignUp_PasswordTF.text,
+           let newEmail = SignUp_EmailTF.text {
+            UserServices.signUp(username: newUsername,
+                                password: newPassword,
+                                email: newEmail,
                                 completion: { [weak self] success in
                 if success {
-                    // done
-                    print("Create a \(self?.Username_SignUp) account..")
+                    self?.signInUser(username: newUsername, password: newPassword)
                 } else {
-                    // some error
                     print("something went wrong")
                 }
             })
-        }
-        else {
-            print("Password and password confirmation doesn't match!")
+        } else {
+            print("fill empty fields")
         }
     }
     
@@ -208,6 +153,12 @@ class SignInUpViewController: MainViewController {
         }
     }
     
+    private func moveToTabBar() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let delegate = windowScene.delegate as? SceneDelegate else { return }
+        delegate.window?.rootViewController = TabBarController()
+    }
+    
     //MARK: - Keyboard Helper Functions:
     
     // Hide keyboard when touch any area out side the textField:
@@ -216,7 +167,6 @@ class SignInUpViewController: MainViewController {
         super.touchesBegan(touches, with: event);
     }
 }
-
 
 //MARK: - Extension to manage the keyboard:
 extension SignInUpViewController: UITextFieldDelegate {
@@ -232,5 +182,16 @@ extension SignInUpViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        selectedProcess == .signIn ? SignIn_Validation() : SignUp_Validation()
+    }
+}
+
+extension SignInUpViewController {
+    enum Process: Int {
+        case signIn = 0
+        case signUp = 1
     }
 }
