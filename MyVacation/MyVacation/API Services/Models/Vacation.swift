@@ -12,27 +12,28 @@ class Vacation {
     var name: String
     var fromPlace: String
     var ToPlace: String
-    var places: [String]
     var endDate: Date
     var startDate: Date
     var arrivalAirport: String
     var departureAirport: String
-    var status: String
+    var status: VacationStatus
     var interestingPlaces: InterestingPlaces?
+    var vacationObj: PFObject?
     
-    init(name: String, fromPlace: String, ToPlace: String, places: [String], endDate: Date, startDate: Date, arrivalAirport: String, departureAirport: String, status: String) {
+    init(name: String, fromPlace: String, ToPlace: String, places: InterestingPlaces? = nil, endDate: Date, startDate: Date, arrivalAirport: String, departureAirport: String, status: VacationStatus) {
         self.name = name
         self.fromPlace = fromPlace
         self.ToPlace = ToPlace
-        self.places = places
         self.endDate = endDate
         self.startDate = startDate
         self.arrivalAirport = arrivalAirport
         self.departureAirport = departureAirport
         self.status = status
+        self.interestingPlaces = places
     }
     
     init(with data: PFObject) {
+        self.vacationObj = data
         self.name = data[Vacation.ParserKeys.name] as? String ?? ""
         self.fromPlace = data[Vacation.ParserKeys.from] as? String ?? ""
         self.ToPlace = data[Vacation.ParserKeys.to] as? String ?? ""
@@ -40,8 +41,13 @@ class Vacation {
         self.arrivalAirport = data[Vacation.ParserKeys.arrAirport] as? String ?? ""
         self.startDate = data[Vacation.ParserKeys.startDate] as? Date ?? Date()
         self.endDate = data[Vacation.ParserKeys.endDate] as? Date ?? Date()
-        self.places = data[Vacation.ParserKeys.places] as? [String] ?? []
-        self.status = data[Vacation.ParserKeys.status] as? String ?? "unknown"
+        
+        let places = data[Vacation.ParserKeys.places] as? [PFObject] ?? []
+        interestingPlaces = InterestingPlaces()
+        interestingPlaces?.places = places.map({ InterestingPlace(with: $0) })
+        
+        let newStatus = VacationStatus(rawValue: data[Vacation.ParserKeys.status] as? String ?? "") ?? .inactive
+        self.status = newStatus
     }
     
     static func createVacationBody(newVacation: Vacation) -> PFObject {
@@ -54,11 +60,9 @@ class Vacation {
         vacation[Vacation.ParserKeys.arrAirport] = newVacation.arrivalAirport
         vacation[Vacation.ParserKeys.startDate] = newVacation.startDate
         vacation[Vacation.ParserKeys.endDate] = newVacation.endDate
-        vacation[Vacation.ParserKeys.places] = newVacation.places
-        vacation[Vacation.ParserKeys.status] = newVacation.status
+        vacation[Vacation.ParserKeys.status] = newVacation.status.rawValue
         return vacation
     }
-    
 }
 
 extension Vacation {
@@ -71,7 +75,13 @@ extension Vacation {
         static let arrAirport = "vacationArrivalAirport"
         static let startDate = "vacationStartDate"
         static let endDate = "vacationEndDate"
-        static let places = "vacationPlaces"
+        static let places = "InterestingPlaces"
         static let status = "vacationStatus"
     }
 }
+
+enum VacationStatus: String {
+    case inactive = "inactive"
+    case active = "active"
+}
+

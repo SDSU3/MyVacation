@@ -69,6 +69,46 @@ class UserServices {
             }
         }
     }
+    
+    static func loadVacationsFully(completion: @escaping (Result<[Vacation]?,Error>) -> Void){
+        let query = PFQuery(className: "Vacation")
+        query.includeKeys(["author", "InterestingPlaces", "InterestingPlaces.author"])
+        query.findObjectsInBackground { (result, error) in
+            if let loadVacations = result {
+                var vacations = [Vacation]()
+                for vacation in loadVacations {
+                    vacations.append(Vacation(with: vacation))
+                }
+                completion(.success(vacations))
+            } else {
+                print("could not load posters \(error?.localizedDescription ?? "")")
+                completion(.failure(error as! Error))
+            }
+        }
+    }
+    
+    static func addPlaces(with vacation: PFObject, places: InterestingPlaces, completion: @escaping (Bool) -> Void) {
+        completion(false)
+        
+        var newPlaces: [PFObject] = []
+        guard let interestingPlaces = places.places else {
+            completion(false)
+            return
+        }
+        
+        interestingPlaces.forEach({ item in
+            let place = InterestingPlace.createPlaceBody(newPlace: item)
+            newPlaces.append(place)
+        })
+        vacation["InterestingPlaces"] = newPlaces
+        vacation.saveInBackground { (success, error) in
+            if success {
+                print("saved places")
+            } else {
+                print("could not add places")
+            }
+        }
+    }
 }
 
 
