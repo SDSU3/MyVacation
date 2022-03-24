@@ -82,7 +82,7 @@ class UserServices {
                 completion(.success(vacations))
             } else {
                 print("could not load posters \(error?.localizedDescription ?? "")")
-                completion(.failure(error as! Error))
+                completion(.failure(error!))
             }
         }
     }
@@ -104,8 +104,45 @@ class UserServices {
         vacation.saveInBackground { (success, error) in
             if success {
                 print("saved places")
+                completion(true)
             } else {
                 print("could not add places")
+                completion(false)
+            }
+        }
+    }
+    
+    static func addPopularDestination(vacation: Vacation, type: PopularPlaceType ,completion: @escaping (Bool) -> Void){
+        let popularPlaces = PFObject(className: "PopularPlaces")
+        popularPlaces["placeName"] = vacation.ToPlace
+        
+        let incrementKey = type == .favorite ? "favorite" : "visited"
+        popularPlaces.incrementKey(incrementKey)
+        
+        popularPlaces.saveInBackground { (success, error) in
+            if success {
+                print("saved places")
+                completion(true)
+            } else {
+                print("could not add places")
+                completion(false)
+            }
+        }
+    }
+    
+    static func loadPopularDestination(vacation: Vacation, type: PopularPlaceType ,completion: @escaping (Result<[PopularDestination],Error>) -> Void){
+        let query = PFQuery(className: "PopularPlaces")
+
+        query.findObjectsInBackground { (result, error) in
+            if let loadplaces = result {
+                var places = [PopularDestination]()
+                for place in loadplaces {
+                    places.append(PopularDestination(with: place))
+                }
+                completion(.success(places))
+            } else {
+                print("could not load posters \(error?.localizedDescription ?? "")")
+                completion(.failure(error!))
             }
         }
     }
