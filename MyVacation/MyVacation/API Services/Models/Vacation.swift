@@ -54,8 +54,9 @@ class Vacation {
         self.status = newStatus
     }
     
-    static func createVacationBody(newVacation: Vacation) -> PFObject {
-        let vacation = PFObject(className: "Vacation")
+    static func createVacationBody(newVacation: Vacation, existingVacation: PFObject? = nil) -> PFObject {
+        let vacation = existingVacation != nil ? existingVacation : PFObject(className: "Vacation")
+        guard let vacation = vacation else { return PFObject() }
         vacation[Vacation.ParserKeys.author] = PFUser.current()
         vacation[Vacation.ParserKeys.name] = newVacation.name
         vacation[Vacation.ParserKeys.from] = newVacation.fromPlace

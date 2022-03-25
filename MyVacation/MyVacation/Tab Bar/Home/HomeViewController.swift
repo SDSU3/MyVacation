@@ -28,6 +28,7 @@ class HomeViewController: MainViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.vacationCollectionView.reloadData()
         self.navigationController?.isNavigationBarHidden = true
     }
     

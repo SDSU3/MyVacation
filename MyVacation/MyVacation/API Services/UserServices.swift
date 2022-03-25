@@ -129,6 +129,39 @@ class UserServices {
             }
         }
     }
+    
+    static func updateVacation(with newVacation: Vacation, completion: @escaping (Bool) -> Void) {
+        let query = PFQuery(className:"Vacation")
+        let id = newVacation.vacationObj?.objectId ?? ""
+        query.getObjectInBackground(withId: id, block: { (vacation,error) in
+            if error != nil {
+                print(error ?? "error")
+                completion(false)
+            } else if let vacation = vacation {
+                let updatedVacation = Vacation.createVacationBody(newVacation: newVacation,
+                                                                  existingVacation: vacation)
+                updatedVacation.saveInBackground()
+                completion(true)
+            }
+        })
+    }
+    
+    static func deleteVacation(with vacation: Vacation, completion: @escaping (Bool) -> Void) {
+        let query = PFQuery(className:"Vacation")
+        let id = vacation.vacationObj?.objectId ?? ""
+        query.whereKey("objectId", equalTo: id)
+        query.findObjectsInBackground { vacations,error in
+            if error != nil {
+                print(error ?? "error")
+                completion(false)
+            } else if let vacations = vacations {
+                for vacation in vacations {
+                    vacation.deleteEventually()
+                }
+                completion(true)
+            }
+        }
+    }
 }
 
 
