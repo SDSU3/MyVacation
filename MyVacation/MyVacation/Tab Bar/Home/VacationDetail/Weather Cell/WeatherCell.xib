@@ -44,6 +44,7 @@
             <size key="customSize" width="118" height="96"/>
             <connections>
                 <outlet property="dayLabel" destination="cqQ-Z6-zdV" id="ifk-zM-bFi"/>
+                <outlet property="weatherImageView" destination="wIP-hY-5H5" id="FqR-xq-L6W"/>
             </connections>
             <point key="canvasLocation" x="186.95652173913044" y="121.20535714285714"/>
         </collectionViewCell>

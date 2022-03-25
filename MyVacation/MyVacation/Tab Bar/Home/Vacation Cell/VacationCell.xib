@@ -49,8 +49,8 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="inactive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duh-rv-JDB">
                                         <rect key="frame" x="301.5" y="160" width="57.5" height="19"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <color key="textColor" red="0.96078431372549022" green="0.46274509803921571" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
                                 </subviews>
@@ -94,6 +94,7 @@
             <size key="customSize" width="366" height="163"/>
             <connections>
                 <outlet property="mainContentView" destination="Z6H-KW-7WW" id="ppt-0c-kmP"/>
+                <outlet property="statusLabel" destination="duh-rv-JDB" id="Q63-tg-mze"/>
                 <outlet property="vacationDateLabel" destination="yp2-Q5-cpn" id="AjX-rL-eOj"/>
                 <outlet property="vacationImageView" destination="gxp-XM-bgR" id="Wbt-ah-8Yw"/>
                 <outlet property="vacationNameLabel" destination="T9A-P4-zEl" id="iUm-DI-GsB"/>
