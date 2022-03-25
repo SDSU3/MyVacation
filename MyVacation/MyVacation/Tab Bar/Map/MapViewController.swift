@@ -18,6 +18,7 @@ class MapViewController: MainViewController {
     private var places: InterestingPlaces?
     private var vacations: [Vacation]?
     private var selectedVacation: Vacation?
+    private var selectedOneVacation: Bool = false
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -45,28 +46,25 @@ class MapViewController: MainViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let vacationsNum = vacations?.count ?? 0
-        self.navigationController?.isNavigationBarHidden = vacationsNum != 1
+        self.navigationController?.isNavigationBarHidden = !selectedOneVacation
     }
     
     // MARK: - init
-    static func load(vacations: [Vacation]? = nil, with places: InterestingPlaces? = nil) -> MapViewController {
+    static func load(vacations: [Vacation]? = nil, selectedVacation: Bool = false) -> MapViewController {
        let viewController = MapViewController.loadFromStoryboard()
-        viewController.places = places
-        viewController.vacations = vacations
+       viewController.vacations = vacations
+       viewController.selectedOneVacation = selectedVacation
        return viewController
     }
     
     private func setUpMenu() {
-        guard let vacations = vacations else {
-            vacationMenuButton.isHidden = true
-            return
-        }
-
+        guard let vacations = vacations else { return }
+        vacationMenuButton.isHidden = selectedOneVacation
+        
         vacationMenuButton.showsMenuAsPrimaryAction = true
         vacationMenuButton.roundCorners(with: 10)
         vacationMenuButton.addShadow(radius: 2)
-        // add in UIAction all the vacations this one is just for testing purpose
+        
         let menuItems = vacations.map{ vacation in
             return UIAction(title: vacation.ToPlace, handler: {_ in self.update(with: vacation.name)})
         }
@@ -78,7 +76,7 @@ class MapViewController: MainViewController {
     }
     
     private func setUpMap(){
-        let mapMeterds: Double = 10_000
+        let mapMeterds: Double = 5_000
         // testing purpose (then should get this coordinates according to vacation)
         let coordinate = CLLocationCoordinate2D(latitude: 41.716667, longitude: 44.783333)
         let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: mapMeterds, longitudinalMeters: mapMeterds)

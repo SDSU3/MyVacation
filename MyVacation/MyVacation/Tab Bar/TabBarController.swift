@@ -19,7 +19,6 @@ class TabBarController: UITabBarController {
     
     // MARK: - load
     private func load(){
-        //setUpTabBarControllers()
         loadVacations()
         self.selectedIndex = 0
         self.tabBar.backgroundColor = .white
@@ -40,7 +39,7 @@ class TabBarController: UITabBarController {
     
     private func setUpTabBarControllers() {
         if let home = getController(with: HomeViewController.load(with: vacations), type: .Home),
-           let map = getController(with: MapViewController.load(), type: .Map),
+           let map = getController(with: MapViewController.load(vacations: vacations), type: .Map),
            let popularVacations = getController(with: PopularVacationsViewController.load(), type: .PopularVacations),
            let settings = getController(with: SettingsViewController.load(), type: .Settings) {
             
