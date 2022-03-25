@@ -75,7 +75,7 @@ class HomeViewController: MainViewController {
 
     private func logOut(){
         PFUser.logOut()
-        let loginViewController = SignInUpViewController.load(with: "bla bla")
+        let loginViewController = SignInUpViewController.loadController()
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let delegate = windowScene.delegate as? SceneDelegate else { return }
         delegate.window?.rootViewController = loginViewController

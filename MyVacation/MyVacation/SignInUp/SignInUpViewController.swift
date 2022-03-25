@@ -38,7 +38,7 @@ class SignInUpViewController: MainViewController {
     }
     
     // MARK: - init
-    static func load(with input: String) -> SignInUpViewController {
+    static func loadController() -> SignInUpViewController {
         let viewController = SignInUpViewController.loadFromStoryboard()
         return viewController
     }

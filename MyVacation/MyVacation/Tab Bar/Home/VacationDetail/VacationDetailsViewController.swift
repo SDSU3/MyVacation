@@ -136,7 +136,7 @@ class VacationDetailsViewController: UIViewController {
     
     private func showMap() {
         guard let vacation = vacation else { return }
-        let map = MapViewController.load(vacations: [vacation])
+        let map = MapViewController.load(vacations: [vacation], selectedVacation: true)
         self.navigationController?.pushViewController(map, animated: true)
     }
     

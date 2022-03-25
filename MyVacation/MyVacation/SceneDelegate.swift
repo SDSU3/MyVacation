@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -14,11 +15,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let _ = (scene as? UIWindowScene) else { return }
-        //root view controller is called here
-        //(for testing purpose you can put your viewController here instead of HomeViewController
-        window!.rootViewController = SignInUpViewController.load(with: "input")
-        //TabBarController()
-        window!.makeKeyAndVisible()
+        if PFUser.current() != nil {
+            let tabBar = TabBarController()
+            window?.rootViewController = tabBar
+        } else {
+            window!.rootViewController = SignInUpViewController.loadController()
+            window!.makeKeyAndVisible()
+        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
