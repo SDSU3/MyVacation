@@ -17,6 +17,7 @@ class HomeViewController: MainViewController {
     
     // properties
     private let vacationDetailSegue = "moveToVacationDetail"
+    private var vacations: [Vacation] = []
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -27,13 +28,15 @@ class HomeViewController: MainViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.vacationCollectionView.reloadData()
         self.navigationController?.isNavigationBarHidden = true
     }
     
     // MARK: - init
-    static func load() -> HomeViewController {
-       let viewController = HomeViewController.loadFromStoryboard()
-       return viewController
+    static func load(with vacations: [Vacation]?) -> HomeViewController {
+        let viewController = HomeViewController.loadFromStoryboard()
+        viewController.vacations = vacations ?? []
+        return viewController
     }
     
     private func setUpComponents() {
@@ -64,11 +67,12 @@ class HomeViewController: MainViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == vacationDetailSegue {
             if let viewController = segue.destination as? VacationDetailsViewController {
-                
+                guard let index = sender as? IndexPath else { return }
+                viewController.vacation = vacations[index.row]
             }
         }
     }
-    
+
     private func logOut(){
         PFUser.logOut()
         let loginViewController = SignInUpViewController.load(with: "bla bla")
@@ -81,7 +85,7 @@ class HomeViewController: MainViewController {
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5 // for testing purpose
+        return vacations.count // for testing purpose
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -92,6 +96,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = vacationCollectionView.dequeReusableCell(with: VacationCell.self, indexPath: indexPath)
+        let vacation = vacations[indexPath.row]
+        cell.setUp(with: vacation)
         return cell
     }
     
@@ -99,3 +105,5 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         self.performSegue(withIdentifier: vacationDetailSegue, sender: indexPath)
     }
 }
+
+

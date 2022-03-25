@@ -16,6 +16,8 @@ class MapViewController: MainViewController {
     
     //properties
     private var places: InterestingPlaces?
+    private var vacations: [Vacation]?
+    private var selectedVacation: Vacation?
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -43,27 +45,36 @@ class MapViewController: MainViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+        let vacationsNum = vacations?.count ?? 0
+        self.navigationController?.isNavigationBarHidden = vacationsNum != 1
     }
     
     // MARK: - init
-    static func load(with places: InterestingPlaces? = nil) -> MapViewController {
+    static func load(vacations: [Vacation]? = nil, with places: InterestingPlaces? = nil) -> MapViewController {
        let viewController = MapViewController.loadFromStoryboard()
         viewController.places = places
+        viewController.vacations = vacations
        return viewController
     }
     
     private func setUpMenu() {
+        guard let vacations = vacations else {
+            vacationMenuButton.isHidden = true
+            return
+        }
+
         vacationMenuButton.showsMenuAsPrimaryAction = true
         vacationMenuButton.roundCorners(with: 10)
         vacationMenuButton.addShadow(radius: 2)
         // add in UIAction all the vacations this one is just for testing purpose
-        let items = UIMenu(title: "more", options: .displayInline, children: [
-            UIAction(title: "one", handler: {_ in self.update(with: "one")}),
-            UIAction(title: "two", handler: {_ in self.update(with: "two")})
-        ])
+        let menuItems = vacations.map{ vacation in
+            return UIAction(title: vacation.ToPlace, handler: {_ in self.update(with: vacation.name)})
+        }
+        
+        let items = UIMenu(title: "more", options: .displayInline, children: menuItems)
         let menu = UIMenu(title: "", children: [items])
         vacationMenuButton.menu = menu
+        selectedVacation = vacations.first
     }
     
     private func setUpMap(){
@@ -74,19 +85,25 @@ class MapViewController: MainViewController {
         mapView.setRegion(region, animated: true)
     }
     
-    private func update(with vacation: String) {
-        print("do all the updates here")
+    private func update(with vacationName: String) {
+        selectedVacation = vacations?.filter({ $0.name == vacationName }).first
     }
     
     private func addAnnorations(){
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
+        var places = places
+        if selectedVacation != nil {
+            places = selectedVacation?.interestingPlaces
+        }
+        
         places?.places?.forEach({ place in
             let annotation = MKPointAnnotation()
             annotation.title = place.title
             annotation.subtitle = place.category
-            guard let lat = place.position?[0], let lon = place.position?[1] else { return }
+            guard place.position?.count == 2, let lat = place.position?[0], let lon = place.position?[1] else { return }
             annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
             mapView.addAnnotation(annotation)
-            
         })
     }
 }

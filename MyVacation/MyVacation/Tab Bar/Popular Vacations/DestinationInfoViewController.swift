@@ -25,8 +25,8 @@ class DestinationInfoViewController: UIViewController {
         
         // Configure the destination info (retrieve data from API):
         DestinationNameLabel.text = SelectedDestination.DestinationName
-        VisitedNumberLabel.text = "\(SelectedDestination.VisitedNumber!)"
-        FavoritedNumberLabel.text = "\(SelectedDestination.FavoritedNumber!)"
+        VisitedNumberLabel.text = "\(SelectedDestination.VisitedNumber)"
+        FavoritedNumberLabel.text = "\(SelectedDestination.FavoritedNumber)"
         
     }
     

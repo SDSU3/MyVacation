@@ -20,10 +20,14 @@ class InterestingPlaceCell: UICollectionViewCell {
         self.setUpComponents()
     }
     
+    func setUp(with place: InterestingPlace) {
+        placeNameLabel.text = place.title
+    }
+    
     private func setUpComponents(){
         mainConttentView.roundCorners(with: 10)
         placeImageView.roundCorners(with: 10)
-        mainConttentView.addShadow(of: .lightGray, radius: 2, offset: CGSize(width: 2, height: 2))
+        mainConttentView.addShadow(of: .lightGray, radius: 3, offset: CGSize(width: 2, height: 2))
     }
 
 }
