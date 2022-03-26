@@ -103,4 +103,15 @@ class APIServices {
             completion(result)
         })
     }
+    
+    static func getImage(of name: String, completion: @escaping (Result<Images,Error>) -> Void){
+        let baseURL = "https://pixabay.com/api/"
+        let key = "26329382-429cd0fb9914fc0eba7b3a127"
+        guard let url = URL(string: "\(baseURL)?key=\(key)&q=\(name)&image_type=photo") else { return }
+        APIServices.getURL(with: url, completion: { result in
+            completion(result)
+            
+        })
+    }
 }
+
