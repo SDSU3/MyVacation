@@ -13,6 +13,7 @@ struct PopularDestination {
     var DestinationName: String = ""
     var VisitedNumber: Int = 0
     var FavoritedNumber: Int = 0
+    var destinationObj: PFObject?
     
     init(DestinationName: String = "", VisitedNumber: Int = 0, FavoritedNumber: Int = 0) {
         self.DestinationName = DestinationName
@@ -21,6 +22,7 @@ struct PopularDestination {
     }
     
     init(with data: PFObject) {
+        self.destinationObj = data
         self.DestinationName = data[PopularDestination.ParserKeys.name] as? String ?? ""
         self.VisitedNumber = data[PopularDestination.ParserKeys.favorite] as? Int ?? 0
         self.FavoritedNumber = data[PopularDestination.ParserKeys.popular] as? Int ?? 0
