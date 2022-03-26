@@ -95,25 +95,68 @@ class UserServices {
         }
     }
     
-    static func addPopularDestination(vacation: Vacation, type: PopularPlaceType ,completion: @escaping (Bool) -> Void){
+    static func addPopularDestination(vacation: Vacation,completion: @escaping (Bool) -> Void){
         let popularPlaces = PFObject(className: "PopularDestinations")
         popularPlaces["placeName"] = vacation.ToPlace
-        
-        let incrementKey = type == .favorite ? "favorite" : "visited"
-        popularPlaces.incrementKey(incrementKey)
-        
-        popularPlaces.saveInBackground { (success, error) in
-            if success {
-                print("saved places")
-                completion(true)
-            } else {
-                print("could not add popular places \(error?.localizedDescription ?? "")")
+        UserServices.loadPopularDestination { result in
+            switch result {
+            case .success(let destinations):
+                if let _ = destinations.filter({ $0.DestinationName == vacation.name }).first {
+                    print("such vacation already exists")
+                    completion(false)
+                } else {
+                    popularPlaces.saveInBackground { (success, error) in
+                        if success {
+                            print("saved places")
+                            completion(true)
+                        } else {
+                            print("could not add popular places \(error?.localizedDescription ?? "")")
+                            completion(false)
+                        }
+                    }
+                }
+            case .failure(_):
                 completion(false)
             }
         }
     }
     
-    static func loadPopularDestination(vacation: Vacation, type: PopularPlaceType ,completion: @escaping (Result<[PopularDestination],Error>) -> Void){
+    static func updatePopularDestination(selectedVac: Vacation, type: PopularPlaceType ,completion: @escaping (Bool) -> Void){
+        UserServices.loadPopularDestination { result in
+            switch result {
+            case .success(let destinations):
+                if let similarDestinations = destinations.filter({ $0.DestinationName == selectedVac.name }).first {
+                    self.updateDestination(selectedDest: similarDestinations,
+                                           type: type,
+                                           completion: { result in
+                        completion(result)
+                    })
+                } else {
+                    completion(false)
+                }
+            case .failure(_):
+                completion(false)
+            }
+        }
+    }
+    
+    static private func updateDestination(selectedDest: PopularDestination, type: PopularPlaceType, completion: @escaping (Bool) -> Void) {
+        let query = PFQuery(className:"PopularDestinations")
+        let id = selectedDest.destinationObj?.objectId ?? ""
+        query.getObjectInBackground(withId: id, block: { (destination,error) in
+            if error != nil {
+                print(error ?? "error")
+                completion(false)
+            } else if let destination = destination {
+                let incrementKey = type == .favorite ? "favorite" : "visited"
+                destination.incrementKey(incrementKey)
+                destination.saveInBackground()
+                completion(true)
+            }
+        })
+    }
+    
+    static func loadPopularDestination(completion: @escaping (Result<[PopularDestination],Error>) -> Void){
         let query = PFQuery(className: "PopularDestinations")
 
         query.findObjectsInBackground { (result, error) in
