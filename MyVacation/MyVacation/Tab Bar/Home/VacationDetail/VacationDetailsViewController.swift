@@ -18,9 +18,23 @@ class VacationDetailsViewController: UIViewController {
     @IBOutlet private weak var departureView: UIView!
     @IBOutlet private weak var arrivalView: UIView!
     
+    //departure view
+    @IBOutlet private weak var departureAirportLabel: UILabel!
+    @IBOutlet private weak var fromPlaceLabel: UILabel!
+    @IBOutlet private weak var startDateLabel: UILabel!
+    
+    //arrival view
+    @IBOutlet private weak var arrivalAirportLabel: UILabel!
+    @IBOutlet private weak var toPlaceLabel: UILabel!
+    @IBOutlet private weak var endDateLabel: UILabel!
+    
+    var vacation: Vacation?
+    var weather: Weather?
+    
     // MARK: - lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initialize()
         self.setUpComponents()
     }
     
@@ -29,18 +43,33 @@ class VacationDetailsViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
+    private func initialize(){
+        vacationNameLabel.text = vacation?.name
+        //departure info
+        departureAirportLabel.text = vacation?.departureAirport
+        fromPlaceLabel.text = vacation?.fromPlace
+        startDateLabel.text = vacation?.startDate.getFullDate()
+        //arrival info
+        arrivalAirportLabel.text = vacation?.arrivalAirport
+        toPlaceLabel.text = vacation?.ToPlace
+        endDateLabel.text = vacation?.endDate.getFullDate()
+        loadWeather()
+    }
+    
     private func setUpComponents() {
         // weather collection view
         weatherCollectionView.registerCell(with: WeatherCell.self)
         weatherCollectionView.delegate = self
         weatherCollectionView.dataSource = self
         weatherCollectionView.showsHorizontalScrollIndicator = false
+        weatherCollectionView.backgroundColor = .clear
         
         // interesting places collection view
         interestingPlacesCollectionView.registerCell(with: InterestingPlaceCell.self)
         interestingPlacesCollectionView.delegate = self
         interestingPlacesCollectionView.dataSource = self
         interestingPlacesCollectionView.showsHorizontalScrollIndicator = false
+        interestingPlacesCollectionView.backgroundColor = .clear
         
         menuButtons?.forEach({ button in
             guard let image = MenuItem(rawValue: button.tag)?.getImage() else { return }
@@ -61,14 +90,86 @@ class VacationDetailsViewController: UIViewController {
     
     @IBAction func menuButtonClicked(_ sender: UIButton) {
         let item = MenuItem(rawValue: sender.tag) ?? .none
-        print("clicked: " + item.description())
+        
+        switch item {
+        case .start:
+            self.startVacation()
+        case .edit:
+            self.showAlert(with: "we are working on this feature please wait") {}
+        case .map:
+            self.showMap()
+        case .delete:
+            self.deleteVacation()
+        case .none:
+            print("none")
+        }
+    }
+    
+    private func loadWeather() {
+        APIServices.getWeather(lat: 41, lon: 41, completion: { [weak self] result in
+            switch result {
+            case .success(let weather):
+                print(weather)
+                self?.weather = weather
+                DispatchQueue.main.async { [weak self] in
+                    self?.weatherCollectionView.reloadData()
+                }
+            case .failure(_):
+                self?.showAlert(with: "could not load weathers sorry") {}
+            }
+        })
+    }
+    
+    private func startVacation() {
+        guard let vacation = vacation else { return }
+        if vacation.status == .active {
+            self.showAlert(with: "You have already started this vacation") {}
+        } else {
+            vacation.status = .active
+            UserServices.updateVacation(with: vacation, completion: { [weak self] success in
+                self?.showAlert(with: "Congratualtion! you have started your vacation") {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            })
+        }
+    }
+    
+    private func showMap() {
+        guard let vacation = vacation else { return }
+        let map = MapViewController.load(vacations: [vacation], selectedVacation: true)
+        self.navigationController?.pushViewController(map, animated: true)
+    }
+    
+    private func deleteVacation() {
+        guard let vacation = vacation else { return }
+        UserServices.deleteVacation(with: vacation, completion: { [weak self] success in
+            self?.showAlert(with: "Deleted vacation successfully") {
+                self?.navigationController?.popViewController(animated: true)
+            }
+        })
+    }
+    
+    private func showAlert(with text: String, completion: @escaping ()-> Void){
+        let alert = UIAlertController(title: "Update", message: text, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
+            alert.dismiss(animated: true, completion: {
+                completion()
+            })
+        })
+        alert.addAction(cancel)
+        self.present(alert, animated: true)
     }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout, UICollectionViewDataSource
 extension VacationDetailsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if collectionView == weatherCollectionView {
+            return weather?.daily?.data?.count ?? 0
+        } else if collectionView == interestingPlacesCollectionView {
+            return vacation?.interestingPlaces?.places?.count ?? 0
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -87,10 +188,16 @@ extension VacationDetailsViewController: UICollectionViewDelegateFlowLayout, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == weatherCollectionView {
             let cell = weatherCollectionView.dequeReusableCell(with: WeatherCell.self, indexPath: indexPath)
+            if let weather = weather?.daily?.data?[indexPath.row] {
+                cell.setUp(with: weather, day: indexPath.row)
+            }
             return cell
             
         } else if collectionView == interestingPlacesCollectionView {
             let cell = interestingPlacesCollectionView.dequeReusableCell(with: InterestingPlaceCell.self, indexPath: indexPath)
+            if let place = vacation?.interestingPlaces?.places?[indexPath.row] {
+                cell.setUp(with: place)
+            }
             return cell
             
         } else {

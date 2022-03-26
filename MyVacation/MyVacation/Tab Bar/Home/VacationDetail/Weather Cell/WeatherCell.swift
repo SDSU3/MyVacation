@@ -13,9 +13,22 @@ class WeatherCell: UICollectionViewCell {
     @IBOutlet private weak var weatherImageView: UIImageView!
     @IBOutlet private weak var dayLabel: UILabel!
     
+    func setUp(with weather: DailyWeatherEntry, day: Int) {
+        guard let icon = weather.icon else { return }
+        weatherImageView.image = UIImage.getImage(named: icon)
+        if let intTime = weather.time {
+            dayLabel.text = Date.intToDate(intTime).getDayAndMonth()
+        } else {
+            dayLabel.text = "day \(day + 1)"
+        }
+    }
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
 }
+
+

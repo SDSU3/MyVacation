@@ -20,6 +20,8 @@
 		923D0B4D27E6830A0076B284 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D0B4C27E6830A0076B284 /* Constants.swift */; };
 		92E8305527DDC58000177B4F /* SignInUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8305427DDC58000177B4F /* SignInUp.storyboard */; };
 		92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8305627DDC60800177B4F /* SignInUpViewController.swift */; };
+		C311C1FA27EDDA2B0039505E /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C311C1F927EDDA2B0039505E /* Date+Extension.swift */; };
+		C311C1FC27EDDC4A0039505E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C311C1FB27EDDC4A0039505E /* UIColor+Extension.swift */; };
 		C32E267527E907E9002EC844 /* InterestingPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E267427E907E9002EC844 /* InterestingPlaces.swift */; };
 		C32E267727E9229A002EC844 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E267627E9229A002EC844 /* Weather.swift */; };
 		C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */; };
@@ -70,6 +72,8 @@
 		923D0B4C27E6830A0076B284 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92E8305427DDC58000177B4F /* SignInUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInUp.storyboard; sourceTree = "<group>"; };
 		92E8305627DDC60800177B4F /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
+		C311C1F927EDDA2B0039505E /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		C311C1FB27EDDC4A0039505E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		C32E267427E907E9002EC844 /* InterestingPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPlaces.swift; sourceTree = "<group>"; };
 		C32E267627E9229A002EC844 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -264,6 +268,8 @@
 				C3F286A127DFD7ED00130254 /* UICollectionView+ Extension.swift */,
 				C3F286A327DFD94F00130254 /* UITableView+Extension.swift */,
 				C3F286A627DFEA8600130254 /* UIImage+Extension.swift */,
+				C311C1F927EDDA2B0039505E /* Date+Extension.swift */,
+				C311C1FB27EDDC4A0039505E /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -482,8 +488,10 @@
 				C33E92D327E7C4370043DE20 /* UserServices.swift in Sources */,
 				92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */,
 				C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */,
+				C311C1FC27EDDC4A0039505E /* UIColor+Extension.swift in Sources */,
 				C388934D27D9C70D00504C49 /* NSObject + Extension.swift in Sources */,
 				C3F286A027DFD5AD00130254 /* UIView+Extension.swift in Sources */,
+				C311C1FA27EDDA2B0039505E /* Date+Extension.swift in Sources */,
 				C3357FB127E10B8800ED59B6 /* HomeViewController.swift in Sources */,
 				C32E267527E907E9002EC844 /* InterestingPlaces.swift in Sources */,
 				C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */,

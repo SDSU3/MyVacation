@@ -51,7 +51,7 @@ class PopularVacationsViewController: MainViewController {
         SearchBar.delegate = self
         
         // Initially assign Popular Destinations Array with the original values:
-        PopularDestinations_Search = PopularDestinations.sorted {$0.DestinationName! < $1.DestinationName!}
+        PopularDestinations_Search = PopularDestinations.sorted {$0.DestinationName < $1.DestinationName}
         
         //MARK: - (AccountButton) Drop Down Menu Configuration:
         
@@ -88,6 +88,27 @@ class PopularVacationsViewController: MainViewController {
 //            DestinationsTableView.reloadData()
 //
 //        }
+            // If the selected option is "Visited":
+            if(index == 0){
+                // Sort the PopularDestinations Array (by name):
+                PopularDestinations_Search.sort { $0.DestinationName < $1.DestinationName }
+                
+            } else if(index == 1){
+                
+                // Sort the PopularDestinations Array (top visited):
+                PopularDestinations_Search.sort { $0.VisitedNumber > $1.VisitedNumber }
+                
+            } else if (index == 2){
+                
+                // Sort the PopularDestinations Array (top Favorited):
+                PopularDestinations_Search.sort { $0.FavoritedNumber > $1.FavoritedNumber }
+                
+            }
+            
+            // Reload the table view:
+            DestinationsTableView.reloadData()
+            
+        }
         
     }
     
@@ -126,8 +147,8 @@ extension PopularVacationsViewController: UITableViewDataSource {
         let cell = DestinationsTableView.dequeueReusableCell(withIdentifier: Constants.DestinationCellID) as! DestinationCell
         
         cell.DestinationName.text = PopularDestinations_Search[indexPath.row].DestinationName
-        cell.VisitedNumber.text = "\(PopularDestinations_Search[indexPath.row].VisitedNumber!)"
-        cell.FavoritedNumber.text = "\(PopularDestinations_Search[indexPath.row].FavoritedNumber!)"
+        cell.VisitedNumber.text = "\(PopularDestinations_Search[indexPath.row].VisitedNumber)"
+        cell.FavoritedNumber.text = "\(PopularDestinations_Search[indexPath.row].FavoritedNumber)"
         
         return cell
     }
@@ -166,7 +187,7 @@ extension PopularVacationsViewController: UISearchBarDelegate {
         
         PopularDestinations_Search = searchText.isEmpty ? PopularDestinations : PopularDestinations.filter({(data: PopularDestination) -> Bool in
             // If dataItem matches the searchText, return true to include it
-            return data.DestinationName?.range(of: searchText, options: .caseInsensitive) != nil
+            return data.DestinationName.range(of: searchText, options: .caseInsensitive) != nil
         })
         
         // Reload the table view:

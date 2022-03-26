@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -373,9 +373,15 @@
                     <navigationItem key="navigationItem" id="zAA-53-EYv"/>
                     <connections>
                         <outlet property="VacationImageView" destination="07L-FJ-flV" id="eya-2C-MEj"/>
+                        <outlet property="arrivalAirportLabel" destination="zmu-52-30Y" id="hNQ-vm-2jr"/>
                         <outlet property="arrivalView" destination="eZQ-uQ-adF" id="FGH-hL-UQN"/>
+                        <outlet property="departureAirportLabel" destination="W38-3h-M9i" id="aRL-9x-fii"/>
                         <outlet property="departureView" destination="sxS-xJ-nbm" id="yR0-9a-5wn"/>
+                        <outlet property="endDateLabel" destination="Xjt-hi-44N" id="auc-7L-g5T"/>
+                        <outlet property="fromPlaceLabel" destination="lXd-VE-8tE" id="C6f-fO-gqd"/>
                         <outlet property="interestingPlacesCollectionView" destination="02D-Gq-Vju" id="fNQ-tC-XGr"/>
+                        <outlet property="startDateLabel" destination="CGG-AR-mUb" id="HFx-Up-1pF"/>
+                        <outlet property="toPlaceLabel" destination="EAH-eP-CU6" id="Ois-2E-8Ri"/>
                         <outlet property="vacationNameLabel" destination="WaZ-gg-VyK" id="htu-gD-IFD"/>
                         <outlet property="weatherCollectionView" destination="Luf-w6-X27" id="eCj-9o-zVX"/>
                         <outletCollection property="menuButtons" destination="ggV-VW-8V0" collectionClass="NSMutableArray" id="yUh-9O-vv0"/>

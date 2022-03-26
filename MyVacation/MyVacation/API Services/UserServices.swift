@@ -53,24 +53,7 @@ class UserServices {
         }
     }
     
-    static func loadVacations(completion: @escaping ([Vacation]?) -> Void){
-        let query = PFQuery(className: "Vacation")
-        
-        query.findObjectsInBackground { (result, error) in
-            if let loadVacations = result {
-                var vacations = [Vacation]()
-                for vacation in loadVacations {
-                    vacations.append(Vacation(with: vacation))
-                }
-                completion(vacations)
-            } else {
-                print("could not load posters \(error?.localizedDescription ?? "")")
-                completion(nil)
-            }
-        }
-    }
-    
-    static func loadVacationsFully(completion: @escaping (Result<[Vacation]?,Error>) -> Void){
+    static func loadVacations(completion: @escaping (Result<[Vacation]?,Error>) -> Void){
         let query = PFQuery(className: "Vacation")
         query.includeKeys(["author", "InterestingPlaces", "InterestingPlaces.author"])
         query.findObjectsInBackground { (result, error) in
@@ -81,8 +64,8 @@ class UserServices {
                 }
                 completion(.success(vacations))
             } else {
-                print("could not load posters \(error?.localizedDescription ?? "")")
-                completion(.failure(error as! Error))
+                print("could not load vacations \(error?.localizedDescription ?? "")")
+                completion(.failure(error!))
             }
         }
     }
@@ -104,8 +87,78 @@ class UserServices {
         vacation.saveInBackground { (success, error) in
             if success {
                 print("saved places")
+                completion(true)
             } else {
                 print("could not add places")
+                completion(false)
+            }
+        }
+    }
+    
+    static func addPopularDestination(vacation: Vacation, type: PopularPlaceType ,completion: @escaping (Bool) -> Void){
+        let popularPlaces = PFObject(className: "PopularDestinations")
+        popularPlaces["placeName"] = vacation.ToPlace
+        
+        let incrementKey = type == .favorite ? "favorite" : "visited"
+        popularPlaces.incrementKey(incrementKey)
+        
+        popularPlaces.saveInBackground { (success, error) in
+            if success {
+                print("saved places")
+                completion(true)
+            } else {
+                print("could not add popular places \(error?.localizedDescription ?? "")")
+                completion(false)
+            }
+        }
+    }
+    
+    static func loadPopularDestination(vacation: Vacation, type: PopularPlaceType ,completion: @escaping (Result<[PopularDestination],Error>) -> Void){
+        let query = PFQuery(className: "PopularDestinations")
+
+        query.findObjectsInBackground { (result, error) in
+            if let loadplaces = result {
+                var places = [PopularDestination]()
+                for place in loadplaces {
+                    places.append(PopularDestination(with: place))
+                }
+                completion(.success(places))
+            } else {
+                print("could not load popular destinations \(error?.localizedDescription ?? "")")
+                completion(.failure(error!))
+            }
+        }
+    }
+    
+    static func updateVacation(with newVacation: Vacation, completion: @escaping (Bool) -> Void) {
+        let query = PFQuery(className:"Vacation")
+        let id = newVacation.vacationObj?.objectId ?? ""
+        query.getObjectInBackground(withId: id, block: { (vacation,error) in
+            if error != nil {
+                print(error ?? "error")
+                completion(false)
+            } else if let vacation = vacation {
+                let updatedVacation = Vacation.createVacationBody(newVacation: newVacation,
+                                                                  existingVacation: vacation)
+                updatedVacation.saveInBackground()
+                completion(true)
+            }
+        })
+    }
+    
+    static func deleteVacation(with vacation: Vacation, completion: @escaping (Bool) -> Void) {
+        let query = PFQuery(className:"Vacation")
+        let id = vacation.vacationObj?.objectId ?? ""
+        query.whereKey("objectId", equalTo: id)
+        query.findObjectsInBackground { vacations,error in
+            if error != nil {
+                print(error ?? "error")
+                completion(false)
+            } else if let vacations = vacations {
+                for vacation in vacations {
+                    vacation.deleteEventually()
+                }
+                completion(true)
             }
         }
     }

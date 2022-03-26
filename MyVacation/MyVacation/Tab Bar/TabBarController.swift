@@ -10,6 +10,7 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
+    private var vacations: [Vacation]?
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,15 +19,27 @@ class TabBarController: UITabBarController {
     
     // MARK: - load
     private func load(){
-        setUpTabBarControllers()
+        loadVacations()
         self.selectedIndex = 0
         self.tabBar.backgroundColor = .white
         self.tabBar.roundCorners(with: 20)
     }
     
+    private func loadVacations() {
+        UserServices.loadVacations(completion: { [weak self] result in
+            switch result {
+            case .success(let vacations):
+                self?.vacations = vacations
+                self?.setUpTabBarControllers()
+            case .failure(let err):
+                print("error \(err)")
+            }
+        })
+    }
+    
     private func setUpTabBarControllers() {
-        if let home = getController(with: HomeViewController.load(), type: .Home),
-           let map = getController(with: MapViewController.load(), type: .Map),
+        if let home = getController(with: HomeViewController.load(with: vacations), type: .Home),
+           let map = getController(with: MapViewController.load(vacations: vacations), type: .Map),
            let popularVacations = getController(with: PopularVacationsViewController.load(), type: .PopularVacations),
            let settings = getController(with: SettingsViewController.load(), type: .Settings) {
             
