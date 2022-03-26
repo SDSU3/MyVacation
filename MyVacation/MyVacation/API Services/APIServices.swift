@@ -77,7 +77,7 @@ class APIServices {
     static func getCities(name: String, completion: @escaping (Result<[Place],Error>) -> Void){
         let key = "Z7N68HLrwh65gQLZoCCKRg==R8o6byFG2aANS9vy"
         let baseURL = "https://api.api-ninjas.com/v1/city?name="
-        guard let url = URL(string: "\(baseURL)\(name)&limit=25") else { return }
+        guard let url = URL(string: "\(baseURL)\(name)&limit=5") else { return }
         var request = URLRequest(url: url)
         request.setValue(key, forHTTPHeaderField: "X-Api-Key")
         getURLRequest(with: request, completion: { result in

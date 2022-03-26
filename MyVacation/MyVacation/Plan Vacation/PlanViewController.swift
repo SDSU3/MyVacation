@@ -7,8 +7,21 @@
 
 import UIKit
 import Koyomi
+import iOSDropDown
 
 class PlanViewController: MainViewController {
+    
+    
+    
+    var citiesString = [String]()
+    var fromCity: String = ""
+    var toCity: String = ""
+    var countryCode: String = ""
+    var countryAirports: [String: String] = [:]
+    
+    
+    @IBOutlet weak var dropDownFrom: DropDown!
+    @IBOutlet weak var dropDownTo: DropDown!
     
     @IBOutlet weak var vacationNameTextField: UITextField!
     @IBOutlet weak var fromTextField: UITextField!
@@ -16,9 +29,7 @@ class PlanViewController: MainViewController {
     @IBOutlet weak var departureAirport: UICollectionView!
     @IBOutlet weak var arrivalAirport: UICollectionView!
     fileprivate let invalidPeriodLength = 90
-    
     var VacDates = VacationDates()
-    
     @IBOutlet fileprivate weak var koyomi: Koyomi! {
         didSet {
             koyomi.circularViewDiameter = 0.2
@@ -34,9 +45,7 @@ class PlanViewController: MainViewController {
                 .setWeekFont(size: 10)
         }
     }
-    
     @IBOutlet weak var currentDateLabel: UILabel!
-    
     @IBOutlet fileprivate weak var segmentedControl: UISegmentedControl! {
         didSet {
             segmentedControl.setTitle("Previous", forSegmentAt: 0)
@@ -49,6 +58,8 @@ class PlanViewController: MainViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        departureAirport.delegate = self
+        departureAirport.dataSource = self
 
         // Do any additional setup after loading the view.
     }
@@ -66,17 +77,110 @@ class PlanViewController: MainViewController {
     
     
     @IBAction func nextButton(_ sender: Any) {
-
         guard let startDate = VacDates.startDate?.addingTimeInterval(60 * 60 * 24),
               let endDate = VacDates.endDate?.addingTimeInterval(60 * 60 * 24) else { return }
         let plan = Plan(name: vacationNameTextField.text!, from: fromTextField.text!, to: toTextField.text!, startDate: startDate, endDate: endDate, departure: departureAirport.description, arrival: arrivalAirport.description)
     }
     
     
-
+    
+    @IBAction func fromTextFieldChanged(_ sender: UITextField) {
+        DispatchQueue.main.async {
+            guard self.fromTextField.text != "" else { return }
+            APIServices.getCities(name: self.fromTextField.text!, completion: { result in
+                switch result {
+                case .success(let cities):
+                    for city in cities {
+                        self.citiesString.append(city.name)
+                    }
+                    self.dropDownFrom.optionArray = self.citiesString
+                    self.dropDownFrom.didSelect{(selectedText , index ,id) in
+                        self.fromCity = selectedText
+                        for city in cities {
+                            if selectedText == city.name {
+                                self.countryCode = city.country!
+                            }
+                        }
+                    }
+                    self.citiesString.removeAll()
+                case .failure(let error):
+                    print(error)
+                }
+            })
+            
+            
+        }
+    }
+    
+    
+    @IBAction func toTextFieldChanged(_ sender: UITextField) {
+        DispatchQueue.main.async {
+            guard self.toTextField.text != "" else { return }
+            APIServices.getCities(name: self.toTextField.text!, completion: { result in
+                switch result {
+                case .success(let cities):
+                    print(cities)
+                    for city in cities {
+                        self.citiesString.append(city.name)
+                    }
+                    self.dropDownTo.optionArray = self.citiesString
+                    self.dropDownTo.didSelect{(selectedText , index ,id) in
+                        self.fromCity = selectedText
+                    }
+                    self.citiesString.removeAll()
+                case .failure(let error):
+                    print(error)
+                }
+            })
+            
+            
+        }
+    }
+    
+    @IBAction func endFromTextField(_ sender: DropDown) {
+        DispatchQueue.main.async {
+            APIServices.getAiports(countryCode: self.countryCode, completion: {result in
+                switch result {
+                case .success(let airports):
+                    print(airports.data)
+                    for airport in airports.data {
+                        self.countryAirports.updateValue(airport.iataCode ?? "", forKey: airport.name)
+                    }
+                    print(self.countryAirports)
+                case .failure(let error):
+                    print(error)
+                }
+            })
+        }
+        departureAirport.reloadData()
+    }
+    
+    
+    
+    
+    
     
     
 }
+
+
+
+
+extension PlanViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return countryAirports.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = departureAirport.dequeReusableCell(with: AirportCell.self, indexPath: indexPath)
+        cell.airportName.text = "dfd"
+        cell.airportCode.text = "ds"
+        return cell
+    }
+    
+    
+}
+
 
 extension PlanViewController {
     @IBAction func tappedControl(_ sender: UISegmentedControl) {

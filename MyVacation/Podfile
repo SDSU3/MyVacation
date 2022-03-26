@@ -9,6 +9,6 @@ target 'MyVacation' do
   pod 'Parse'
   pod 'AlamofireImage'
   pod 'Koyomi'
-  pod 'DropDown'
+  pod 'iOSDropDown'
 
 end

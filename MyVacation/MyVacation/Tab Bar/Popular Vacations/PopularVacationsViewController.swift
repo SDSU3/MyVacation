@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DropDown
+//import DropDown
 
 class PopularVacationsViewController: MainViewController {
     
@@ -19,7 +19,7 @@ class PopularVacationsViewController: MainViewController {
     
     //MARK: - Drop Down Menu:
     
-    let dropDown = DropDown()
+    //let dropDown = DropDown()
     // Drop Down Menu Options:
     let FilterMenu = Constants.FilterMenu
     
@@ -56,38 +56,38 @@ class PopularVacationsViewController: MainViewController {
         //MARK: - (AccountButton) Drop Down Menu Configuration:
         
         // The view to which the drop down will appear on
-        dropDown.anchorView = MenuLocation;
+        //dropDown.anchorView = MenuLocation;
         
         // The list of items to display. Can be changed dynamically
-        dropDown.dataSource = FilterMenu
+        //dropDown.dataSource = FilterMenu
         
         // Make the Menu appears on the buttom
-        dropDown.direction = .bottom
+        //dropDown.direction = .bottom
         
         // Action triggered on selection
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+        //dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             
-            // If the selected option is "Visited":
-            if(index == 0){
-                // Sort the PopularDestinations Array (by name):
-                PopularDestinations_Search.sort { $0.DestinationName! < $1.DestinationName! }
-                
-            } else if(index == 1){
-                
-                // Sort the PopularDestinations Array (top visited):
-                PopularDestinations_Search.sort { $0.VisitedNumber! > $1.VisitedNumber! }
-                
-            } else if (index == 2){
-                
-                // Sort the PopularDestinations Array (top Favorited):
-                PopularDestinations_Search.sort { $0.FavoritedNumber! > $1.FavoritedNumber! }
-                
-            }
-            
-            // Reload the table view:
-            DestinationsTableView.reloadData()
-            
-        }
+//            // If the selected option is "Visited":
+//            if(index == 0){
+//                // Sort the PopularDestinations Array (by name):
+//                PopularDestinations_Search.sort { $0.DestinationName! < $1.DestinationName! }
+//
+//            } else if(index == 1){
+//
+//                // Sort the PopularDestinations Array (top visited):
+//                PopularDestinations_Search.sort { $0.VisitedNumber! > $1.VisitedNumber! }
+//
+//            } else if (index == 2){
+//
+//                // Sort the PopularDestinations Array (top Favorited):
+//                PopularDestinations_Search.sort { $0.FavoritedNumber! > $1.FavoritedNumber! }
+//
+//            }
+//
+//            // Reload the table view:
+//            DestinationsTableView.reloadData()
+//
+//        }
         
     }
     
@@ -96,7 +96,7 @@ class PopularVacationsViewController: MainViewController {
     
     @IBAction func FilterButtonPressed(_ sender: UIButton) {
         // DropDown Menu appears:
-        dropDown.show()
+        //dropDown.show()
     }
     
     
