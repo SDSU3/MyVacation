@@ -8,6 +8,7 @@
 
 import UIKit
 import DropDown
+import Parse
 
 class PopularVacationsViewController: MainViewController {
     
@@ -27,15 +28,7 @@ class PopularVacationsViewController: MainViewController {
     //MARK: - Inital Values:
     
     // Popular Destinations Array, initially empty, populated with data retrieved from database:
-    var PopularDestinations: [PopularDestination] = [
-        PopularDestination(DestinationName: "San Diego", VisitedNumber: 90063, FavoritedNumber: 1000000),
-        PopularDestination(DestinationName: "Las Vegas", VisitedNumber: 799222, FavoritedNumber: 5000000),
-        PopularDestination(DestinationName: "Los Angeles", VisitedNumber: 562873, FavoritedNumber: 28476873),
-        PopularDestination(DestinationName: "Jeddah", VisitedNumber: 900, FavoritedNumber: 100),
-        PopularDestination(DestinationName: "Paris", VisitedNumber: 400000000, FavoritedNumber: 3000000000),
-        PopularDestination(DestinationName: "Fresno", VisitedNumber: 40, FavoritedNumber: 20),
-        PopularDestination(DestinationName: "Baltimore", VisitedNumber: 100, FavoritedNumber: 80)
-    ]
+    var PopularDestinations: [PopularDestination] = []
     
     // Popular Destinations Array, to filter the original array when using the search bar:
     var PopularDestinations_Search: [PopularDestination] = []
@@ -49,6 +42,27 @@ class PopularVacationsViewController: MainViewController {
         DestinationsTableView.dataSource = self
         DestinationsTableView.delegate = self
         SearchBar.delegate = self
+        
+        
+        // Retrieve popular destinations from database:
+        let query = PFQuery(className: "PopularDestinations")
+        query.findObjectsInBackground(block: { objects, error in
+            
+            if error == nil {
+                if let retrievedObjects = objects {
+                    
+                    for object in retrievedObjects {
+                        self.PopularDestinations_Search.append(PopularDestination(with: object))
+                        self.PopularDestinations.append(PopularDestination(with: object))
+                        
+                    }
+                    self.DestinationsTableView.reloadData()
+                    
+                }
+                
+            }
+            
+        })
         
         // Initially assign Popular Destinations Array with the original values:
         PopularDestinations_Search = PopularDestinations.sorted {$0.DestinationName < $1.DestinationName}
@@ -123,8 +137,9 @@ extension PopularVacationsViewController: UITableViewDataSource {
     // Cell Configuration:
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = DestinationsTableView.dequeueReusableCell(withIdentifier: Constants.DestinationCellID) as! DestinationCell
         
+        let cell = DestinationsTableView.dequeueReusableCell(withIdentifier: Constants.DestinationCellID) as! DestinationCell
+                
         cell.DestinationName.text = PopularDestinations_Search[indexPath.row].DestinationName
         cell.VisitedNumber.text = "\(PopularDestinations_Search[indexPath.row].VisitedNumber)"
         cell.FavoritedNumber.text = "\(PopularDestinations_Search[indexPath.row].FavoritedNumber)"
@@ -173,3 +188,4 @@ extension PopularVacationsViewController: UISearchBarDelegate {
         DestinationsTableView.reloadData()
     }
 }
+
