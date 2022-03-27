@@ -17,13 +17,6 @@ class PopularVacationsViewController: MainViewController {
     @IBOutlet weak var DestinationsTableView: UITableView!
     @IBOutlet weak var MenuLocation: UIView!
     
-    //MARK: - Drop Down Menu:
-    
-    //let dropDown = DropDown()
-    // Drop Down Menu Options:
-    let FilterMenu = Constants.FilterMenu
-    
-    
     //MARK: - Inital Values:
     
     // Popular Destinations Array, initially empty, populated with data retrieved from database:
@@ -41,6 +34,7 @@ class PopularVacationsViewController: MainViewController {
         DestinationsTableView.dataSource = self
         DestinationsTableView.delegate = self
         SearchBar.delegate = self
+        setUpUserMenu()
         
         
         // Retrieve popular destinations from database:
@@ -65,74 +59,36 @@ class PopularVacationsViewController: MainViewController {
         // Initially assign Popular Destinations Array with the original values:
         PopularDestinations_Search = PopularDestinations.sorted {$0.DestinationName < $1.DestinationName}
     }
-        
-        //MARK: - (AccountButton) Drop Down Menu Configuration:
-        
-        // The view to which the drop down will appear on
-        //dropDown.anchorView = MenuLocation;
-        
-        // The list of items to display. Can be changed dynamically
-        //dropDown.dataSource = FilterMenu
-        
-        // Make the Menu appears on the buttom
-        //dropDown.direction = .bottom
-        
-        // Action triggered on selection
-        //dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            
-//            // If the selected option is "Visited":
-//            if(index == 0){
-//                // Sort the PopularDestinations Array (by name):
-//                PopularDestinations_Search.sort { $0.DestinationName! < $1.DestinationName! }
-//
-//            } else if(index == 1){
-//
-//                // Sort the PopularDestinations Array (top visited):
-//                PopularDestinations_Search.sort { $0.VisitedNumber! > $1.VisitedNumber! }
-//
-//            } else if (index == 2){
-//
-//                // Sort the PopularDestinations Array (top Favorited):
-//                PopularDestinations_Search.sort { $0.FavoritedNumber! > $1.FavoritedNumber! }
-//
-//            }
-//
-//            // Reload the table view:
-//            DestinationsTableView.reloadData()
-//
-//        }
-//            // If the selected option is "Visited":
-//            if(index == 0){
-//                // Sort the PopularDestinations Array (by name):
-//                PopularDestinations_Search.sort { $0.DestinationName < $1.DestinationName }
-//
-//            } else if(index == 1){
-//
-//                // Sort the PopularDestinations Array (top visited):
-//                PopularDestinations_Search.sort { $0.VisitedNumber > $1.VisitedNumber }
-//
-//            } else if (index == 2){
-//
-//                // Sort the PopularDestinations Array (top Favorited):
-//                PopularDestinations_Search.sort { $0.FavoritedNumber > $1.FavoritedNumber }
-//
-//            }
-//
-//            // Reload the table view:
-//            DestinationsTableView.reloadData()
-//
-//        }
-//        
-//    }
-//    
     
-//    //MARK: - Filter Button:
-//    
-//    @IBAction func FilterButtonPressed(_ sender: UIButton) {
-//        // DropDown Menu appears:
-//        //dropDown.show()
-//    }
     
+    private func setUpUserMenu() {
+        FilterButton.showsMenuAsPrimaryAction = true
+        let items = UIMenu(title: "more", options: .displayInline, children: [
+            UIAction(title: "Name", handler: {_ in self.filterClicked(.name)}),
+            UIAction(title: "Visited", handler: {_ in self.filterClicked(.visited)}),
+            UIAction(title: "Favorite", handler: {_ in self.filterClicked(.favorite)})
+        ])
+        let menu = UIMenu(title: "", children: [items])
+        FilterButton.menu = menu
+    }
+    
+    private func filterClicked(_ name: FilterOptions) {
+        switch name {
+        case .name:
+            PopularDestinations_Search.sort { $0.DestinationName < $1.DestinationName }
+        case .favorite:
+            PopularDestinations_Search.sort { $0.FavoritedNumber > $1.FavoritedNumber }
+        case .visited:
+            PopularDestinations_Search.sort { $0.VisitedNumber > $1.VisitedNumber }
+        }
+        DestinationsTableView.reloadData()
+    }
+    
+    enum FilterOptions: String {
+        case name = "name"
+        case favorite = "favorite"
+        case visited = "visited"
+    }
     
     // MARK: - init
     static func load() -> PopularVacationsViewController {
@@ -187,7 +143,6 @@ extension PopularVacationsViewController: UITableViewDelegate {
 }
 
 //MARK: - Search Bar Delegate:
-
 extension PopularVacationsViewController: UISearchBarDelegate {
     
     // When Search Bar text changes:
