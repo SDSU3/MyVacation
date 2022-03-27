@@ -27,6 +27,11 @@ class DestinationInfoViewController: UIViewController {
         DestinationNameLabel.text = SelectedDestination.DestinationName
         VisitedNumberLabel.text = "\(SelectedDestination.VisitedNumber)"
         FavoritedNumberLabel.text = "\(SelectedDestination.FavoritedNumber)"
+        DestinationInfoLabel.text = "\(SelectedDestination.Details)"
+        
+        let url = URL(string: SelectedDestination.ImageURL)
+        let data = try? Data(contentsOf: url!)
+        DestinationImage.image = UIImage(data: data!)
         
     }
     
