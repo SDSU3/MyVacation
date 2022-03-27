@@ -54,14 +54,15 @@ class PlanViewController: MainViewController {
         }
     }
     
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        departureAirport.delegate = self
-        departureAirport.dataSource = self
-
-        // Do any additional setup after loading the view.
+        [departureAirport, arrivalAirport].forEach({ airport in
+            airport?.delegate = self
+            airport?.dataSource = self
+            airport?.registerCell(with: AirportCell.self)
+            airport?.showsHorizontalScrollIndicator = false
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,15 +75,11 @@ class PlanViewController: MainViewController {
        return viewController
     }
     
-    
-    
     @IBAction func nextButton(_ sender: Any) {
         guard let startDate = VacDates.startDate?.addingTimeInterval(60 * 60 * 24),
               let endDate = VacDates.endDate?.addingTimeInterval(60 * 60 * 24) else { return }
         let plan = Plan(name: vacationNameTextField.text!, from: fromTextField.text!, to: toTextField.text!, startDate: startDate, endDate: endDate, departure: departureAirport.description, arrival: arrivalAirport.description)
     }
-    
-    
     
     @IBAction func fromTextFieldChanged(_ sender: UITextField) {
         DispatchQueue.main.async {
@@ -107,8 +104,6 @@ class PlanViewController: MainViewController {
                     print(error)
                 }
             })
-            
-            
         }
     }
     
@@ -154,31 +149,20 @@ class PlanViewController: MainViewController {
         }
         departureAirport.reloadData()
     }
-    
-    
-    
-    
-    
-    
-    
+
 }
-
-
-
 
 extension PlanViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return countryAirports.count
+        return 10 // countryAirports.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = departureAirport.dequeReusableCell(with: AirportCell.self, indexPath: indexPath)
-        cell.airportName.text = "dfd"
-        cell.airportCode.text = "ds"
+        cell.airportName.text = "Airport Name"
+        cell.airportCode.text = "City Code"
         return cell
     }
-    
-    
 }
 
 

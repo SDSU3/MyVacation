@@ -52,6 +52,7 @@ class PopularVacationsViewController: MainViewController {
         
         // Initially assign Popular Destinations Array with the original values:
         PopularDestinations_Search = PopularDestinations.sorted {$0.DestinationName < $1.DestinationName}
+    }
         
         //MARK: - (AccountButton) Drop Down Menu Configuration:
         
@@ -88,37 +89,37 @@ class PopularVacationsViewController: MainViewController {
 //            DestinationsTableView.reloadData()
 //
 //        }
-            // If the selected option is "Visited":
-            if(index == 0){
-                // Sort the PopularDestinations Array (by name):
-                PopularDestinations_Search.sort { $0.DestinationName < $1.DestinationName }
-                
-            } else if(index == 1){
-                
-                // Sort the PopularDestinations Array (top visited):
-                PopularDestinations_Search.sort { $0.VisitedNumber > $1.VisitedNumber }
-                
-            } else if (index == 2){
-                
-                // Sort the PopularDestinations Array (top Favorited):
-                PopularDestinations_Search.sort { $0.FavoritedNumber > $1.FavoritedNumber }
-                
-            }
-            
-            // Reload the table view:
-            DestinationsTableView.reloadData()
-            
-        }
-        
-    }
+//            // If the selected option is "Visited":
+//            if(index == 0){
+//                // Sort the PopularDestinations Array (by name):
+//                PopularDestinations_Search.sort { $0.DestinationName < $1.DestinationName }
+//
+//            } else if(index == 1){
+//
+//                // Sort the PopularDestinations Array (top visited):
+//                PopularDestinations_Search.sort { $0.VisitedNumber > $1.VisitedNumber }
+//
+//            } else if (index == 2){
+//
+//                // Sort the PopularDestinations Array (top Favorited):
+//                PopularDestinations_Search.sort { $0.FavoritedNumber > $1.FavoritedNumber }
+//
+//            }
+//
+//            // Reload the table view:
+//            DestinationsTableView.reloadData()
+//
+//        }
+//        
+//    }
+//    
     
-    
-    //MARK: - Filter Button:
-    
-    @IBAction func FilterButtonPressed(_ sender: UIButton) {
-        // DropDown Menu appears:
-        //dropDown.show()
-    }
+//    //MARK: - Filter Button:
+//    
+//    @IBAction func FilterButtonPressed(_ sender: UIButton) {
+//        // DropDown Menu appears:
+//        //dropDown.show()
+//    }
     
     
     // MARK: - init
