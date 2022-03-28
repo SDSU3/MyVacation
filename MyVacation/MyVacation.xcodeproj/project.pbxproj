@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3212F7A440205C0A1101B950 /* Pods_MyVacation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C57F0DCF064A97F146A3E7E /* Pods_MyVacation.framework */; };
+		5B6C8DD127EFC262000AEC04 /* AirportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C8DD027EFC262000AEC04 /* AirportCell.xib */; };
+		5B6C8DD527EFC33A000AEC04 /* AirportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C8DD427EFC33A000AEC04 /* AirportCell.swift */; };
 		5BC9C14B27E7CF87003231FF /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9C14A27E7CF87003231FF /* Plan.swift */; };
 		5BFB14C127DF97C300F77EF8 /* Plan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BFB14C027DF97C300F77EF8 /* Plan.storyboard */; };
 		5BFB14C327DF97CD00F77EF8 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */; };
@@ -59,6 +61,8 @@
 
 /* Begin PBXFileReference section */
 		4C57F0DCF064A97F146A3E7E /* Pods_MyVacation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyVacation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B6C8DD027EFC262000AEC04 /* AirportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirportCell.xib; sourceTree = "<group>"; };
+		5B6C8DD427EFC33A000AEC04 /* AirportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportCell.swift; sourceTree = "<group>"; };
 		5BC9C14A27E7CF87003231FF /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		5BFB14C027DF97C300F77EF8 /* Plan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plan.storyboard; sourceTree = "<group>"; };
 		5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
@@ -132,9 +136,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5B6C8DCD27EFC215000AEC04 /* Airport Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5B6C8DD027EFC262000AEC04 /* AirportCell.xib */,
+				5B6C8DD427EFC33A000AEC04 /* AirportCell.swift */,
+			);
+			path = "Airport Cell";
+			sourceTree = "<group>";
+		};
 		5BFB14BF27DF97B500F77EF8 /* Plan Vacation */ = {
 			isa = PBXGroup;
 			children = (
+				5B6C8DCD27EFC215000AEC04 /* Airport Cell */,
 				5BFB14C027DF97C300F77EF8 /* Plan.storyboard */,
 				5BFB14C227DF97CD00F77EF8 /* PlanViewController.swift */,
 				5BFB14C427DFECAE00F77EF8 /* PlacesViewController.swift */,
@@ -403,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C388934227D9BA1400504C49 /* LaunchScreen.storyboard in Resources */,
+				5B6C8DD127EFC262000AEC04 /* AirportCell.xib in Resources */,
 				5BFB14C127DF97C300F77EF8 /* Plan.storyboard in Resources */,
 				C388933F27D9BA1400504C49 /* Assets.xcassets in Resources */,
 				C3357FAD27E0FAD600ED59B6 /* Map.storyboard in Resources */,
@@ -471,6 +486,7 @@
 				C33E92D727E7D5940043DE20 /* Place.swift in Sources */,
 				5BC9C14B27E7CF87003231FF /* Plan.swift in Sources */,
 				923D0B4927E5CAFE0076B284 /* PopularDestination.swift in Sources */,
+				5B6C8DD527EFC33A000AEC04 /* AirportCell.swift in Sources */,
 				5BFB14C527DFECAE00F77EF8 /* PlacesViewController.swift in Sources */,
 				923D0B4727E5C90C0076B284 /* DestinationCell.swift in Sources */,
 				C388933627D9BA1100504C49 /* AppDelegate.swift in Sources */,

@@ -13,27 +13,37 @@ struct PopularDestination {
     var DestinationName: String = ""
     var VisitedNumber: Int = 0
     var FavoritedNumber: Int = 0
+    var Details: String = ""
+    var ImageURL: String = ""
     var destinationObj: PFObject?
+
     
-    init(DestinationName: String = "", VisitedNumber: Int = 0, FavoritedNumber: Int = 0) {
+    init(DestinationName: String = "", VisitedNumber: Int = 0, FavoritedNumber: Int = 0, Details: String = "", ImageURL: String = "") {
         self.DestinationName = DestinationName
         self.VisitedNumber = VisitedNumber
         self.FavoritedNumber = FavoritedNumber
+        self.Details = Details
+        self.ImageURL = ImageURL
+        
     }
     
     init(with data: PFObject) {
         self.destinationObj = data
         self.DestinationName = data[PopularDestination.ParserKeys.name] as? String ?? ""
-        self.VisitedNumber = data[PopularDestination.ParserKeys.favorite] as? Int ?? 0
-        self.FavoritedNumber = data[PopularDestination.ParserKeys.popular] as? Int ?? 0
+        self.VisitedNumber = data[PopularDestination.ParserKeys.visited] as? Int ?? 0
+        self.FavoritedNumber = data[PopularDestination.ParserKeys.favorite] as? Int ?? 0
+        self.Details = data[PopularDestination.ParserKeys.details] as? String ?? ""
+        self.ImageURL = data[PopularDestination.ParserKeys.imageURL] as? String ?? ""
     }
 }
 
 extension PopularDestination {
     struct ParserKeys {
         static let favorite = "favorite"
-        static let popular = "popular"
+        static let visited = "visited"
         static let name = "placeName"
+        static let details = "placeDetails"
+        static let imageURL = "imageURL"
     }
 }
 
