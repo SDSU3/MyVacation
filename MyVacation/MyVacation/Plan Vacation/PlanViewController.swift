@@ -106,7 +106,6 @@ class PlanViewController: MainViewController {
                     for city in cities {
                         self.citiesStringFrom.append(city.name)
                     }
-                    print("Dropdown option: \(self.citiesStringFrom)")
                     self.dropDownFrom.optionArray = self.citiesStringFrom
                     self.dropDownFrom.didSelect{(selectedText , index ,id) in
                         self.fromCity = selectedText
@@ -117,7 +116,6 @@ class PlanViewController: MainViewController {
                             }
                         }
                     }
-                    print("Country code is: \(self.countryCodeFrom)")
                     self.citiesStringFrom.removeAll()
                 case .failure(let error):
                     print(error)
@@ -136,7 +134,6 @@ class PlanViewController: MainViewController {
                     for city in cities {
                         self.citiesStringTo.append(city.name)
                     }
-                    print("Dropdown option: \(self.citiesStringTo)")
                     self.dropDownTo.optionArray = self.citiesStringTo
                     self.dropDownTo.didSelect{(selectedText , index ,id) in
                         self.toCity = selectedText
@@ -147,7 +144,6 @@ class PlanViewController: MainViewController {
                             }
                         }
                     }
-                    print("Country Code is: \(self.countryCodeTo)")
                     self.citiesStringTo.removeAll()
                 case .failure(let error):
                     print(error)
@@ -163,7 +159,6 @@ class PlanViewController: MainViewController {
             APIServices.getAiports(countryCode: self.countryCodeFrom, completion: {result in
                 switch result {
                 case .success(let airports):
-                    print("Airoports from all information : \(airports.data)")
                     self.departureAirports.removeAll()
                     for airport in airports.data {
                         if airport.iataCode != nil {
@@ -172,13 +167,15 @@ class PlanViewController: MainViewController {
                             self.departureAirports.append("\(airport.name)")
                         }
                     }
-                    print("Airport from name options: \(self.departureAirports)")
+                    DispatchQueue.main.async {
+                        self.departureAirport.reloadData()
+                    }
                 case .failure(let error):
                     print(error)
                 }
             })
-            self.departureAirport.reloadData()
         }
+        
         
     }
     
@@ -188,7 +185,6 @@ class PlanViewController: MainViewController {
             APIServices.getAiports(countryCode: self.countryCodeTo, completion: {result in
                 switch result {
                 case .success(let airports):
-                    print("Airoports to all information : \(airports.data)")
                     self.arrivalAirports.removeAll()
                     for airport in airports.data {
                         if airport.iataCode != nil {
@@ -197,12 +193,13 @@ class PlanViewController: MainViewController {
                             self.arrivalAirports.append("\(airport.name)")
                         }
                     }
-                    print("Airport from name options: \(self.arrivalAirports)")
+                    DispatchQueue.main.async {
+                        self.arrivalAirport.reloadData()
+                    }
                 case .failure(let error):
                     print(error)
                 }
             })
-            self.arrivalAirport.reloadData()
         }
         
     }
@@ -244,12 +241,20 @@ extension PlanViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == departureAirport {
             self.chosenDepartureAirport = departureAirports[indexPath.row]
-            print(chosenDepartureAirport)
+            if let cell = collectionView.cellForItem(at: indexPath) {
+                cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
+                }
+            print(departureAirports[indexPath.row])
         } else {
             self.chosenArrivalAirport = arrivalAirports[indexPath.row]
-            print(chosenArrivalAirport)
+            if let cell = collectionView.cellForItem(at: indexPath) {
+                cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
+                }
         }
     }
+    
+
+    
 }
 
 
