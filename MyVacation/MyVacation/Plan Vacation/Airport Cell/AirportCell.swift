@@ -9,7 +9,6 @@ import UIKit
 
 class AirportCell: UICollectionViewCell {
     @IBOutlet weak var airportName: UILabel!
-    @IBOutlet weak var airportCode: UILabel!
     @IBOutlet weak var mainView: UIView!
     
     override func awakeFromNib() {

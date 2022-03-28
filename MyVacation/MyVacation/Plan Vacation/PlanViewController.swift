@@ -10,26 +10,31 @@ import Koyomi
 import iOSDropDown
 
 class PlanViewController: MainViewController {
-    
-    
-    
-    var citiesString = [String]()
+    //variables
+    var citiesStringFrom = [String]()
+    var citiesStringTo = [String]()
     var fromCity: String = ""
     var toCity: String = ""
-    var countryCode: String = ""
-    var countryAirports: [String: String] = [:]
+    var countryCodeFrom: String = ""
+    var countryCodeTo: String = ""
+    var departureAirports = [String]()
+    var arrivalAirports = [String]()
+    var chosenDepartureAirport: String = ""
+    var chosenArrivalAirport: String = ""
+    fileprivate let invalidPeriodLength = 90
+    var VacDates = VacationDates()
     
-    
+    //DropDown
     @IBOutlet weak var dropDownFrom: DropDown!
     @IBOutlet weak var dropDownTo: DropDown!
     
+    //IBOutlets
+    @IBOutlet weak var currentMonthLabel: UILabel!
     @IBOutlet weak var vacationNameTextField: UITextField!
     @IBOutlet weak var fromTextField: UITextField!
     @IBOutlet weak var toTextField: UITextField!
     @IBOutlet weak var departureAirport: UICollectionView!
     @IBOutlet weak var arrivalAirport: UICollectionView!
-    fileprivate let invalidPeriodLength = 90
-    var VacDates = VacationDates()
     @IBOutlet fileprivate weak var koyomi: Koyomi! {
         didSet {
             koyomi.circularViewDiameter = 0.2
@@ -57,6 +62,8 @@ class PlanViewController: MainViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentDateLabel.text = ""
+        
         [departureAirport, arrivalAirport].forEach({ airport in
             airport?.delegate = self
             airport?.dataSource = self
@@ -70,15 +77,24 @@ class PlanViewController: MainViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
+    
     static func load(with input: String) -> PlanViewController {
        let viewController = PlanViewController.loadFromStoryboard()
        return viewController
     }
     
+    
     @IBAction func nextButton(_ sender: Any) {
         guard let startDate = VacDates.startDate?.addingTimeInterval(60 * 60 * 24),
               let endDate = VacDates.endDate?.addingTimeInterval(60 * 60 * 24) else { return }
-        let plan = Plan(name: vacationNameTextField.text!, from: fromTextField.text!, to: toTextField.text!, startDate: startDate, endDate: endDate, departure: departureAirport.description, arrival: arrivalAirport.description)
+        let vacation = Vacation(name: vacationNameTextField.text!, fromPlace: fromTextField.text!, ToPlace: toTextField.text!, endDate: endDate, startDate: startDate, arrivalAirport: chosenArrivalAirport, departureAirport: chosenDepartureAirport, position: [], status: VacationStatus.inactive)
+        UserServices.createVacation(with: vacation, completion: { [weak self] success in
+            if success {
+                print(success)
+            } else {
+                print(Error.self)
+            }
+        })
     }
     
     @IBAction func fromTextFieldChanged(_ sender: UITextField) {
@@ -88,18 +104,21 @@ class PlanViewController: MainViewController {
                 switch result {
                 case .success(let cities):
                     for city in cities {
-                        self.citiesString.append(city.name)
+                        self.citiesStringFrom.append(city.name)
                     }
-                    self.dropDownFrom.optionArray = self.citiesString
+                    print("Dropdown option: \(self.citiesStringFrom)")
+                    self.dropDownFrom.optionArray = self.citiesStringFrom
                     self.dropDownFrom.didSelect{(selectedText , index ,id) in
                         self.fromCity = selectedText
                         for city in cities {
                             if selectedText == city.name {
-                                self.countryCode = city.country!
+                                self.countryCodeFrom = city.country!
+                                
                             }
                         }
                     }
-                    self.citiesString.removeAll()
+                    print("Country code is: \(self.countryCodeFrom)")
+                    self.citiesStringFrom.removeAll()
                 case .failure(let error):
                     print(error)
                 }
@@ -114,15 +133,22 @@ class PlanViewController: MainViewController {
             APIServices.getCities(name: self.toTextField.text!, completion: { result in
                 switch result {
                 case .success(let cities):
-                    print(cities)
                     for city in cities {
-                        self.citiesString.append(city.name)
+                        self.citiesStringTo.append(city.name)
                     }
-                    self.dropDownTo.optionArray = self.citiesString
+                    print("Dropdown option: \(self.citiesStringTo)")
+                    self.dropDownTo.optionArray = self.citiesStringTo
                     self.dropDownTo.didSelect{(selectedText , index ,id) in
-                        self.fromCity = selectedText
+                        self.toCity = selectedText
+                        for city in cities {
+                            if selectedText == city.name {
+                                self.countryCodeTo = city.country!
+                                
+                            }
+                        }
                     }
-                    self.citiesString.removeAll()
+                    print("Country Code is: \(self.countryCodeTo)")
+                    self.citiesStringTo.removeAll()
                 case .failure(let error):
                     print(error)
                 }
@@ -132,36 +158,97 @@ class PlanViewController: MainViewController {
         }
     }
     
-    @IBAction func endFromTextField(_ sender: DropDown) {
+    @IBAction func endFromTextField(_ sender: Any) {
         DispatchQueue.main.async {
-            APIServices.getAiports(countryCode: self.countryCode, completion: {result in
+            APIServices.getAiports(countryCode: self.countryCodeFrom, completion: {result in
                 switch result {
                 case .success(let airports):
-                    print(airports.data)
+                    print("Airoports from all information : \(airports.data)")
+                    self.departureAirports.removeAll()
                     for airport in airports.data {
-                        self.countryAirports.updateValue(airport.iataCode ?? "", forKey: airport.name)
+                        if airport.iataCode != nil {
+                            self.departureAirports.append("\(airport.name) - \(airport.iataCode!)")
+                        } else {
+                            self.departureAirports.append("\(airport.name)")
+                        }
                     }
-                    print(self.countryAirports)
+                    print("Airport from name options: \(self.departureAirports)")
                 case .failure(let error):
                     print(error)
                 }
             })
+            self.departureAirport.reloadData()
         }
-        departureAirport.reloadData()
+        
     }
+    
+    
+    @IBAction func endToTextField(_ sender: DropDown) {
+        DispatchQueue.main.async {
+            APIServices.getAiports(countryCode: self.countryCodeTo, completion: {result in
+                switch result {
+                case .success(let airports):
+                    print("Airoports to all information : \(airports.data)")
+                    self.arrivalAirports.removeAll()
+                    for airport in airports.data {
+                        if airport.iataCode != nil {
+                            self.arrivalAirports.append("\(airport.name) - \(airport.iataCode!)")
+                        } else {
+                            self.arrivalAirports.append("\(airport.name)")
+                        }
+                    }
+                    print("Airport from name options: \(self.arrivalAirports)")
+                case .failure(let error):
+                    print(error)
+                }
+            })
+            self.arrivalAirport.reloadData()
+        }
+        
+    }
+    
 
 }
 
 extension PlanViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10 // countryAirports.count
+        guard collectionView == departureAirport else {
+            return arrivalAirports.count
+        }
+        //if collectionView == arrivalAirport {
+        return departureAirports.count
+        //}
+        //return 0 //countryAirports.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = departureAirport.dequeReusableCell(with: AirportCell.self, indexPath: indexPath)
-        cell.airportName.text = "Airport Name"
-        cell.airportCode.text = "City Code"
-        return cell
+        if collectionView == departureAirport {
+            let cell = departureAirport.dequeReusableCell(with: AirportCell.self, indexPath: indexPath)
+            if departureAirports.isEmpty {
+                cell.airportName.text = "Airport Name"
+            } else {
+                cell.airportName.text = departureAirports[indexPath.row] as? String
+            }
+            return cell
+        } else {
+            let cell = arrivalAirport.dequeReusableCell(with: AirportCell.self, indexPath: indexPath)
+            if arrivalAirports.isEmpty {
+                cell.airportName.text = "Airport Name"
+            } else {
+                cell.airportName.text = arrivalAirports[indexPath.row] as? String
+            }
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == departureAirport {
+            self.chosenDepartureAirport = departureAirports[indexPath.row]
+            print(chosenDepartureAirport)
+        } else {
+            self.chosenArrivalAirport = arrivalAirports[indexPath.row]
+            print(chosenArrivalAirport)
+        }
     }
 }
 

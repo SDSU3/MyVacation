@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -71,6 +71,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
+                                                    <action selector="endToTextField:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="Koo-79-ezn"/>
                                                     <action selector="toTextFieldChanged:" destination="Y6W-OH-hqX" eventType="editingChanged" id="Gq8-Ol-hur"/>
                                                 </connections>
                                             </textField>
@@ -111,10 +112,10 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nQz-Eb-Npw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="56.285714285714285" height="25"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="56.285714285714285" height="25"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </view>
                                                     </collectionViewCell>
@@ -281,6 +282,7 @@
                     <connections>
                         <outlet property="arrivalAirport" destination="yJ3-gc-oKM" id="3Jw-4X-kV7"/>
                         <outlet property="currentDateLabel" destination="BWh-Zb-zkp" id="sY4-gG-Upb"/>
+                        <outlet property="currentMonthLabel" destination="BWh-Zb-zkp" id="nC3-be-QJA"/>
                         <outlet property="departureAirport" destination="Bey-R3-Yhc" id="pVA-99-GBB"/>
                         <outlet property="dropDownFrom" destination="gID-x3-o0h" id="lhb-dJ-hkI"/>
                         <outlet property="dropDownTo" destination="XnT-Sy-dbq" id="wfb-3b-uQo"/>
