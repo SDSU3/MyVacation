@@ -22,6 +22,8 @@
 		92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8305627DDC60800177B4F /* SignInUpViewController.swift */; };
 		C311C1FA27EDDA2B0039505E /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C311C1F927EDDA2B0039505E /* Date+Extension.swift */; };
 		C311C1FC27EDDC4A0039505E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C311C1FB27EDDC4A0039505E /* UIColor+Extension.swift */; };
+		C311C1FF27EE252A0039505E /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = C311C1FE27EE252A0039505E /* UserDefault.swift */; };
+		C311C20127EF1ADA0039505E /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = C311C20027EF1ADA0039505E /* Images.swift */; };
 		C32E267527E907E9002EC844 /* InterestingPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E267427E907E9002EC844 /* InterestingPlaces.swift */; };
 		C32E267727E9229A002EC844 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E267627E9229A002EC844 /* Weather.swift */; };
 		C3357F9E27E0F8BC00ED59B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */; };
@@ -74,6 +76,8 @@
 		92E8305627DDC60800177B4F /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
 		C311C1F927EDDA2B0039505E /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		C311C1FB27EDDC4A0039505E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		C311C1FE27EE252A0039505E /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		C311C20027EF1ADA0039505E /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		C32E267427E907E9002EC844 /* InterestingPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPlaces.swift; sourceTree = "<group>"; };
 		C32E267627E9229A002EC844 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C3357F9D27E0F8BC00ED59B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,14 @@
 			path = SignInUp;
 			sourceTree = "<group>";
 		};
+		C311C1FD27EE25160039505E /* UserDefault */ = {
+			isa = PBXGroup;
+			children = (
+				C311C1FE27EE252A0039505E /* UserDefault.swift */,
+			);
+			path = UserDefault;
+			sourceTree = "<group>";
+		};
 		C3357F9F27E0FA3D00ED59B6 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +232,7 @@
 				C33E92D927E7D5D10043DE20 /* Vacation.swift */,
 				C32E267427E907E9002EC844 /* InterestingPlaces.swift */,
 				C32E267627E9229A002EC844 /* Weather.swift */,
+				C311C20027EF1ADA0039505E /* Images.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,6 +265,7 @@
 				C388935327D9C9FB00504C49 /* Tab Bar */,
 				C388935627D9CDC900504C49 /* Launch Screen */,
 				C33E92CF27E79CE30043DE20 /* API Services */,
+				C311C1FD27EE25160039505E /* UserDefault */,
 				C388933E27D9BA1400504C49 /* Assets.xcassets */,
 				C388934927D9C68E00504C49 /* Extensions */,
 				C388934327D9BA1400504C49 /* Info.plist */,
@@ -480,6 +494,7 @@
 				C33E92D127E79D080043DE20 /* APIServices.swift in Sources */,
 				C38D67A727DE90ED0076DF12 /* VacationCell.swift in Sources */,
 				C3F2869827DFD29100130254 /* WeatherCell.swift in Sources */,
+				C311C20127EF1ADA0039505E /* Images.swift in Sources */,
 				C3F286A227DFD7ED00130254 /* UICollectionView+ Extension.swift in Sources */,
 				C3F2869D27DFD2C800130254 /* InterestingPlaceCell.swift in Sources */,
 				C3357FA327E0FA6900ED59B6 /* SettingsViewController.swift in Sources */,
@@ -489,6 +504,7 @@
 				92E8305727DDC60800177B4F /* SignInUpViewController.swift in Sources */,
 				C388933827D9BA1100504C49 /* SceneDelegate.swift in Sources */,
 				C311C1FC27EDDC4A0039505E /* UIColor+Extension.swift in Sources */,
+				C311C1FF27EE252A0039505E /* UserDefault.swift in Sources */,
 				C388934D27D9C70D00504C49 /* NSObject + Extension.swift in Sources */,
 				C3F286A027DFD5AD00130254 /* UIView+Extension.swift in Sources */,
 				C311C1FA27EDDA2B0039505E /* Date+Extension.swift in Sources */,

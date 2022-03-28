@@ -15,6 +15,8 @@ struct PopularDestination {
     var FavoritedNumber: Int = 0
     var Details: String = ""
     var ImageURL: String = ""
+    var destinationObj: PFObject?
+
     
     init(DestinationName: String = "", VisitedNumber: Int = 0, FavoritedNumber: Int = 0, Details: String = "", ImageURL: String = "") {
         self.DestinationName = DestinationName
@@ -26,6 +28,7 @@ struct PopularDestination {
     }
     
     init(with data: PFObject) {
+        self.destinationObj = data
         self.DestinationName = data[PopularDestination.ParserKeys.name] as? String ?? ""
         self.VisitedNumber = data[PopularDestination.ParserKeys.visited] as? Int ?? 0
         self.FavoritedNumber = data[PopularDestination.ParserKeys.favorite] as? Int ?? 0

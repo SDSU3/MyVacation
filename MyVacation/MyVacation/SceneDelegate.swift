@@ -27,6 +27,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window!.rootViewController = SignInUpViewController.loadController()
             window!.makeKeyAndVisible()
         }
+        
+        let style = UDManager.getUserinterfaceStyle()
+        UIApplication.shared.windows.forEach { window in
+            window.overrideUserInterfaceStyle = style
+        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

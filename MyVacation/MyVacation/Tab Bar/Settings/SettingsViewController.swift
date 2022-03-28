@@ -9,21 +9,25 @@ import UIKit
 import Parse
 
 class SettingsViewController: MainViewController {
-    @IBOutlet weak var timeZonePicker: UIPickerView!
-    var pickerData: [String] = [String]()
-    var pickerDataPrefix = "GMT"
+    // MARK: - IBOutlets
+    @IBOutlet private weak var timeZonePicker: UIPickerView!
+    @IBOutlet private weak var darkModeSwitch: UISwitch!
     
-    @IBOutlet weak var darkModeSwitch: UISwitch!
+    //properties
+    private var pickerData: [String] = [String]()
+    private var pickerDataPrefix = "GMT"
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerView()
+        darkModeSwitch.isOn = traitCollection.userInterfaceStyle == .dark
         
+        pickerView()
         timeZonePicker.dataSource = self
         timeZonePicker.delegate = self
-        
-        
-
-        // Do any additional setup after loading the view.
+        if let timeZone = UDManager.getUserTimeZone(),
+           let index = pickerData.firstIndex(of: timeZone) {
+            timeZonePicker.selectRow(index, inComponent: 0, animated: true)
+        }
     }
     
     // MARK: - init
@@ -41,25 +45,20 @@ class SettingsViewController: MainViewController {
             }
         }
     }
-    
 
     @IBAction func switchDarkMode(_ sender: Any) {
-        if darkModeSwitch.isOn {
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .dark
-            }
-        } else {
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .light
-            }
+        let mode: UIUserInterfaceStyle = darkModeSwitch.isOn ? .dark : .light
+        UIApplication.shared.windows.forEach { window in
+            window.overrideUserInterfaceStyle = mode
         }
-        
+        //save in userDefaults
+        DispatchQueue.main.async {
+            UDManager.saveUserInterfaceStyle(style: mode.rawValue)
+        }
     }
-    
     
     @IBAction func enableNotifications(_ sender: Any) {
     }
-    
     
     @IBAction func LogOut(_ sender: Any) {
         PFUser.logOut()
@@ -71,8 +70,8 @@ class SettingsViewController: MainViewController {
     
 }
 
-
-extension SettingsViewController : UIPickerViewDataSource{
+// MARK: - UIPickerViewDataSource
+extension SettingsViewController : UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -83,10 +82,17 @@ extension SettingsViewController : UIPickerViewDataSource{
       
 }
   
-  
-extension SettingsViewController : UIPickerViewDelegate{
+// MARK: - UIPickerViewDelegate
+extension SettingsViewController : UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let newTimeZone = pickerData[row]
+        DispatchQueue.main.async {
+            UDManager.saveUserTimeZone(timeZone: newTimeZone)
+        }
     }
 }
 
