@@ -178,3 +178,5 @@ As user will register in the app, the user will have the ability to choose the d
 <img src="https://user-images.githubusercontent.com/55408144/158458498-977a03fb-3bec-4dd0-af81-6b55d8151433.gif" width=250><br>
 ### Milestone 2
 <img src="https://user-images.githubusercontent.com/55408144/159588131-68845a41-5acf-45a0-b5a5-be167d2d470d.gif" width=250><br>
+### Milestone 3
+<img src="https://user-images.githubusercontent.com/55408144/160724601-fb306646-5c24-4a22-a451-e9b08d5d7281.gif" width=250><br>
