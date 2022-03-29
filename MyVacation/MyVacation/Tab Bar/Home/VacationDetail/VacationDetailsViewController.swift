@@ -28,6 +28,7 @@ class VacationDetailsViewController: UIViewController {
     @IBOutlet private weak var toPlaceLabel: UILabel!
     @IBOutlet private weak var endDateLabel: UILabel!
     
+    var delegate: VacationDelegate?
     var vacation: Vacation?
     var weather: Weather?
     
@@ -106,7 +107,8 @@ class VacationDetailsViewController: UIViewController {
     }
     
     private func loadWeather() {
-        APIServices.getWeather(lat: 41, lon: 41, completion: { [weak self] result in
+        guard let lat = vacation?.position?.first, let lon = vacation?.position?.last else { return }
+        APIServices.getWeather(lat: lat, lon: lon, completion: { [weak self] result in
             switch result {
             case .success(let weather):
                 print(weather)
@@ -126,10 +128,8 @@ class VacationDetailsViewController: UIViewController {
             self.showAlert(with: "You have already started this vacation") {}
         } else {
             vacation.status = .active
-            UserServices.updateVacation(with: vacation, completion: { [weak self] success in
-                self?.showAlert(with: "Congratualtion! you have started your vacation") {
-                    self?.navigationController?.popViewController(animated: true)
-                }
+            UserServices.updateVacation(with: vacation, completion: { success in
+                self.delegate?.didUpdateVacations(with: "Congratualtion! you have started your vacation")
             })
         }
     }
@@ -143,9 +143,7 @@ class VacationDetailsViewController: UIViewController {
     private func deleteVacation() {
         guard let vacation = vacation else { return }
         UserServices.deleteVacation(with: vacation, completion: { [weak self] success in
-            self?.showAlert(with: "Deleted vacation successfully") {
-                self?.navigationController?.popViewController(animated: true)
-            }
+            self?.delegate?.didUpdateVacations(with: "Deleted vacation successfully")
         })
     }
     

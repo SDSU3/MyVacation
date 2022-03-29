@@ -11,6 +11,10 @@ import Parse
 struct InterestingPlaces: Codable {
     var places: [InterestingPlace]?
     
+    init() {
+        places = []
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case places = "results"
 
