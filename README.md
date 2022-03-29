@@ -26,11 +26,11 @@ As user will register in the app, the user will have the ability to choose the d
 
 * - [x] User can create an account. **(DONE)**
 * - [x] User can log in. **(DONE)**
-* - [x] User can plan how to spend a vacation. **(Design)** + some functionality
-* - [ ] User can set the places to be visited **(Design)**
-* - [ ] User can add information of the visit, including the time and location.
+* - [x] User can plan how to spend a vacation. **(DONE)** + some functionality
+* - [x] User can set the places to be visited **(DONE)**
+* - [X] User can add information of the visit, including the time and location. **(DONE)**
 * - [x] User can set the duration of the vacation. **(DONE)**
-* - [ ] User can set the destination of the vacation.
+* - [X] User can set the destination of the vacation. **(DONE)**
 * - [x] User can view all his/her vacations **(DONE)** 
 
 **Optional Nice-to-have Stories**
