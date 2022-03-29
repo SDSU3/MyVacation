@@ -23,6 +23,10 @@ class PlanViewController: MainViewController {
     var chosenArrivalAirport: String = ""
     fileprivate let invalidPeriodLength = 90
     var VacDates = VacationDates()
+    var toCityLon: Double?
+    var toCityLat: Double?
+    var chosenCity: Place?
+    
     
     //DropDown
     @IBOutlet weak var dropDownFrom: DropDown!
@@ -83,8 +87,18 @@ class PlanViewController: MainViewController {
        return viewController
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPlaces" {
+            if let viewController = segue.destination as? PlacesViewController {
+                viewController.chosenCity = chosenCity
+            }
+        }
+    }
+    
     
     @IBAction func nextButton(_ sender: Any) {
+        checkFields()
+        self.performSegue(withIdentifier: "toPlaces", sender: nil)
         guard let startDate = VacDates.startDate?.addingTimeInterval(60 * 60 * 24),
               let endDate = VacDates.endDate?.addingTimeInterval(60 * 60 * 24) else { return }
         let vacation = Vacation(name: vacationNameTextField.text!, fromPlace: fromTextField.text!, ToPlace: toTextField.text!, endDate: endDate, startDate: startDate, arrivalAirport: chosenArrivalAirport, departureAirport: chosenDepartureAirport, position: [], status: VacationStatus.inactive)
@@ -96,6 +110,33 @@ class PlanViewController: MainViewController {
             }
         })
     }
+    
+    
+    func checkFields() {
+        if vacationNameTextField.text == "" ||
+            fromTextField.text == "" ||
+            toTextField.text == "" ||
+            chosenDepartureAirport == "" ||
+            chosenArrivalAirport == "" ||
+            VacDates.startDate == nil ||
+            VacDates.endDate == nil
+        {
+            showAlert(with: "Please fill all the fields") {}
+        }
+    }
+    
+    
+    private func showAlert(with text: String, completion: @escaping ()-> Void){
+        let alert = UIAlertController(title: "Missing Information", message: text, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: {_ in
+            alert.dismiss(animated: true, completion: {
+                completion()
+            })
+        })
+        alert.addAction(cancel)
+        self.present(alert, animated: true)
+    }
+    
     
     @IBAction func fromTextFieldChanged(_ sender: UITextField) {
         DispatchQueue.main.async {
@@ -112,7 +153,6 @@ class PlanViewController: MainViewController {
                         for city in cities {
                             if selectedText == city.name {
                                 self.countryCodeFrom = city.country!
-                                
                             }
                         }
                     }
@@ -140,7 +180,7 @@ class PlanViewController: MainViewController {
                         for city in cities {
                             if selectedText == city.name {
                                 self.countryCodeTo = city.country!
-                                
+                                self.chosenCity = Place(country: city.country, timezone: city.timezone, name: city.name, lon: city.lon, lat: city.lat, population: city.population, isCapital: city.isCapital)
                             }
                         }
                     }
@@ -241,17 +281,15 @@ extension PlanViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == departureAirport {
             self.chosenDepartureAirport = departureAirports[indexPath.row]
-            if let cell = collectionView.cellForItem(at: indexPath) {
-                cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
-                }
+            departureAirport.cellForItem(at: indexPath)?.backgroundColor = #colorLiteral(red: 0.2766574323, green: 0.2132521868, blue: 0.6103910804, alpha: 1)
             print(departureAirports[indexPath.row])
         } else {
             self.chosenArrivalAirport = arrivalAirports[indexPath.row]
-            if let cell = collectionView.cellForItem(at: indexPath) {
-                cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
-                }
+            arrivalAirport.cellForItem(at: indexPath)?.backgroundColor = #colorLiteral(red: 0.2766574323, green: 0.2132521868, blue: 0.6103910804, alpha: 1)
         }
     }
+    
+    
     
 
     

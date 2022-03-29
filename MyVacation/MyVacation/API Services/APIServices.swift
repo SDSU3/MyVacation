@@ -73,7 +73,7 @@ class APIServices {
         })
     }
     
-    // gets max 25 cities based on given name
+    // gets max 25 cities based on given nameili
     static func getCities(name: String, completion: @escaping (Result<[Place],Error>) -> Void){
         let key = "Z7N68HLrwh65gQLZoCCKRg==R8o6byFG2aANS9vy"
         let baseURL = "https://api.api-ninjas.com/v1/city?name="
