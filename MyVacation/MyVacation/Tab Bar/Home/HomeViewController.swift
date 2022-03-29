@@ -8,6 +8,10 @@
 import UIKit
 import Parse
 
+protocol VacationDelegate {
+    func didUpdateVacations(with message: String)
+}
+
 class HomeViewController: MainViewController {
 
     // MARK: - IBOutlets
@@ -24,6 +28,9 @@ class HomeViewController: MainViewController {
         super.viewDidLoad()
         self.setUpComponents()
         self.setUpUserMenu()
+        DispatchQueue.main.async { [weak self] in
+            self?.loadVacations()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,9 +40,8 @@ class HomeViewController: MainViewController {
     }
     
     // MARK: - init
-    static func load(with vacations: [Vacation]?) -> HomeViewController {
+    static func load() -> HomeViewController {
         let viewController = HomeViewController.loadFromStoryboard()
-        viewController.vacations = vacations ?? []
         return viewController
     }
     
@@ -61,6 +67,7 @@ class HomeViewController: MainViewController {
     
     @IBAction func addVacation(_ sender: UIButton) {
         let viewController = PlanViewController.load(with: "input bla bla")
+        viewController.delegate = self
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -69,6 +76,7 @@ class HomeViewController: MainViewController {
             if let viewController = segue.destination as? VacationDetailsViewController {
                 guard let index = sender as? IndexPath else { return }
                 viewController.vacation = vacations[index.row]
+                viewController.delegate = self
             }
         }
     }
@@ -81,6 +89,32 @@ class HomeViewController: MainViewController {
         delegate.window?.rootViewController = loginViewController
     }
     
+    private func showAlert(with text: String, completion: @escaping ()-> Void){
+        let alert = UIAlertController(title: "Update", message: text, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
+            alert.dismiss(animated: true, completion: {
+                completion()
+            })
+        })
+        alert.addAction(cancel)
+        self.present(alert, animated: true)
+    }
+    
+    private func loadVacations() {
+        UserServices.loadVacations(completion: { [weak self] result in
+            switch result {
+            case .success(let vacations):
+                guard let vacations = vacations else { return }
+
+                self?.vacations = vacations
+                DispatchQueue.main.async {
+                    self?.vacationCollectionView.reloadData()
+                }
+            case .failure(_):
+                self?.showAlert(with: "something went wrong", completion: {})
+            }
+        })
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -103,6 +137,16 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: vacationDetailSegue, sender: indexPath)
+    }
+}
+
+extension HomeViewController: VacationDelegate {
+    func didUpdateVacations(with message: String) {
+        vacations.removeAll()
+        showAlert(with: message, completion: {
+            self.navigationController?.popToRootViewController(animated: true)
+        })
+        loadVacations()
     }
 }
 

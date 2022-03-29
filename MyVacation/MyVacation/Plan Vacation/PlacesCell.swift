@@ -13,6 +13,7 @@ class PlacesCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.contentView.roundCorners(with: 10)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

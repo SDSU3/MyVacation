@@ -15,33 +15,30 @@ class MapViewController: MainViewController {
     @IBOutlet private weak var vacationMenuButton: UIButton!
     
     //properties
-    private var places: InterestingPlaces?
     private var vacations: [Vacation]?
     private var selectedVacation: Vacation?
     private var selectedOneVacation: Bool = false
+    private var lat: Double {
+        return self.selectedVacation?.position?.first ?? 41.716667
+    }
+    private var lon: Double {
+        return self.selectedVacation?.position?.last ?? 44.783333
+    }
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         
-        // for testing purpose
-        DispatchQueue.main.async {
-            APIServices.getPlace(category: PlaceCategory.hotel,
-                                 lat: 41.716667,
-                                 lon: 44.783333,
-                                 completion: { result in
-                switch result {
-                case .success(let places):
-                    self.places = places
-                    self.addAnnorations()
-                case .failure(let error):
-                    print(error)
-                }
-            })
+        if !selectedOneVacation {
+            DispatchQueue.main.async { [weak self] in
+                self?.loadVacations()
+            }
+        } else {
+            setUpMenu()
+            setUpMap()
+            addAnnorations()
         }
-        setUpMap()
-        setUpMenu()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,21 +73,22 @@ class MapViewController: MainViewController {
     }
     
     private func setUpMap(){
-        let mapMeterds: Double = 5_000
-        // testing purpose (then should get this coordinates according to vacation)
-        let coordinate = CLLocationCoordinate2D(latitude: 41.716667, longitude: 44.783333)
+        let mapMeterds: Double = 7_000
+        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
         let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: mapMeterds, longitudinalMeters: mapMeterds)
         mapView.setRegion(region, animated: true)
     }
     
     private func update(with vacationName: String) {
         selectedVacation = vacations?.filter({ $0.name == vacationName }).first
+        addAnnorations()
+        setUpMap()
     }
     
     private func addAnnorations(){
-        let allAnnotations = self.mapView.annotations
-        self.mapView.removeAnnotations(allAnnotations)
-        var places = places
+        let allAnnotations = mapView.annotations
+        mapView.removeAnnotations(allAnnotations)
+        var places: InterestingPlaces?
         if selectedVacation != nil {
             places = selectedVacation?.interestingPlaces
         }
@@ -102,6 +100,24 @@ class MapViewController: MainViewController {
             guard place.position?.count == 2, let lat = place.position?[0], let lon = place.position?[1] else { return }
             annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
             mapView.addAnnotation(annotation)
+        })
+    }
+    
+    private func loadVacations() {
+        UserServices.loadVacations(completion: { [weak self] result in
+            switch result {
+            case .success(let vacations):
+                guard let vacations = vacations else { return }
+
+                self?.vacations = vacations
+                DispatchQueue.main.async {
+                    self?.setUpMenu()
+                    self?.setUpMap()
+                    self?.addAnnorations()
+                }
+            case .failure(_):
+                print("error could not load vacaitons")
+            }
         })
     }
 }

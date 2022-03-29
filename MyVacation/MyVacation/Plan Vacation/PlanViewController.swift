@@ -9,6 +9,10 @@ import UIKit
 import Koyomi
 import iOSDropDown
 
+protocol PlanVacationDelegate {
+    func createdVacation(with message: String)
+}
+
 class PlanViewController: MainViewController {
     //variables
     var citiesStringFrom = [String]()
@@ -26,7 +30,7 @@ class PlanViewController: MainViewController {
     var toCityLon: Double?
     var toCityLat: Double?
     var chosenCity: Place?
-    
+    var delegate: VacationDelegate?
     
     //DropDown
     @IBOutlet weak var dropDownFrom: DropDown!
@@ -64,6 +68,7 @@ class PlanViewController: MainViewController {
     }
     
 
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         currentDateLabel.text = ""
@@ -81,34 +86,31 @@ class PlanViewController: MainViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    
+    // MARK: - init
     static func load(with input: String) -> PlanViewController {
        let viewController = PlanViewController.loadFromStoryboard()
        return viewController
     }
     
+    // prepeare for segue (sending values)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPlaces" {
-            if let viewController = segue.destination as? PlacesViewController {
-                viewController.chosenCity = chosenCity
+            if let viewController = segue.destination as? PlacesViewController,
+                let vacation = sender as? Vacation {
+                viewController.vacation = vacation
+                viewController.delegate = self
             }
         }
     }
     
-    
     @IBAction func nextButton(_ sender: Any) {
         checkFields()
-        self.performSegue(withIdentifier: "toPlaces", sender: nil)
         guard let startDate = VacDates.startDate?.addingTimeInterval(60 * 60 * 24),
-              let endDate = VacDates.endDate?.addingTimeInterval(60 * 60 * 24) else { return }
-        let vacation = Vacation(name: vacationNameTextField.text!, fromPlace: fromTextField.text!, ToPlace: toTextField.text!, endDate: endDate, startDate: startDate, arrivalAirport: chosenArrivalAirport, departureAirport: chosenDepartureAirport, position: [], status: VacationStatus.inactive)
-        UserServices.createVacation(with: vacation, completion: { [weak self] success in
-            if success {
-                print(success)
-            } else {
-                print(Error.self)
-            }
-        })
+              let endDate = VacDates.endDate?.addingTimeInterval(60 * 60 * 24),
+              let toCityLat = chosenCity?.lat,
+              let toCityLon = chosenCity?.lon else { return }
+        let vacation = Vacation(name: vacationNameTextField.text!, fromPlace: fromTextField.text!, ToPlace: toTextField.text!, endDate: endDate, startDate: startDate, arrivalAirport: chosenArrivalAirport, departureAirport: chosenDepartureAirport, position: [toCityLat, toCityLon], status: VacationStatus.inactive)
+        self.performSegue(withIdentifier: "toPlaces", sender: vacation)
     }
     
     
@@ -189,8 +191,6 @@ class PlanViewController: MainViewController {
                     print(error)
                 }
             })
-            
-            
         }
     }
     
@@ -215,8 +215,6 @@ class PlanViewController: MainViewController {
                 }
             })
         }
-        
-        
     }
     
     
@@ -241,21 +239,16 @@ class PlanViewController: MainViewController {
                 }
             })
         }
-        
     }
-    
-
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout, UICollectionViewDataSource
 extension PlanViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard collectionView == departureAirport else {
             return arrivalAirports.count
         }
-        //if collectionView == arrivalAirport {
         return departureAirports.count
-        //}
-        //return 0 //countryAirports.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -264,7 +257,7 @@ extension PlanViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             if departureAirports.isEmpty {
                 cell.airportName.text = "Airport Name"
             } else {
-                cell.airportName.text = departureAirports[indexPath.row] as? String
+                cell.airportName.text = departureAirports[indexPath.row]
             }
             return cell
         } else {
@@ -272,7 +265,7 @@ extension PlanViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             if arrivalAirports.isEmpty {
                 cell.airportName.text = "Airport Name"
             } else {
-                cell.airportName.text = arrivalAirports[indexPath.row] as? String
+                cell.airportName.text = arrivalAirports[indexPath.row]
             }
             return cell
         }
@@ -288,11 +281,6 @@ extension PlanViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             arrivalAirport.cellForItem(at: indexPath)?.backgroundColor = #colorLiteral(red: 0.2766574323, green: 0.2132521868, blue: 0.6103910804, alpha: 1)
         }
     }
-    
-    
-    
-
-    
 }
 
 
@@ -325,6 +313,12 @@ extension PlanViewController: KoyomiDelegate {
         VacDates.startDate = date
         VacDates.endDate = toDate
         return true
+    }
+}
+
+extension PlanViewController: PlanVacationDelegate {
+    func createdVacation(with message: String) {
+        self.delegate?.didUpdateVacations(with: message)
     }
 }
 
