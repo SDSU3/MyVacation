@@ -70,16 +70,19 @@ class PlacesViewController: UIViewController {
     // save vacation in back end
     private func saveVacation() {
         guard let vacation = vacation else { return }
-        var interestingPlaces = InterestingPlaces()
-        interestingPlaces.places = chosenPlaces
-        vacation.interestingPlaces = interestingPlaces
-        UserServices.createVacation(with: vacation, completion: { [weak self] success in
-            if success {
-                self?.loadVacations()
-            } else {
-                self?.delegate?.createdVacation(with: "Unfortunatly there was some error. please try later")
-            }
-        })
+        self.getImages { [weak self] in
+            guard let self = self else { return }
+            var interestingPlaces = InterestingPlaces()
+            interestingPlaces.places = self.chosenPlaces
+            vacation.interestingPlaces = interestingPlaces
+            UserServices.createVacation(with: vacation, completion: { [weak self] success in
+                if success {
+                    self?.loadVacations()
+                } else {
+                    self?.delegate?.createdVacation(with: "Unfortunatly there was some error. please try later")
+                }
+            })
+        }
     }
     
     // load vacations from back end
@@ -108,6 +111,20 @@ class PlacesViewController: UIViewController {
                 self?.delegate?.createdVacation(with: "Congretulation! you have created new vacation")
             } else {
                 self?.delegate?.createdVacation(with: "Unfortunatly there was some error. please try later")
+            }
+        })
+    }
+    
+    private func getImages(completion: @escaping () -> Void) {
+        guard let placeName = vacation?.ToPlace else { return completion() }
+        APIServices.getImage(of: placeName, completion: { result in
+            switch result {
+            case .success(let images):
+                self.vacation?.image = images.images?.first?.largeUrl
+                completion()
+            case .failure(_):
+                print("failed to load image")
+                completion()
             }
         })
     }

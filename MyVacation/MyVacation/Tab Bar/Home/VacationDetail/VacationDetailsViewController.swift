@@ -55,6 +55,7 @@ class VacationDetailsViewController: UIViewController {
         toPlaceLabel.text = vacation?.ToPlace
         endDateLabel.text = vacation?.endDate.getFullDate()
         loadWeather()
+        setImage()
     }
     
     private func setUpComponents() {
@@ -144,6 +145,15 @@ class VacationDetailsViewController: UIViewController {
         UserServices.deleteVacation(with: vacation, completion: { [weak self] success in
             self?.delegate?.didUpdateVacations(with: "Deleted vacation successfully")
         })
+    }
+    
+    private func setImage() {
+        guard let vacation = vacation else { return }
+        if let imageUrl = URL(string: vacation.image ?? "") {
+            VacationImageView.af.setImage(withURL: imageUrl)
+        } else {
+            VacationImageView.image = UIImage(named: "template_vacation_image")
+        }
     }
     
     private func showAlert(with text: String, completion: @escaping ()-> Void){

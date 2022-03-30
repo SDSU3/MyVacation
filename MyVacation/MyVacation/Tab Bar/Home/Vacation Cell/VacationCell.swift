@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class VacationCell: UICollectionViewCell {
 
@@ -30,6 +31,11 @@ class VacationCell: UICollectionViewCell {
         vacationDateLabel.text = "Date: \(startDate) - \(endDate)"
         statusLabel.text = vacation.status.rawValue
         statusLabel.textColor = vacation.status.getColor()
+        if let imageUrl = URL(string: vacation.image ?? "") {
+            vacationImageView.af.setImage(withURL: imageUrl)
+        } else {
+            vacationImageView.image = UIImage(named: "template_vacation_image")
+        }
     }
     
     private func setUpComponents(){
