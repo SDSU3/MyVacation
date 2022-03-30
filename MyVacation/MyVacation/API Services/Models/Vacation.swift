@@ -18,11 +18,12 @@ class Vacation {
     var arrivalAirport: String
     var departureAirport: String
     var position: [Double]?
+    var image: String?
     var status: VacationStatus
     var interestingPlaces: InterestingPlaces?
     var vacationObj: PFObject?
     
-    init(name: String, fromPlace: String, ToPlace: String, places: InterestingPlaces? = nil, endDate: Date, startDate: Date, arrivalAirport: String, departureAirport: String, position: [Double], status: VacationStatus) {
+    init(name: String, fromPlace: String, ToPlace: String, places: InterestingPlaces? = nil, endDate: Date, startDate: Date, arrivalAirport: String, departureAirport: String, position: [Double], image: String? = nil, status: VacationStatus) {
         self.name = name
         self.fromPlace = fromPlace
         self.ToPlace = ToPlace
@@ -31,6 +32,7 @@ class Vacation {
         self.arrivalAirport = arrivalAirport
         self.departureAirport = departureAirport
         self.position = position
+        self.image = image
         self.status = status
         self.interestingPlaces = places
     }
@@ -47,6 +49,7 @@ class Vacation {
         self.startDate = data[Vacation.ParserKeys.startDate] as? Date ?? Date()
         self.endDate = data[Vacation.ParserKeys.endDate] as? Date ?? Date()
         self.position = data[Vacation.ParserKeys.position] as? [Double] ?? []
+        self.image = data[Vacation.ParserKeys.image] as? String ?? ""
         
         let places = data[Vacation.ParserKeys.places] as? [PFObject] ?? []
         interestingPlaces = InterestingPlaces()
@@ -68,6 +71,7 @@ class Vacation {
         vacation[Vacation.ParserKeys.startDate] = newVacation.startDate
         vacation[Vacation.ParserKeys.endDate] = newVacation.endDate
         vacation[Vacation.ParserKeys.position] = newVacation.position
+        vacation[Vacation.ParserKeys.image] = newVacation.image
         vacation[Vacation.ParserKeys.status] = newVacation.status.rawValue
         return vacation
     }
@@ -85,6 +89,7 @@ extension Vacation {
         static let endDate = "vacationEndDate"
         static let places = "InterestingPlaces"
         static let position = "position"
+        static let image = "image"
         static let status = "vacationStatus"
     }
 }
