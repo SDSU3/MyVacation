@@ -60,7 +60,9 @@ class UserServices {
             if let loadVacations = result {
                 var vacations = [Vacation]()
                 for vacation in loadVacations {
-                    vacations.append(Vacation(with: vacation))
+                    if let userVacation = Vacation(with: vacation) {
+                        vacations.append(userVacation)
+                    }
                 }
                 completion(.success(vacations))
             } else {

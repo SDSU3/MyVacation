@@ -22,6 +22,8 @@ class InterestingPlaceCell: UICollectionViewCell {
     
     func setUp(with place: InterestingPlace) {
         placeNameLabel.text = place.title
+        let category = PlaceCategory(rawValue: place.category ?? "") ?? .unknown
+        placeImageView.image = category.getImage()
     }
     
     private func setUpComponents(){
