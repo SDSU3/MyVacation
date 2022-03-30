@@ -343,11 +343,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="8cy-QC-ntP">
-                                <rect key="frame" x="0.0" y="35" width="414" height="51"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8cy-QC-ntP">
+                                <rect key="frame" x="10" y="35" width="394" height="51"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="y2v-W4-sGc">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="51"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="51"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
@@ -355,9 +355,9 @@
                                         </scopeButtonTitles>
                                     </searchBar>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5D-jf-pem">
-                                        <rect key="frame" x="364" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="344" y="0.0" width="50" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="sTc-WT-Gf5"/>
+                                            <constraint firstAttribute="width" secondItem="L5D-jf-pem" secondAttribute="height" multiplier="1:1" id="cYG-lG-h0s"/>
                                             <constraint firstAttribute="width" constant="50" id="w5t-4d-7di"/>
                                         </constraints>
                                         <menu key="menu" title="Sub Menu" id="5y4-wX-0b2">
@@ -367,7 +367,7 @@
                                             </children>
                                         </menu>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="filter" title=" "/>
+                                        <buttonConfiguration key="configuration" style="plain" image="add_icon" title=" "/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -449,7 +449,7 @@
                             <constraint firstItem="Bnl-0N-6x4" firstAttribute="top" secondItem="fiT-wr-jBB" secondAttribute="bottom" id="7lf-HZ-owQ"/>
                             <constraint firstItem="ksl-Ze-2JO" firstAttribute="leading" secondItem="8yx-4e-jnH" secondAttribute="leading" constant="20" id="9pm-Bo-Wlg"/>
                             <constraint firstItem="8bn-Os-SaB" firstAttribute="top" secondItem="fiT-wr-jBB" secondAttribute="bottom" constant="15" id="DUb-pp-PZt"/>
-                            <constraint firstItem="8cy-QC-ntP" firstAttribute="trailing" secondItem="8yx-4e-jnH" secondAttribute="trailing" id="FaD-ka-6nB"/>
+                            <constraint firstItem="8cy-QC-ntP" firstAttribute="trailing" secondItem="8yx-4e-jnH" secondAttribute="trailing" constant="-10" id="FaD-ka-6nB"/>
                             <constraint firstItem="fiT-wr-jBB" firstAttribute="leading" secondItem="8yx-4e-jnH" secondAttribute="leading" id="MoH-ii-fa6"/>
                             <constraint firstItem="4Rv-Xv-RWl" firstAttribute="trailing" secondItem="8yx-4e-jnH" secondAttribute="trailing" id="Ti0-bo-CNa"/>
                             <constraint firstItem="8bn-Os-SaB" firstAttribute="leading" secondItem="uxI-yE-cS8" secondAttribute="leading" constant="235" id="UwZ-E7-lUh"/>
@@ -466,7 +466,7 @@
                             <constraint firstItem="fiT-wr-jBB" firstAttribute="trailing" secondItem="8yx-4e-jnH" secondAttribute="trailing" id="qkt-XN-0CK"/>
                             <constraint firstItem="4Rv-Xv-RWl" firstAttribute="top" secondItem="8cy-QC-ntP" secondAttribute="bottom" id="rrh-XC-q6e"/>
                             <constraint firstAttribute="trailing" secondItem="8bn-Os-SaB" secondAttribute="trailing" constant="62" id="s9d-vv-3fq"/>
-                            <constraint firstItem="8cy-QC-ntP" firstAttribute="leading" secondItem="8yx-4e-jnH" secondAttribute="leading" id="sph-hk-Ada"/>
+                            <constraint firstItem="8cy-QC-ntP" firstAttribute="leading" secondItem="8yx-4e-jnH" secondAttribute="leading" constant="10" id="sph-hk-Ada"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Bnl-0N-6x4" secondAttribute="bottom" constant="-34" id="vyI-g1-Zro"/>
                         </constraints>
                     </view>
@@ -484,7 +484,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="filter" width="36" height="36"/>
+        <image name="add_icon" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
