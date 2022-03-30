@@ -22,13 +22,6 @@ class WeatherCell: UICollectionViewCell {
             dayLabel.text = "day \(day + 1)"
         }
     }
-
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
 }
 
 

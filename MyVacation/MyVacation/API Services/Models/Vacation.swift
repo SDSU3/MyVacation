@@ -35,7 +35,9 @@ class Vacation {
         self.interestingPlaces = places
     }
     
-    init(with data: PFObject) {
+    init?(with data: PFObject) {
+        guard let user = data[Vacation.ParserKeys.author] as? PFObject,
+              user.objectId == PFUser.current()?.objectId else { return nil }
         self.vacationObj = data
         self.name = data[Vacation.ParserKeys.name] as? String ?? ""
         self.fromPlace = data[Vacation.ParserKeys.from] as? String ?? ""

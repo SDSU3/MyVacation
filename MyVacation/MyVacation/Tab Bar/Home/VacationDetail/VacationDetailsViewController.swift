@@ -60,17 +60,16 @@ class VacationDetailsViewController: UIViewController {
     private func setUpComponents() {
         // weather collection view
         weatherCollectionView.registerCell(with: WeatherCell.self)
-        weatherCollectionView.delegate = self
-        weatherCollectionView.dataSource = self
-        weatherCollectionView.showsHorizontalScrollIndicator = false
-        weatherCollectionView.backgroundColor = .clear
-        
         // interesting places collection view
         interestingPlacesCollectionView.registerCell(with: InterestingPlaceCell.self)
-        interestingPlacesCollectionView.delegate = self
-        interestingPlacesCollectionView.dataSource = self
-        interestingPlacesCollectionView.showsHorizontalScrollIndicator = false
-        interestingPlacesCollectionView.backgroundColor = .clear
+        
+        [weatherCollectionView, interestingPlacesCollectionView].forEach({ collecitonView in
+            collecitonView?.delegate = self
+            collecitonView?.dataSource = self
+            collecitonView?.showsHorizontalScrollIndicator = false
+            collecitonView?.backgroundColor = .clear
+            
+        })
         
         menuButtons?.forEach({ button in
             guard let image = MenuItem(rawValue: button.tag)?.getImage() else { return }
