@@ -33,6 +33,7 @@ class PopularVacationsViewController: MainViewController {
         // Define the tableview data source and delegate:
         DestinationsTableView.dataSource = self
         DestinationsTableView.delegate = self
+        DestinationsTableView.separatorStyle = .none
         SearchBar.delegate = self
         setUpUserMenu()
         
@@ -50,10 +51,8 @@ class PopularVacationsViewController: MainViewController {
                         
                     }
                     self.DestinationsTableView.reloadData()
-                    
                 }
             }
-            
         })
         
         // Initially assign Popular Destinations Array with the original values:
@@ -95,12 +94,10 @@ class PopularVacationsViewController: MainViewController {
         let viewController = PopularVacationsViewController.loadFromStoryboard()
         return viewController
     }
-    
 }
 
 
 //MARK: - Table View Data Source:
-
 extension PopularVacationsViewController: UITableViewDataSource {
     
     // Number of rows in the table view:
