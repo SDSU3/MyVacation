@@ -26,7 +26,7 @@ As user will register in the app, the user will have the ability to choose the d
 
 * - [x] User can create an account. **(DONE)**
 * - [x] User can log in. **(DONE)**
-* - [x] User can plan how to spend a vacation. **(DONE)** + some functionality
+* - [x] User can plan how to spend a vacation. **(DONE)**
 * - [x] User can set the places to be visited **(DONE)**
 * - [X] User can add information of the visit, including the time and location. **(DONE)**
 * - [x] User can set the duration of the vacation. **(DONE)**
