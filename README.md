@@ -161,8 +161,6 @@ As user will register in the app, the user will have the ability to choose the d
 
    HTTP Verb | Endpoint | Description
    ----------|----------|------------
-    `GET`    | /dep_icao | get departure airport ICAO code
-    `GET`    | /arr_icao | get arrival airport ICAO code.
     `GET`    | /v9/airports? | gets airpots with county code (2) ex: GE, US
     
 ##### Weather API
