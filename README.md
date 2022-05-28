@@ -155,15 +155,6 @@ As user will register in the app, the user will have the ability to choose the d
    - Popular vacation screen
       - (Read/GET) Fetch popular places
 #### [OPTIONAL:] Existing API Endpoints
-##### An API Of Places
-- Base URL - [http://api.opentripmap.com/0.1](http://api.opentripmap.com/0.1)
-
-   HTTP Verb | Endpoint | Description
-   ----------|----------|------------
-    `GET`    | /places/geoname | returns the place whose name is most similar to the search string
-    `GET`    | /places/bbox | returns all objects in the given bounding box optionally filtered by parameters
-    `GET`    | /places/radius   | returns objects closest to the selected point optionally filtered by parameters
-    `GET`    | /places/autosuggest | returns suggestions for search term closest to the selected point optionally filtered by parameters
 
 ##### Airport API
 - Base URL - [https://airlabs.co/api](https://airlabs.co/api)
@@ -172,6 +163,37 @@ As user will register in the app, the user will have the ability to choose the d
    ----------|----------|------------
     `GET`    | /dep_icao | get departure airport ICAO code
     `GET`    | /arr_icao | get arrival airport ICAO code.
+    `GET`    | /v9/airports? | gets airpots with county code (2) ex: GE, US
+    
+##### Weather API
+- Base URL - [https://api.darksky.net/forecast/](https://darksky.net/dev)
+
+   HTTP Verb | Endpoint | Description
+   ----------|----------|------------
+    `GET`    | /forecast | gets weather for given lat / lon
+    
+##### Images API
+- Base URL - [https://pixabay.com](https://pixabay.com/service/about/api/)
+
+   HTTP Verb | Endpoint | Description
+   ----------|----------|------------
+    `GET`    | /?key=\(key)&q=\(name)&image_type=photo | returns images based on given name
+    
+##### Cities API
+- Base URL - [https://api.api-ninjas.com](https://api.api-ninjas.com/)
+
+   HTTP Verb | Endpoint | Description
+   ----------|----------|------------
+    `GET`    | /api/v1/city?name= | gets max 25 cities based on given name 
+    
+##### Places API
+- Base URL - [https://places.ls.hereapi.com](https://developer.here.com/documentation/places/dev_guide/topics_api/resource-autosuggest.html)
+
+   HTTP Verb | Endpoint | Description
+   ----------|----------|------------
+    `GET`    | /places/v1/autosuggest? | gets recommended places based on category, lat, lon
+
+    
     
 # App Progress
 ### Milestone 1
